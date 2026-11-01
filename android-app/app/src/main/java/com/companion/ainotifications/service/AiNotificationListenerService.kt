@@ -85,7 +85,7 @@ class AiNotificationListenerService : NotificationListenerService() {
             packageName
         }
 
-        Log.i(TAG, "Captured notification from $appName: '$title' - '$text'")
+        Log.d(TAG, "Captured notification from $appName")
 
         val event = NotificationEvent(
             id = sbn.key ?: "${packageName}_${System.currentTimeMillis()}",

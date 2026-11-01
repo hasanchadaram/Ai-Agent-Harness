@@ -1,0 +1,42 @@
+{
+  "train": {
+    "total": 2571,
+    "retained": 2478,
+    "added": 93,
+    "relabeled": 10
+  },
+  "validation": {
+    "total": 340,
+    "retained": 320,
+    "added": 20,
+    "relabeled": 25
+  },
+  "test": {
+    "total": 340,
+    "retained": 320,
+    "added": 20,
+    "relabeled": 25
+  },
+  "total": 3251,
+  "unique_inputs": 3251,
+  "additions": 133,
+  "relabeled_existing_examples": 60,
+  "addition_categories": {
+    "hyphen": 22,
+    "preserve": 2,
+    "literal": 43,
+    "parentheses": 21,
+    "square_brackets": 7,
+    "curly_braces": 3,
+    "numerals": 34,
+    "email": 1
+  },
+  "source_sha256": {
+    "train.jsonl": "ef85eef43c67fdbf4eff35eacf6e785b257618494e9acc4e540deb1577e90976",
+    "validation.jsonl": "dfe45135d339dd1c438ec37296cd55bd196e87be8476d455c7bebdba9f4e10d6",
+    "test.jsonl": "68629fd8fecd230c43540c67108cf25b55b97efc024a5db9f9f20ca8220b2fe9"
+  },
+  "original_splits_preserved": true,
+  "system_messages": 0,
+  "validation_scope": "Structural and consistency checks, not model-quality or independent human label validation."
+}

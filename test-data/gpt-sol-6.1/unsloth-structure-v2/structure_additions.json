@@ -1,0 +1,946 @@
+[
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-groceries-user",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "Lets have a bullet point list of all the groceries I am going to buy, We need apples, oranges, pumpkins for halloween, guavas, and some grapes too",
+    "output": "Let's have a bullet-point list of all the groceries I am going to buy:\n* Apples\n* Oranges\n* Pumpkins (for Halloween)\n* Guavas\n* Grapes"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-shopping-milk",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "shopping list milk bread eggs and coffee",
+    "output": "Shopping list:\n* Milk\n* Bread\n* Eggs\n* Coffee"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-shopping-milk",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i bought milk bread eggs and coffee on my way home",
+    "output": "I bought milk, bread, eggs, and coffee on my way home."
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-camping",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "let's put the camping supplies in bullet points a tent two sleeping bags a torch and spare batteries",
+    "output": "Let's put the camping supplies in bullet points:\n* A tent\n* Two sleeping bags\n* A torch\n* Spare batteries"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-packing",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "packing list passport phone charger boarding pass and a jacket",
+    "output": "Packing list:\n* Passport\n* Phone charger\n* Boarding pass\n* A jacket"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-meeting-topics",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "here are the topics for the meeting hiring next quarter's budget and the office move",
+    "output": "Here are the topics for the meeting:\n* Hiring\n* Next quarter's budget\n* The office move"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-launch-checks",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "launch checklist confirm the backup check the payment page notify support",
+    "output": "Launch checklist:\n* Confirm the backup\n* Check the payment page\n* Notify support"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-pros",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the benefits are these lower running costs less maintenance and faster delivery",
+    "output": "The benefits are these:\n* Lower running costs\n* Less maintenance\n* Faster delivery"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-availability",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "my available slots are monday at nine tuesday at two and friday at eleven am",
+    "output": "My available slots are:\n* Monday at nine\n* Tuesday at two\n* Friday at 11:00 AM"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-reading",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "books to read this month Dune The Left Hand of Darkness and The Dispossessed",
+    "output": "Books to read this month:\n* Dune\n* The Left Hand of Darkness\n* The Dispossessed"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-diet-restrictions",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "dietary requirements for the booking no peanuts no shellfish and vegetarian meals for two guests",
+    "output": "Dietary requirements for the booking:\n* No peanuts\n* No shellfish\n* Vegetarian meals for two guests"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-question-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "questions for the supplier when can you deliver how long is the warranty and is installation included",
+    "output": "Questions for the supplier:\n* When can you deliver?\n* How long is the warranty?\n* Is installation included?"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-meeting-actions",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "action items Priya will update the forecast Omar will call the supplier and i'll book the room",
+    "output": "Action items:\n* Priya will update the forecast.\n* Omar will call the supplier.\n* I'll book the room."
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-list-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "things to buy apples oranges no scratch oranges pears and grapes",
+    "output": "Things to buy:\n* Apples\n* Pears\n* Grapes"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-quantity-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "grocery list two cartons of milk no three cartons of milk one loaf of bread and six eggs",
+    "output": "Grocery list:\n* Three cartons of milk\n* One loaf of bread\n* Six eggs"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-later-format",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we need flour sugar and butter put those items in bullet points",
+    "output": "We need:\n* Flour\n* Sugar\n* Butter"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-bullet-revision",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "use bullets instead of numbers for this list apples bananas and pears",
+    "output": "* Apples\n* Bananas\n* Pears"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-preserve-unit",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please make a bullet list of the order two kilograms of rice five hundred grams of lentils and one litre of oil",
+    "output": "* Two kilograms of rice\n* 500 grams of lentils\n* One litre of oil"
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-password-reset",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "steps to reset the password first open settings second select security third choose reset password",
+    "output": "Steps to reset the password:\n1. Open settings.\n2. Select security.\n3. Choose reset password."
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-tea",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "here's how to make the tea first boil the water then add the leaves then let it steep and finally strain it",
+    "output": "Here's how to make the tea:\n1. Boil the water.\n2. Add the leaves.\n3. Let it steep.\n4. Strain it."
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-evacuation",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "evacuation procedure step one leave your belongings step two use the stairs step three meet outside",
+    "output": "Evacuation procedure:\n1. Leave your belongings.\n2. Use the stairs.\n3. Meet outside."
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-explicit-ranking",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "ranked choices number one the train number two the bus number three a taxi",
+    "output": "Ranked choices:\n1. The train\n2. The bus\n3. A taxi"
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-explicit-groceries",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "number this grocery list potatoes onions and garlic",
+    "output": "1. Potatoes\n2. Onions\n3. Garlic"
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-instructions-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "deployment instructions step one build the package step two restart the service no step two run the migration step three restart the service",
+    "output": "Deployment instructions:\n1. Build the package.\n2. Run the migration.\n3. Restart the service."
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-preserve-substance",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "assembly steps first attach the base loosely second fit the shelf do not tighten it yet third tighten all the screws",
+    "output": "Assembly steps:\n1. Attach the base loosely.\n2. Fit the shelf. Do not tighten it yet.\n3. Tighten all the screws."
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-resume-number",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "continue the numbered list at four check the logs five archive the report six close the ticket",
+    "output": "4. Check the logs.\n5. Archive the report.\n6. Close the ticket."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-first-story",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "first i missed the bus then it started raining finally a neighbour gave me a lift",
+    "output": "First, I missed the bus. Then it started raining. Finally, a neighbour gave me a lift."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-first-person",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "my first choice is the train but i might take the bus if the tickets are sold out",
+    "output": "My first choice is the train, but I might take the bus if the tickets are sold out."
+  },
+  {
+    "split": "train",
+    "category": "paragraphs",
+    "family": "structure-work-family",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the release is ready for review the remaining issue is the login timeout changing the subject mum called this morning she's arriving on sunday and needs a lift",
+    "output": "The release is ready for review. The remaining issue is the login timeout.\n\nChanging the subject, Mum called this morning. She's arriving on Sunday and needs a lift."
+  },
+  {
+    "split": "train",
+    "category": "paragraphs",
+    "family": "structure-two-projects",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the website redesign is on schedule the designer sent the final screens yesterday on a separate topic the warehouse move is delayed we're waiting for the keys",
+    "output": "The website redesign is on schedule. The designer sent the final screens yesterday.\n\nOn a separate topic, the warehouse move is delayed. We're waiting for the keys."
+  },
+  {
+    "split": "train",
+    "category": "paragraphs",
+    "family": "structure-explicit-paragraph",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the budget is approved period new paragraph we still need a delivery date period",
+    "output": "The budget is approved.\n\nWe still need a delivery date."
+  },
+  {
+    "split": "train",
+    "category": "lines",
+    "family": "structure-explicit-lines",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "Ravi new line flat twelve new line Cedar House new line Bristol",
+    "output": "Ravi\nFlat 12\nCedar House\nBristol"
+  },
+  {
+    "split": "train",
+    "category": "lines",
+    "family": "structure-poetry",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the moon is high next line the street is still next line a window glows",
+    "output": "The moon is high\nThe street is still\nA window glows"
+  },
+  {
+    "split": "train",
+    "category": "lines",
+    "family": "structure-labels",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "name colon Amina line break role colon designer line break location colon Nairobi",
+    "output": "Name: Amina\nRole: Designer\nLocation: Nairobi"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-related-sentences",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the delivery is late the driver called to say he's stuck in traffic he should be here soon",
+    "output": "The delivery is late. The driver called to say he's stuck in traffic. He should be here soon."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-literal-newline",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the printer has a new line of affordable cartridges",
+    "output": "The printer has a new line of affordable cartridges."
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-basic",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hi Priya thanks for sending the figures i'll check them this afternoon best Hasan",
+    "output": "Hi Priya,\n\nThanks for sending the figures. I'll check them this afternoon.\n\nBest,\nHasan"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-question",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "dear Dr Shah could we move my appointment to next week i'm available on wednesday afternoon kind regards Meera",
+    "output": "Dear Dr. Shah,\n\nCould we move my appointment to next week? I'm available on Wednesday afternoon.\n\nKind regards,\nMeera"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-subject",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "subject revised delivery date dear Omar the shipment will now arrive on thursday please confirm someone will be available to receive it regards Leah",
+    "output": "Subject: Revised delivery date\n\nDear Omar,\n\nThe shipment will now arrive on Thursday. Please confirm someone will be available to receive it.\n\nRegards,\nLeah"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-bullets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hi team here are the things we need for friday the updated slides the signed contract and the venue address thanks Alex",
+    "output": "Hi team,\n\nHere are the things we need for Friday:\n* The updated slides\n* The signed contract\n* The venue address\n\nThanks,\nAlex"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-steps",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hello Sam to access the report first sign in then open analytics then choose monthly report let me know if that doesn't work cheers Jo",
+    "output": "Hello Sam,\n\nTo access the report:\n1. Sign in.\n2. Open analytics.\n3. Choose monthly report.\n\nLet me know if that doesn't work.\n\nCheers,\nJo"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-unsigned",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hi Maya can you send the final artwork today we need it before the printer closes",
+    "output": "Hi Maya,\n\nCan you send the final artwork today? We need it before the printer closes."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-casual-hello",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hi Maya are you outside yet",
+    "output": "Hi Maya, are you outside yet?"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-literal-request",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "dear support please reset my account password i can no longer sign in thank you Yusuf",
+    "output": "Dear support,\n\nPlease reset my account password. I can no longer sign in.\n\nThank you,\nYusuf"
+  },
+  {
+    "split": "train",
+    "category": "sections",
+    "family": "structure-explicit-headings",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "heading summary the prototype works on android heading limitations offline mode isn't ready heading next steps test on older devices",
+    "output": "Summary\n\nThe prototype works on Android.\n\nLimitations\n\nOffline mode isn't ready.\n\nNext steps\n\nTest on older devices."
+  },
+  {
+    "split": "train",
+    "category": "sections",
+    "family": "structure-meeting-sections",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "meeting notes decisions keep the current supplier action items Nina will request a quote Ben will compare delivery dates",
+    "output": "Meeting notes\n\nDecisions\n* Keep the current supplier.\n\nAction items\n* Nina will request a quote.\n* Ben will compare delivery dates."
+  },
+  {
+    "split": "train",
+    "category": "sections",
+    "family": "structure-pros-cons",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "pros lower cost and easier setup cons fewer integrations and no offline mode",
+    "output": "Pros\n* Lower cost\n* Easier setup\n\nCons\n* Fewer integrations\n* No offline mode"
+  },
+  {
+    "split": "train",
+    "category": "nested",
+    "family": "structure-nested-shopping",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "shopping list fruit apples and mangoes vegetables spinach and carrots",
+    "output": "Shopping list:\n* Fruit\n  * Apples\n  * Mangoes\n* Vegetables\n  * Spinach\n  * Carrots"
+  },
+  {
+    "split": "train",
+    "category": "nested",
+    "family": "structure-steps-sublist",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "setup steps first install the app second enable these permissions microphone and notifications third restart the app",
+    "output": "Setup steps:\n1. Install the app.\n2. Enable these permissions:\n   * Microphone\n   * Notifications\n3. Restart the app."
+  },
+  {
+    "split": "train",
+    "category": "checklist",
+    "family": "structure-explicit-checkboxes",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "make this a checklist with empty checkboxes charge the camera pack the tripod clear the memory card",
+    "output": "* [ ] Charge the camera\n* [ ] Pack the tripod\n* [ ] Clear the memory card"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-no-invent-checkboxes",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "my checklist charge the camera pack the tripod clear the memory card",
+    "output": "My checklist:\n* Charge the camera\n* Pack the tripod\n* Clear the memory card"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-short-enumeration",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please bring apples oranges and grapes",
+    "output": "Please bring apples, oranges, and grapes."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-no-bullets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "keep this as a sentence not a list we need pencils erasers and rulers",
+    "output": "We need pencils, erasers, and rulers."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-no-numbered",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "don't number these options just separate them with commas train bus taxi",
+    "output": "Train, bus, taxi."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-list-mention",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the article explains how bullet point lists improve readability",
+    "output": "The article explains how bullet-point lists improve readability."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-quoted-command",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "she said make a bullet list but i wasn't taking notes",
+    "output": "She said \"make a bullet list,\" but I wasn't taking notes."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-external-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "can you make a bullet point list of healthy groceries for me",
+    "output": "Can you make a bullet-point list of healthy groceries for me?"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-external-email",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "write an email to my landlord asking for a rent reduction",
+    "output": "Write an email to my landlord asking for a rent reduction."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-external-steps",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "give me numbered instructions for setting up a server",
+    "output": "Give me numbered instructions for setting up a server."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-external-table",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "create a table comparing mortgage rates",
+    "output": "Create a table comparing mortgage rates."
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-preserve-and",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "songs to practise bullet points rock and roll heart and soul and stand by me",
+    "output": "Songs to practise:\n* Rock and Roll\n* Heart and Soul\n* Stand by Me"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-preserve-details",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "things for the party bullet list drinks for twelve people plates that aren't plastic and candles without a scent",
+    "output": "Things for the party:\n* Drinks for 12 people\n* Plates that aren't plastic\n* Candles without a scent"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-api-tokens",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "configuration keys in bullet points user_id refresh_token and retry_count",
+    "output": "Configuration keys:\n* user_id\n* refresh_token\n* retry_count"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-unknown-items",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "parts to order bullet list the ZQ-17 bracket the LumaFlex coupling and the M8 washer",
+    "output": "Parts to order:\n* The ZQ-17 bracket\n* The LumaFlex coupling\n* The M8 washer"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-quantity-units",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "put the measurements in a list width twelve point five centimetres height eight centimetres depth three point two centimetres",
+    "output": "* Width: 12.5 centimetres\n* Height: eight centimetres\n* Depth: 3.2 centimetres"
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-lead-and-tail",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "for tomorrow we need these things in bullet points the projector the remote and spare batteries i'll collect everything at nine",
+    "output": "For tomorrow, we need these things:\n* The projector\n* The remote\n* Spare batteries\n\nI'll collect everything at nine."
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "structure-email-negation",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "dear Anita please do not approve the payment yet the invoice includes a duplicate charge i'll send the corrected copy tomorrow regards Dev",
+    "output": "Dear Anita,\n\nPlease do not approve the payment yet. The invoice includes a duplicate charge. I'll send the corrected copy tomorrow.\n\nRegards,\nDev"
+  },
+  {
+    "split": "train",
+    "category": "lines",
+    "family": "structure-line-command-scope",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "one line per item red scarf blue hat black gloves",
+    "output": "Red scarf\nBlue hat\nBlack gloves"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-single-item",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "grocery list bananas",
+    "output": "Grocery list: bananas."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-single-short",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "don't forget the tickets",
+    "output": "Don't forget the tickets."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-quoted-email",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "he wrote hi Priya thanks for your help and signed off with best Ravi",
+    "output": "He wrote \"Hi Priya, thanks for your help\" and signed off with \"Best, Ravi.\""
+  },
+  {
+    "split": "train",
+    "category": "numbered",
+    "family": "structure-number-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "numbered priorities one fix the crash two reduce startup time actually make that one reduce startup time two fix the crash",
+    "output": "1. Reduce startup time.\n2. Fix the crash."
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-keep-no",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "items we must not buy use bullets peanuts sesame oil and almond flour",
+    "output": "Items we must not buy:\n* Peanuts\n* Sesame oil\n* Almond flour"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-assistant-in-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please make a list of five AI tools i should try",
+    "output": "Please make a list of five AI tools I should try."
+  },
+  {
+    "split": "train",
+    "category": "bullets",
+    "family": "structure-assistant-provided",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hey assistant put these names in bullet points Mira Leo and Chen",
+    "output": "Hey assistant, put these names in bullet points:\n* Mira\n* Leo\n* Chen"
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-literal-punctuation-structure",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the document says new paragraph in the margin but i don't know why",
+    "output": "The document says \"new paragraph\" in the margin, but I don't know why."
+  },
+  {
+    "split": "train",
+    "category": "paragraphs",
+    "family": "structure-long-shift",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the boiler stopped working last night the display is blank and the reset button doesn't do anything i've left a message for the engineer separately the parcel for the upstairs flat is in our hallway please leave it there until they get home",
+    "output": "The boiler stopped working last night. The display is blank, and the reset button doesn't do anything. I've left a message for the engineer.\n\nSeparately, the parcel for the upstairs flat is in our hallway. Please leave it there until they get home."
+  },
+  {
+    "split": "train",
+    "category": "prose",
+    "family": "structure-numbers-in-content",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the winners wore numbers one two and three on their shirts",
+    "output": "The winners wore numbers one, two, and three on their shirts."
+  },
+  {
+    "split": "validation",
+    "category": "bullets",
+    "family": "structure-val-hardware",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hardware store list sandpaper wood glue masking tape and a small paintbrush",
+    "output": "Hardware store list:\n* Sandpaper\n* Wood glue\n* Masking tape\n* A small paintbrush"
+  },
+  {
+    "split": "validation",
+    "category": "bullets",
+    "family": "structure-val-documents",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please bullet these documents birth certificate proof of address and the completed application",
+    "output": "* Birth certificate\n* Proof of address\n* The completed application"
+  },
+  {
+    "split": "validation",
+    "category": "bullets",
+    "family": "structure-val-agenda",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "agenda items renewal pricing service availability and the cancellation terms",
+    "output": "Agenda items:\n* Renewal pricing\n* Service availability\n* The cancellation terms"
+  },
+  {
+    "split": "validation",
+    "category": "numbered",
+    "family": "structure-val-filter",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "filter replacement procedure first turn the machine off next remove the cover next replace the filter finally refit the cover",
+    "output": "Filter replacement procedure:\n1. Turn the machine off.\n2. Remove the cover.\n3. Replace the filter.\n4. Refit the cover."
+  },
+  {
+    "split": "validation",
+    "category": "numbered",
+    "family": "structure-val-ranking",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "my top three destinations in order one Kyoto two Porto three Cape Town",
+    "output": "My top three destinations, in order:\n1. Kyoto\n2. Porto\n3. Cape Town"
+  },
+  {
+    "split": "validation",
+    "category": "paragraphs",
+    "family": "structure-val-topic-shift",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the exhibition opens on saturday the frames arrived this morning regarding the insurance claim i still haven't received a reference number could you follow up",
+    "output": "The exhibition opens on Saturday. The frames arrived this morning.\n\nRegarding the insurance claim, I still haven't received a reference number. Could you follow up?"
+  },
+  {
+    "split": "validation",
+    "category": "lines",
+    "family": "structure-val-address",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "delivery address new line Studio Six new line twelve Willow Road new line Leeds",
+    "output": "Delivery address\nStudio Six\n12 Willow Road\nLeeds"
+  },
+  {
+    "split": "validation",
+    "category": "email",
+    "family": "structure-val-email",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hello Camille i've attached the inspection photos the crack is wider than it was last week can you arrange a visit thanks Noor",
+    "output": "Hello Camille,\n\nI've attached the inspection photos. The crack is wider than it was last week. Can you arrange a visit?\n\nThanks,\nNoor"
+  },
+  {
+    "split": "validation",
+    "category": "email",
+    "family": "structure-val-email-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "dear committee here are my proposed dates june second june ninth and june sixteenth please let me know which works best sincerely Isabel",
+    "output": "Dear committee,\n\nHere are my proposed dates:\n* June 2\n* June 9\n* June 16\n\nPlease let me know which works best.\n\nSincerely,\nIsabel"
+  },
+  {
+    "split": "validation",
+    "category": "sections",
+    "family": "structure-val-headings",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "heading findings the cable is damaged heading recommendation replace the cable before use",
+    "output": "Findings\n\nThe cable is damaged.\n\nRecommendation\n\nReplace the cable before use."
+  },
+  {
+    "split": "validation",
+    "category": "nested",
+    "family": "structure-val-categories",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "tasks by room kitchen wipe the counters mop the floor bathroom clean the sink replace the towels",
+    "output": "Tasks by room:\n* Kitchen\n  * Wipe the counters.\n  * Mop the floor.\n* Bathroom\n  * Clean the sink.\n  * Replace the towels."
+  },
+  {
+    "split": "validation",
+    "category": "prose",
+    "family": "structure-val-plain-shopping",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i picked up sandpaper wood glue and masking tape yesterday",
+    "output": "I picked up sandpaper, wood glue, and masking tape yesterday."
+  },
+  {
+    "split": "validation",
+    "category": "prose",
+    "family": "structure-val-quote",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the sign literally says start a numbered list here",
+    "output": "The sign literally says \"start a numbered list here.\""
+  },
+  {
+    "split": "validation",
+    "category": "prose",
+    "family": "structure-val-missing-content",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "make a checklist of everything i need for a mountain hike",
+    "output": "Make a checklist of everything I need for a mountain hike."
+  },
+  {
+    "split": "validation",
+    "category": "prose",
+    "family": "structure-val-missing-email",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "compose an email explaining why the inspection failed",
+    "output": "Compose an email explaining why the inspection failed."
+  },
+  {
+    "split": "validation",
+    "category": "bullets",
+    "family": "structure-val-correct-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "stationery to buy notebooks pens no not pens pencils and a stapler",
+    "output": "Stationery to buy:\n* Notebooks\n* Pencils\n* A stapler"
+  },
+  {
+    "split": "validation",
+    "category": "checklist",
+    "family": "structure-val-boxes",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "unchecked tasks with checkboxes water the plants feed the cat lock the back door",
+    "output": "* [ ] Water the plants\n* [ ] Feed the cat\n* [ ] Lock the back door"
+  },
+  {
+    "split": "validation",
+    "category": "prose",
+    "family": "structure-val-preserve-paragraph",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i'm running late because the bridge is closed i'll take the longer route and call when i'm nearby",
+    "output": "I'm running late because the bridge is closed. I'll take the longer route and call when I'm nearby."
+  },
+  {
+    "split": "validation",
+    "category": "lines",
+    "family": "structure-val-next-line",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "order number eight four zero next line status pending next line payment not received",
+    "output": "Order number 840\nStatus: pending\nPayment not received"
+  },
+  {
+    "split": "validation",
+    "category": "prose",
+    "family": "structure-val-no-infer",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the meeting had three people one laptop and two very long presentations",
+    "output": "The meeting had three people, one laptop, and two very long presentations."
+  },
+  {
+    "split": "test",
+    "category": "bullets",
+    "family": "structure-test-pantry",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "pantry restock list chickpeas coconut milk cumin and basmati rice",
+    "output": "Pantry restock list:\n* Chickpeas\n* Coconut milk\n* Cumin\n* Basmati rice"
+  },
+  {
+    "split": "test",
+    "category": "bullets",
+    "family": "structure-test-explicit",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "can we have bullet points for the supplies we'll need cable ties a soldering iron heat shrink tubing and safety goggles",
+    "output": "Can we have bullet points for the supplies we'll need:\n* Cable ties\n* A soldering iron\n* Heat shrink tubing\n* Safety goggles"
+  },
+  {
+    "split": "test",
+    "category": "bullets",
+    "family": "structure-test-questions",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "questions to ask at the viewing does the roof leak when was the wiring replaced and are the windows double glazed",
+    "output": "Questions to ask at the viewing:\n* Does the roof leak?\n* When was the wiring replaced?\n* Are the windows double glazed?"
+  },
+  {
+    "split": "test",
+    "category": "numbered",
+    "family": "structure-test-order",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the recovery sequence is first disconnect the drive second create a disk image third work from the copy",
+    "output": "The recovery sequence is:\n1. Disconnect the drive.\n2. Create a disk image.\n3. Work from the copy."
+  },
+  {
+    "split": "test",
+    "category": "numbered",
+    "family": "structure-test-explicit-numbers",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please number these candidates in the order i say them Beatriz Jun and Kofi",
+    "output": "1. Beatriz\n2. Jun\n3. Kofi"
+  },
+  {
+    "split": "test",
+    "category": "paragraphs",
+    "family": "structure-test-topic",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the conference room is booked for the whole afternoon facilities will set up the microphones after lunch on another matter my train has been cancelled so i'll join remotely",
+    "output": "The conference room is booked for the whole afternoon. Facilities will set up the microphones after lunch.\n\nOn another matter, my train has been cancelled, so I'll join remotely."
+  },
+  {
+    "split": "test",
+    "category": "lines",
+    "family": "structure-test-lines",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "badge text first line Lin Park second line Research Fellow third line Materials Lab",
+    "output": "Badge text\nLin Park\nResearch Fellow\nMaterials Lab"
+  },
+  {
+    "split": "test",
+    "category": "email",
+    "family": "structure-test-email",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "dear Mr Mensah thank you for the revised quotation we can accept the delivery date but not the additional handling fee please send an updated total best regards Talia",
+    "output": "Dear Mr. Mensah,\n\nThank you for the revised quotation. We can accept the delivery date but not the additional handling fee. Please send an updated total.\n\nBest regards,\nTalia"
+  },
+  {
+    "split": "test",
+    "category": "email",
+    "family": "structure-test-email-bullets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hi everyone for the workshop please bring a laptop headphones and your access badge we'll start at ten thanks Sol",
+    "output": "Hi everyone,\n\nFor the workshop, please bring:\n* A laptop\n* Headphones\n* Your access badge\n\nWe'll start at ten.\n\nThanks,\nSol"
+  },
+  {
+    "split": "test",
+    "category": "sections",
+    "family": "structure-test-sections",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "heading current status the import is paused heading blockers the credentials have expired heading owner Farah",
+    "output": "Current status\n\nThe import is paused.\n\nBlockers\n\nThe credentials have expired.\n\nOwner\n\nFarah"
+  },
+  {
+    "split": "test",
+    "category": "nested",
+    "family": "structure-test-nesting",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "equipment by team audio two microphones and a mixer lighting four stands and an extension lead",
+    "output": "Equipment by team:\n* Audio\n  * Two microphones\n  * A mixer\n* Lighting\n  * Four stands\n  * An extension lead"
+  },
+  {
+    "split": "test",
+    "category": "prose",
+    "family": "structure-test-regular-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i prefer chickpeas coconut milk and cumin in this curry",
+    "output": "I prefer chickpeas, coconut milk, and cumin in this curry."
+  },
+  {
+    "split": "test",
+    "category": "prose",
+    "family": "structure-test-literal",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the client asked us to use bullet points in next month's report",
+    "output": "The client asked us to use bullet points in next month's report."
+  },
+  {
+    "split": "test",
+    "category": "prose",
+    "family": "structure-test-no-content",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "give me a numbered list of the best cameras for beginners",
+    "output": "Give me a numbered list of the best cameras for beginners."
+  },
+  {
+    "split": "test",
+    "category": "prose",
+    "family": "structure-test-no-body",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "write a polite email to the organiser declining the invitation",
+    "output": "Write a polite email to the organiser declining the invitation."
+  },
+  {
+    "split": "test",
+    "category": "bullets",
+    "family": "structure-test-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "items for the repair silicone sealant a utility knife and white paint no clear sealant not white paint",
+    "output": "Items for the repair:\n* Silicone sealant\n* A utility knife\n* Clear sealant"
+  },
+  {
+    "split": "test",
+    "category": "checklist",
+    "family": "structure-test-boxes",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "use empty checkboxes for these jobs test the smoke alarm replace the porch bulb sweep the stairs",
+    "output": "* [ ] Test the smoke alarm\n* [ ] Replace the porch bulb\n* [ ] Sweep the stairs"
+  },
+  {
+    "split": "test",
+    "category": "prose",
+    "family": "structure-test-narrative",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "first the dog barked then the doorbell rang and finally i realised the parcel had arrived",
+    "output": "First, the dog barked. Then the doorbell rang, and finally I realised the parcel had arrived."
+  },
+  {
+    "split": "test",
+    "category": "prose",
+    "family": "structure-test-sentence-only",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "write this on one line separated by commas Seoul Busan Daegu",
+    "output": "Seoul, Busan, Daegu."
+  },
+  {
+    "split": "test",
+    "category": "email",
+    "family": "structure-test-no-signature",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hello Inez the repaired lens arrived this morning i tested it and the autofocus is working again",
+    "output": "Hello Inez,\n\nThe repaired lens arrived this morning. I tested it, and the autofocus is working again."
+  }
+]

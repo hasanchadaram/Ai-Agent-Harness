@@ -1,0 +1,36 @@
+{
+  "train": {
+    "total": 2478,
+    "retained": 2400,
+    "added": 78
+  },
+  "validation": {
+    "total": 320,
+    "retained": 300,
+    "added": 20
+  },
+  "test": {
+    "total": 320,
+    "retained": 300,
+    "added": 20
+  },
+  "total": 3118,
+  "unique_inputs": 3118,
+  "additions": 118,
+  "addition_categories": {
+    "bullets": 34,
+    "prose": 33,
+    "numbered": 13,
+    "paragraphs": 6,
+    "lines": 7,
+    "email": 13,
+    "sections": 5,
+    "nested": 4,
+    "checklist": 3
+  },
+  "split_membership_preserved": true,
+  "original_files_unchanged": true,
+  "system_messages": 0,
+  "new_examples_augmented_by_substitution": false,
+  "checks": "JSON round trip, counts, unique inputs, original split membership, contrast/family separation, roles, category layout, source hashes. Semantic labels not independently human-reviewed."
+}

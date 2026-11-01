@@ -2,6 +2,10 @@
 
 A native Android agentic companion that captures phone notifications, processes them using your local AI model over Tailscale, queries long-term memory, and takes native actions (alarms, smart briefings, urgent vibration/alerts).
 
+Private cross-app voice dictation is available in the **Dictation** tab. See [DICTATION.md](DICTATION.md) for setup, private PC endpoints, permissions, limits, and verification.
+
+For local everyday use, build `:app:assembleOptimized` to get the smaller, non-debuggable APK with R8/resource optimization. See [PERFORMANCE.md](PERFORMANCE.md) for the performance review, fixes, and verification limits.
+
 ---
 
 ## Quick Setup Guide

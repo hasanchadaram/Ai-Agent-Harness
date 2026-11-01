@@ -10,8 +10,11 @@ import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.ui.res.painterResource
+import com.companion.ainotifications.R
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -44,12 +47,16 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.companion.ainotifications.agent.AgentHarness
+import com.companion.ainotifications.dictation.DictationScreen
 import com.companion.ainotifications.data.ActionLog
 import com.companion.ainotifications.data.ChatUiMessage
 import com.companion.ainotifications.data.NotificationEvent
 import com.companion.ainotifications.ui.theme.AiNotificationsTheme
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -73,7 +80,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AiNotificationsTheme {
-                MainScreen()
+                MainScreen(if (intent.getBooleanExtra("open_dictation", false)) AppTab.DICTATION else AppTab.FEED)
             }
         }
     }
@@ -86,12 +93,13 @@ fun isNotificationListenerGranted(context: Context): Boolean {
 
 enum class AppTab(val title: String, val icon: ImageVector) {
     FEED("Activity Feed", Icons.Default.Notifications),
-    CHAT("Companion Chat", Icons.Default.Chat)
+    CHAT("Companion Chat", Icons.Default.Chat),
+    DICTATION("Dictation", Icons.Default.Mic)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(initialTab: AppTab = AppTab.FEED) {
     val context = LocalContext.current
     val harness = remember { AgentHarness.getInstance(context) }
     val scope = rememberCoroutineScope()
@@ -112,8 +120,8 @@ fun MainScreen() {
         }
     }
 
-    var selectedTab by remember { mutableStateOf(AppTab.FEED) }
-    val isProcessing by harness.isProcessing.collectAsState()
+    var selectedTab by remember { mutableStateOf(initialTab) }
+    val isProcessing by harness.isProcessing.collectAsStateWithLifecycle()
 
     var showMemoryDialog by remember { mutableStateOf(false) }
     var showSettingsDialog by remember { mutableStateOf(false) }
@@ -123,17 +131,35 @@ fun MainScreen() {
         topBar = {
             TopAppBar(
                 title = {
-                    Column {
-                        Text(
-                            text = if (selectedTab == AppTab.FEED) "AI Notification Harness" else "AI Companion Chat",
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Image(
+                            painter = painterResource(id = R.drawable.ic_app_logo),
+                            contentDescription = "AI Notifications Logo",
+                            modifier = Modifier
+                                .size(34.dp)
+                                .clip(RoundedCornerShape(8.dp))
                         )
-                        Text(
-                            text = if (isProcessing) "⚡ Agent processing notification..." else if (selectedTab == AppTab.FEED) "Idle - Listening to phone notifications" else "Ask questions or teach memory",
-                            fontSize = 12.sp,
-                            color = if (isProcessing) MaterialTheme.colorScheme.primary else Color.Gray
-                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                text = when (selectedTab) {
+                                    AppTab.FEED -> "AI Notification Harness"
+                                    AppTab.CHAT -> "AI Companion Chat"
+                                    AppTab.DICTATION -> "Private Dictation"
+                                },
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                            Text(
+                                text = if (selectedTab == AppTab.DICTATION) "Voice to your PC over Tailscale" else if (isProcessing) "⚡ Agent processing notification..." else if (selectedTab == AppTab.FEED) "Idle - Listening to phone notifications" else "Ask questions or teach memory",
+                                fontSize = 11.sp,
+                                color = if (isProcessing) MaterialTheme.colorScheme.primary else Color.Gray,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
                     }
                 },
                 actions = {
@@ -180,6 +206,8 @@ fun MainScreen() {
                         context.startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
                     }
                 )
+            } else if (selectedTab == AppTab.DICTATION) {
+                DictationScreen()
             } else {
                 CompanionChatContent(harness = harness)
             }
@@ -188,7 +216,13 @@ fun MainScreen() {
 
     // Memory Dialog
     if (showMemoryDialog) {
-        var memoryText by remember { mutableStateOf(harness.memoryManager.loadMemory()) }
+        var memoryText by remember { mutableStateOf("") }
+        var memoryReady by remember { mutableStateOf(false) }
+        var memorySaving by remember { mutableStateOf(false) }
+        LaunchedEffect(harness) {
+            memoryText = withContext(Dispatchers.IO) { harness.memoryManager.loadMemory() }
+            memoryReady = true
+        }
 
         AlertDialog(
             onDismissRequest = { showMemoryDialog = false },
@@ -204,6 +238,7 @@ fun MainScreen() {
                     OutlinedTextField(
                         value = memoryText,
                         onValueChange = { memoryText = it },
+                        enabled = memoryReady && !memorySaving,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(260.dp),
@@ -212,11 +247,16 @@ fun MainScreen() {
                 }
             },
             confirmButton = {
-                Button(onClick = {
-                    harness.memoryManager.updateMemory(memoryText)
-                    showMemoryDialog = false
+                Button(enabled = memoryReady && !memorySaving, onClick = {
+                    memorySaving = true
+                    scope.launch {
+                        try {
+                            withContext(Dispatchers.IO) { harness.memoryManager.updateMemory(memoryText) }
+                            showMemoryDialog = false
+                        } finally { memorySaving = false }
+                    }
                 }) {
-                    Text("Save Changes")
+                    Text(if (memorySaving) "Saving…" else "Save Changes")
                 }
             },
             dismissButton = {
@@ -288,13 +328,14 @@ fun MainScreen() {
             onDismissRequest = { showReferenceDialog = false },
             title = {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        Icons.Default.HelpOutline,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(24.dp)
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_app_logo),
+                        contentDescription = "AI Notifications Logo",
+                        modifier = Modifier
+                            .size(28.dp)
+                            .clip(RoundedCornerShape(6.dp))
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
+                    Spacer(modifier = Modifier.width(10.dp))
                     Text("Capabilities & Guide", fontSize = 18.sp, fontWeight = FontWeight.Bold)
                 }
             },
@@ -415,7 +456,7 @@ fun NotificationFeedContent(
     var pingStatus by remember { mutableStateOf<String?>(null) }
     var isPinging by remember { mutableStateOf(false) }
 
-    val recentLogs by harness.recentLogs.collectAsState()
+    val recentLogs by harness.recentLogs.collectAsStateWithLifecycle()
 
     Column(
         modifier = Modifier
@@ -639,7 +680,7 @@ fun NotificationFeedContent(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(bottom = 16.dp)
             ) {
-                items(recentLogs, key = { it.id }) { log ->
+                items(recentLogs, key = { it.id }, contentType = { "action" }) { log ->
                     ActionLogCard(log)
                 }
             }
@@ -651,15 +692,24 @@ fun NotificationFeedContent(
 fun CompanionChatContent(
     harness: AgentHarness
 ) {
-    val chatMessages by harness.chatMessages.collectAsState()
-    val isSending by harness.isChatSending.collectAsState()
+    val chatMessages by harness.chatMessages.collectAsStateWithLifecycle()
+    val isSending by harness.isChatSending.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
     var inputText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
+    var initiallyPositioned by remember { mutableStateOf(false) }
 
-    LaunchedEffect(chatMessages.size) {
+    LaunchedEffect(chatMessages.lastOrNull()?.id) {
         if (chatMessages.isNotEmpty()) {
-            listState.animateScrollToItem(chatMessages.size - 1)
+            if (!initiallyPositioned) {
+                listState.scrollToItem(chatMessages.lastIndex)
+                initiallyPositioned = true
+            } else {
+                val lastVisible = listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0
+                if (lastVisible >= chatMessages.lastIndex - 2 || chatMessages.last().role == "user") {
+                    listState.animateScrollToItem(chatMessages.lastIndex)
+                }
+            }
         }
     }
 
@@ -674,12 +724,12 @@ fun CompanionChatContent(
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            items(chatMessages, key = { it.id }) { msg ->
+            items(chatMessages, key = { it.id }, contentType = { it.role }) { msg ->
                 ChatBubble(msg)
             }
 
             if (isSending) {
-                item {
+                item(key = "sending", contentType = "sending") {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.padding(start = 8.dp, top = 4.dp)
@@ -764,6 +814,8 @@ fun CompanionChatContent(
     }
 }
 
+private val inlineMarkdownPattern = Regex("""(\*\*\*(.+?)\*\*\*)|(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(_(.+?)_)""")
+
 fun parseMarkdown(text: String): AnnotatedString {
     return buildAnnotatedString {
         val lines = text.lines()
@@ -783,11 +835,10 @@ fun parseMarkdown(text: String): AnnotatedString {
                 trimmedLine = "• " + trimmedLine.substring(2)
             }
 
-            val pattern = Regex("""(\*\*\*(.+?)\*\*\*)|(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(_(.+?)_)""")
             var cursor = 0
             val lineStart = length
 
-            for (match in pattern.findAll(trimmedLine)) {
+            for (match in inlineMarkdownPattern.findAll(trimmedLine)) {
                 if (match.range.first > cursor) {
                     append(trimmedLine.substring(cursor, match.range.first))
                 }
@@ -846,6 +897,7 @@ fun parseMarkdown(text: String): AnnotatedString {
 @Composable
 fun ChatBubble(msg: ChatUiMessage) {
     val isUser = msg.role == "user"
+    val formattedContent = remember(msg.content) { parseMarkdown(msg.content) }
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -863,7 +915,7 @@ fun ChatBubble(msg: ChatUiMessage) {
         ) {
             Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
                 Text(
-                    text = parseMarkdown(msg.content),
+                    text = formattedContent,
                     fontSize = 14.sp,
                     color = if (isUser) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -905,6 +957,7 @@ fun ChatBubble(msg: ChatUiMessage) {
 
 @Composable
 fun ActionLogCard(log: ActionLog) {
+    val formattedResult = remember(log.result) { parseMarkdown(log.result) }
     val timeFormatted = remember(log.timestamp) {
         SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date(log.timestamp))
     }
@@ -970,7 +1023,7 @@ fun ActionLogCard(log: ActionLog) {
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = parseMarkdown(log.result),
+                text = formattedResult,
                 fontSize = 13.sp,
                 color = MaterialTheme.colorScheme.onSurface
             )

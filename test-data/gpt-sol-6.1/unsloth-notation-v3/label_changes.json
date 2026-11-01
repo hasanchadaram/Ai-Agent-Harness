@@ -1,0 +1,422 @@
+[
+  {
+    "split": "train",
+    "input": "my available slots are monday at nine tuesday at two and friday at eleven am",
+    "old_output": "My available slots are:\n* Monday at nine\n* Tuesday at two\n* Friday at 11:00 AM",
+    "new_output": "My available slots are:\n* Monday at 9\n* Tuesday at 2\n* Friday at 11:00 AM",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "please make a bullet list of the order two kilograms of rice five hundred grams of lentils and one litre of oil",
+    "old_output": "* Two kilograms of rice\n* 500 grams of lentils\n* One litre of oil",
+    "new_output": "* 2 kilograms of rice\n* 500 grams of lentils\n* 1 litre of oil",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "the winners wore numbers one two and three on their shirts",
+    "old_output": "The winners wore numbers one, two, and three on their shirts.",
+    "new_output": "The winners wore numbers 1, 2, and 3 on their shirts.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "call at five",
+    "old_output": "Call at five.",
+    "new_output": "Call at 5.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "for tomorrow we need these things in bullet points the projector the remote and spare batteries i'll collect everything at nine",
+    "old_output": "For tomorrow, we need these things:\n* The projector\n* The remote\n* Spare batteries\n\nI'll collect everything at nine.",
+    "new_output": "For tomorrow, we need these things:\n* The projector\n* The remote\n* Spare batteries\n\nI'll collect everything at 9.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "dietary requirements for the booking no peanuts no shellfish and vegetarian meals for two guests",
+    "old_output": "Dietary requirements for the booking:\n* No peanuts\n* No shellfish\n* Vegetarian meals for two guests",
+    "new_output": "Dietary requirements for the booking:\n* No peanuts\n* No shellfish\n* Vegetarian meals for 2 guests",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "put the measurements in a list width twelve point five centimetres height eight centimetres depth three point two centimetres",
+    "old_output": "* Width: 12.5 centimetres\n* Height: eight centimetres\n* Depth: 3.2 centimetres",
+    "new_output": "* Width: 12.5 centimetres\n* Height: 8 centimetres\n* Depth: 3.2 centimetres",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "please make a list of five AI tools i should try",
+    "old_output": "Please make a list of five AI tools I should try.",
+    "new_output": "Please make a list of 5 AI tools I should try.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "grocery list two cartons of milk no three cartons of milk one loaf of bread and six eggs",
+    "old_output": "Grocery list:\n* Three cartons of milk\n* One loaf of bread\n* Six eggs",
+    "new_output": "Grocery list:\n* 3 cartons of milk\n* 1 loaf of bread\n* 6 eggs",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "train",
+    "input": "let's put the camping supplies in bullet points a tent two sleeping bags a torch and spare batteries",
+    "old_output": "Let's put the camping supplies in bullet points:\n* A tent\n* Two sleeping bags\n* A torch\n* Spare batteries",
+    "new_output": "Let's put the camping supplies in bullet points:\n* A tent\n* 2 sleeping bags\n* A torch\n* Spare batteries",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Wei comma new paragraph thank you for sending the summary period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Wei,\n\nThank you for sending the summary. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Wei,\n\nThank you for sending the summary. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "my top three destinations in order one Kyoto two Porto three Cape Town",
+    "old_output": "My top three destinations, in order:\n1. Kyoto\n2. Porto\n3. Cape Town",
+    "new_output": "My top 3 destinations, in order:\n1. Kyoto\n2. Porto\n3. Cape Town",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Aisha comma new paragraph thank you for sending the application period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Aisha,\n\nThank you for sending the application. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Aisha,\n\nThank you for sending the application. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Ibrahim comma new paragraph thank you for sending the budget period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Ibrahim,\n\nThank you for sending the budget. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Ibrahim,\n\nThank you for sending the budget. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Chloe comma new paragraph thank you for sending the survey period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Chloe,\n\nThank you for sending the survey. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Chloe,\n\nThank you for sending the survey. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Ada comma new paragraph thank you for sending the spreadsheet period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Ada,\n\nThank you for sending the spreadsheet. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Ada,\n\nThank you for sending the spreadsheet. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Maya comma new paragraph thank you for sending the summary period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Maya,\n\nThank you for sending the summary. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Maya,\n\nThank you for sending the summary. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Arjun comma new paragraph thank you for sending the form period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Arjun,\n\nThank you for sending the form. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Arjun,\n\nThank you for sending the form. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "the meeting had three people one laptop and two very long presentations",
+    "old_output": "The meeting had three people, one laptop, and two very long presentations.",
+    "new_output": "The meeting had 3 people, 1 laptop, and two very long presentations.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Yuki comma new paragraph thank you for sending the receipt period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Yuki,\n\nThank you for sending the receipt. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Yuki,\n\nThank you for sending the receipt. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Ada comma new paragraph thank you for sending the estimate period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Ada,\n\nThank you for sending the estimate. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Ada,\n\nThank you for sending the estimate. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Mateo comma new paragraph thank you for sending the itinerary period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Mateo,\n\nThank you for sending the itinerary. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Mateo,\n\nThank you for sending the itinerary. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Gabriel comma new paragraph thank you for sending the map period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Gabriel,\n\nThank you for sending the map. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Gabriel,\n\nThank you for sending the map. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Mateo comma new paragraph thank you for sending the letter period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Mateo,\n\nThank you for sending the letter. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Mateo,\n\nThank you for sending the letter. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Yuki comma new paragraph thank you for sending the presentation period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Yuki,\n\nThank you for sending the presentation. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Yuki,\n\nThank you for sending the presentation. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Ben comma new paragraph thank you for sending the form period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Ben,\n\nThank you for sending the form. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Ben,\n\nThank you for sending the form. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Mei comma new paragraph thank you for sending the contract period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Mei,\n\nThank you for sending the contract. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Mei,\n\nThank you for sending the contract. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Mateo comma new paragraph thank you for sending the agenda period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Mateo,\n\nThank you for sending the agenda. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Mateo,\n\nThank you for sending the agenda. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Ibrahim comma new paragraph thank you for sending the drawing period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Ibrahim,\n\nThank you for sending the drawing. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Ibrahim,\n\nThank you for sending the drawing. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Ravi comma new paragraph thank you for sending the attachment period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Ravi,\n\nThank you for sending the attachment. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Ravi,\n\nThank you for sending the attachment. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Arjun comma new paragraph thank you for sending the receipt period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Arjun,\n\nThank you for sending the receipt. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Arjun,\n\nThank you for sending the receipt. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Aisha comma new paragraph thank you for sending the ticket period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Aisha,\n\nThank you for sending the ticket. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Aisha,\n\nThank you for sending the ticket. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "we need two thirds of the flour",
+    "old_output": "We need two-thirds of the flour.",
+    "new_output": "We need 2/3 of the flour.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Sofia comma new paragraph thank you for sending the brochure period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Sofia,\n\nThank you for sending the brochure. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Sofia,\n\nThank you for sending the brochure. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "validation",
+    "input": "dear Imani comma new paragraph thank you for sending the presentation period i have two questions period is the date final question mark and can we share it with the rest of the team question mark new paragraph best regards new line Hasan",
+    "old_output": "Dear Imani,\n\nThank you for sending the presentation. I have two questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "new_output": "Dear Imani,\n\nThank you for sending the presentation. I have 2 questions. Is the date final? And can we share it with the rest of the team?\n\nBest regards,\nHasan",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Maya needs three copies of the summary",
+    "old_output": "Maya needs three copies of the summary.",
+    "new_output": "Maya needs 3 copies of the summary.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "equipment by team audio two microphones and a mixer lighting four stands and an extension lead",
+    "old_output": "Equipment by team:\n* Audio\n  * Two microphones\n  * A mixer\n* Lighting\n  * Four stands\n  * An extension lead",
+    "new_output": "Equipment by team:\n* Audio\n  * 2 microphones\n  * A mixer\n* Lighting\n  * 4 stands\n  * An extension lead",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Noah needs three copies of the receipt",
+    "old_output": "Noah needs three copies of the receipt.",
+    "new_output": "Noah needs 3 copies of the receipt.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Hasan needs three copies of the draft",
+    "old_output": "Hasan needs three copies of the draft.",
+    "new_output": "Hasan needs 3 copies of the draft.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Maya needs three copies of the estimate",
+    "old_output": "Maya needs three copies of the estimate.",
+    "new_output": "Maya needs 3 copies of the estimate.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Sara needs three copies of the spreadsheet",
+    "old_output": "Sara needs three copies of the spreadsheet.",
+    "new_output": "Sara needs 3 copies of the spreadsheet.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Elena needs three copies of the map",
+    "old_output": "Elena needs three copies of the map.",
+    "new_output": "Elena needs 3 copies of the map.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Zoe needs three copies of the drawing",
+    "old_output": "Zoe needs three copies of the drawing.",
+    "new_output": "Zoe needs 3 copies of the drawing.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Ananya needs three copies of the checklist",
+    "old_output": "Ananya needs three copies of the checklist.",
+    "new_output": "Ananya needs 3 copies of the checklist.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Hasan needs three copies of the drawing",
+    "old_output": "Hasan needs three copies of the drawing.",
+    "new_output": "Hasan needs 3 copies of the drawing.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Mei needs three copies of the receipt",
+    "old_output": "Mei needs three copies of the receipt.",
+    "new_output": "Mei needs 3 copies of the receipt.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Ravi needs three copies of the budget",
+    "old_output": "Ravi needs three copies of the budget.",
+    "new_output": "Ravi needs 3 copies of the budget.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Elena needs three copies of the report",
+    "old_output": "Elena needs three copies of the report.",
+    "new_output": "Elena needs 3 copies of the report.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Sara needs three copies of the letter",
+    "old_output": "Sara needs three copies of the letter.",
+    "new_output": "Sara needs 3 copies of the letter.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Imani needs three copies of the brochure",
+    "old_output": "Imani needs three copies of the brochure.",
+    "new_output": "Imani needs 3 copies of the brochure.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Sofia needs three copies of the diagram",
+    "old_output": "Sofia needs three copies of the diagram.",
+    "new_output": "Sofia needs 3 copies of the diagram.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Sara needs three copies of the map",
+    "old_output": "Sara needs three copies of the map.",
+    "new_output": "Sara needs 3 copies of the map.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Yuki needs three copies of the checklist",
+    "old_output": "Yuki needs three copies of the checklist.",
+    "new_output": "Yuki needs 3 copies of the checklist.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "hi everyone for the workshop please bring a laptop headphones and your access badge we'll start at ten thanks Sol",
+    "old_output": "Hi everyone,\n\nFor the workshop, please bring:\n* A laptop\n* Headphones\n* Your access badge\n\nWe'll start at ten.\n\nThanks,\nSol",
+    "new_output": "Hi everyone,\n\nFor the workshop, please bring:\n* A laptop\n* Headphones\n* Your access badge\n\nWe'll start at 10.\n\nThanks,\nSol",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Gabriel needs three copies of the receipt",
+    "old_output": "Gabriel needs three copies of the receipt.",
+    "new_output": "Gabriel needs 3 copies of the receipt.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Ada needs three copies of the checklist",
+    "old_output": "Ada needs three copies of the checklist.",
+    "new_output": "Ada needs 3 copies of the checklist.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Leila needs three copies of the diagram",
+    "old_output": "Leila needs three copies of the diagram.",
+    "new_output": "Leila needs 3 copies of the diagram.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Omar needs three copies of the schedule",
+    "old_output": "Omar needs three copies of the schedule.",
+    "new_output": "Omar needs 3 copies of the schedule.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "Niamh needs three copies of the form",
+    "old_output": "Niamh needs three copies of the form.",
+    "new_output": "Niamh needs 3 copies of the form.",
+    "reason": "v3 contextual numerals policy"
+  },
+  {
+    "split": "test",
+    "input": "what is two plus two",
+    "old_output": "What is two plus two?",
+    "new_output": "What is 2 plus 2?",
+    "reason": "v3 contextual numerals policy"
+  }
+]

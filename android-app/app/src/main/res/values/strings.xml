@@ -3,4 +3,6 @@
     <string name="notification_listener_service_label">AI Notification Processor</string>
     <string name="notification_channel_briefing">AI Briefings</string>
     <string name="notification_channel_urgent">AI Urgent Alerts</string>
+    <string name="dictation_service_label">Private dictation controls</string>
+    <string name="dictation_accessibility_description">Shows a movable dictation microphone over other apps and inserts the transcript into the field where you started. This access can read and change on-screen text. Only the microphone audio and optional transcript cleanup are sent to your PC over Tailscale. No screen text, audio, or transcripts are logged. Password fields are excluded. Enable this service only if you want cross-app insertion.</string>
 </resources>

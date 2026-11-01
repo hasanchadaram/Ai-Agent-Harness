@@ -1,0 +1,1066 @@
+[
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-agreement-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "local agreement hyphen two",
+    "output": "Local agreement-2"
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-agreement-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "local agreement dash two",
+    "output": "Local agreement-2"
+  },
+  {
+    "split": "train",
+    "category": "preserve",
+    "family": "notation-agreement-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "local agreement-2",
+    "output": "Local agreement-2"
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-agreement-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "um please open local agreement hyphen two",
+    "output": "Please open local agreement-2."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-agreement-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "send local agreement hyphen one no hyphen two to the team",
+    "output": "Send local agreement-2 to the team."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-agreement-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "local agreement two",
+    "output": "Local agreement 2"
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-release-tag",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "use release hyphen seven as the folder name",
+    "output": "Use release-7 as the folder name."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-release-tag",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the release-7 folder is empty",
+    "output": "The release-7 folder is empty."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-invoice-id",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "invoice number A hyphen zero zero five is overdue",
+    "output": "Invoice number A-005 is overdue."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-gate-id",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the gate is B dash twelve",
+    "output": "The gate is B-12."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-version-slug",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "rename the draft to annual report hyphen twenty twenty six",
+    "output": "Rename the draft to annual report-2026."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-compound",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "this is a well hyphen known problem",
+    "output": "This is a well-known problem."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-no-space",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "type north hyphen east as one compound word",
+    "output": "Type north-east as one compound word."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-suffix-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "save it as budget hyphen three no budget hyphen four",
+    "output": "Save it as budget-4."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-hyphen-spelling",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the model name is ZQ hyphen seventeen",
+    "output": "The model name is ZQ-17."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the word hyphen appears in the instructions",
+    "output": "The word \"hyphen\" appears in the instructions."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please explain the difference between a hyphen and a dash",
+    "output": "Please explain the difference between a hyphen and a dash."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-dash",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i made a dash for the train",
+    "output": "I made a dash for the train."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-dash",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "add a dash of salt",
+    "output": "Add a dash of salt."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-quote-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "she literally said hyphen two and then stopped",
+    "output": "She literally said \"hyphen two\" and then stopped."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-quote-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "keep the words hyphen two written out",
+    "output": "Keep the words \"hyphen two\" written out."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-good-brackets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "It's good in brackets it's not good",
+    "output": "It's good (it's not good)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-good-brackets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "it's good open bracket it's not good close bracket",
+    "output": "It's good (it's not good)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-good-brackets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "It's good (it's not good).",
+    "output": "It's good (it's not good)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-aside-at-end",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the meeting is confirmed in brackets pending the room booking",
+    "output": "The meeting is confirmed (pending the room booking)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-optional-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "bring a jacket in brackets if it gets cold",
+    "output": "Bring a jacket (if it gets cold)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-aside-scope",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the proposal open parenthesis the revised one close parenthesis is ready",
+    "output": "The proposal (the revised one) is ready."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-number-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the attachment in brackets version two",
+    "output": "The attachment (version 2)"
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-date-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the launch in brackets june third",
+    "output": "The launch (June 3)"
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-price-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the ticket is thirty dollars in brackets tax included",
+    "output": "The ticket is $30 (tax included)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-name-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "Maya in brackets the designer close brackets will join us later",
+    "output": "Maya (the designer) will join us later."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-bracket-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the room is available in brackets after five no after six",
+    "output": "The room is available (after 6)."
+  },
+  {
+    "split": "train",
+    "category": "square_brackets",
+    "family": "notation-square-status",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "status open square bracket pending close square bracket",
+    "output": "Status [pending]"
+  },
+  {
+    "split": "train",
+    "category": "square_brackets",
+    "family": "notation-square-insertion",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the quoted phrase is we open square brackets the team close square brackets agree",
+    "output": "The quoted phrase is \"We [the team] agree.\""
+  },
+  {
+    "split": "train",
+    "category": "square_brackets",
+    "family": "notation-square-code",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "write item open square bracket zero close square bracket",
+    "output": "Write item[0]."
+  },
+  {
+    "split": "train",
+    "category": "square_brackets",
+    "family": "notation-square-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the file is missing in square brackets check the archive",
+    "output": "The file is missing [check the archive]."
+  },
+  {
+    "split": "train",
+    "category": "square_brackets",
+    "family": "notation-square-preserve",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "The status is [pending].",
+    "output": "The status is [pending]."
+  },
+  {
+    "split": "train",
+    "category": "curly_braces",
+    "family": "notation-curly-example",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the placeholder is open curly brace username close curly brace",
+    "output": "The placeholder is {username}."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-brackets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the brackets on the shelf are loose",
+    "output": "The brackets on the shelf are loose."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-parenthesis",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "put the word parenthesis in the glossary",
+    "output": "Put the word \"parenthesis\" in the glossary."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-literal-in-brackets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the title contains the phrase in brackets",
+    "output": "The title contains the phrase \"in brackets.\""
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-bracket-question",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "what does a square bracket mean in this code",
+    "output": "What does a square bracket mean in this code?"
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-bracket-purchase",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we need two metal brackets for the shelf",
+    "output": "We need 2 metal brackets for the shelf."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-bracket-idiom",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "her salary falls into a different tax bracket",
+    "output": "Her salary falls into a different tax bracket."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-counts-team",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we have three designers and two engineers",
+    "output": "We have 3 designers and 2 engineers."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-copies-count",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "print five copies of the agenda",
+    "output": "Print 5 copies of the agenda."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-quantities",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "order six chairs and one table",
+    "output": "Order 6 chairs and 1 table."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-duration",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the upload took seven minutes",
+    "output": "The upload took 7 minutes."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-decimal-units",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the cable is two point five metres long",
+    "output": "The cable is 2.5 metres long."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-percent",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "reduce the fee by five percent",
+    "output": "Reduce the fee by 5%."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-age",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the building is eight years old",
+    "output": "The building is 8 years old."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-reference",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "see page nine paragraph two",
+    "output": "See page 9, paragraph 2."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-chapter",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "open chapter four and read section six",
+    "output": "Open chapter 4 and read section 6."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-version",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we are testing version three point two",
+    "output": "We are testing version 3.2."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-time",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "meet me at four fifteen pm",
+    "output": "Meet me at 4:15 PM."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-time-no-invent",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "call me at eight",
+    "output": "Call me at 8."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-temperature",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the temperature is minus three degrees celsius",
+    "output": "The temperature is -3 degrees Celsius."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-math-question",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "what is six plus seven",
+    "output": "What is 6 plus 7?"
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-decimal-preserve",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "keep the value at one point zero zero",
+    "output": "Keep the value at 1.00."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-leading-zero",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the access code is zero zero two nine",
+    "output": "The access code is 0029."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-phone",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the extension is one zero four",
+    "output": "The extension is 104."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-measured-range",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the expected wait is three to five minutes",
+    "output": "The expected wait is 3 to 5 minutes."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-ordinal-reference",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "check the second row and the third column",
+    "output": "Check the 2nd row and the 3rd column."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-fraction-measured",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "add one half teaspoon of salt",
+    "output": "Add 1/2 teaspoon of salt."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-correction-count",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we need four copies wait no five copies",
+    "output": "We need 5 copies."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-negative-vs-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the balance is minus two dollars",
+    "output": "The balance is -$2."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-negative-vs-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the receipt label is expense hyphen two",
+    "output": "The receipt label is expense-2."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-compact-list",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "shopping list two apples four oranges and one pumpkin",
+    "output": "Shopping list:\n* 2 apples\n* 4 oranges\n* 1 pumpkin"
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-list-brackets",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "packing list three shirts in brackets blue ones close brackets two pairs of socks and one raincoat",
+    "output": "Packing list:\n* 3 shirts (blue ones)\n* 2 pairs of socks\n* 1 raincoat"
+  },
+  {
+    "split": "train",
+    "category": "email",
+    "family": "notation-email-numbers",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "hi Noor please send two copies of contract hyphen five in brackets the signed version close brackets thanks Dev",
+    "output": "Hi Noor,\n\nPlease send 2 copies of contract-5 (the signed version).\n\nThanks,\nDev"
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-idiom-one",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "she is one of a kind",
+    "output": "She is one of a kind."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-idiom-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "give it a second thought",
+    "output": "Give it a second thought."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-idiom-one",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "let's take it one step at a time",
+    "output": "Let's take it one step at a time."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-idiom-number",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we're back to square one",
+    "output": "We're back to square one."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-idiom-number",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i'll be there in a second",
+    "output": "I'll be there in a second."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-idiom-two",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "that's a two way street",
+    "output": "That's a two-way street."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-proper-names",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we booked a table at Five Guys",
+    "output": "We booked a table at Five Guys."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-proper-names",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "she uses a OnePlus phone",
+    "output": "She uses a OnePlus phone."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-proper-names",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i'm reading The Three-Body Problem",
+    "output": "I'm reading The Three-Body Problem."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-proper-names",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the team is called Formula One",
+    "output": "The team is called Formula One."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-spelled-request",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "spell out the number three",
+    "output": "Spell out the number three."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-spelled-request",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "write five in words",
+    "output": "Write five in words."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-quote-numbers",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "she said the word seven very slowly",
+    "output": "She said the word \"seven\" very slowly."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-uncertain-suffix",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the document is called annual agreement two",
+    "output": "The document is called annual agreement 2."
+  },
+  {
+    "split": "train",
+    "category": "preserve",
+    "family": "notation-punctuated-numbers",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "Please review agreement-2 (version 3) by 4:00 PM.",
+    "output": "Please review agreement-2 (version 3) by 4:00 PM."
+  },
+  {
+    "split": "train",
+    "category": "numerals",
+    "family": "notation-arithmetic-negative",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the result is minus two point five",
+    "output": "The result is -2.5."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-letter-slug",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the tag is alpha hyphen B hyphen three",
+    "output": "The tag is alpha-B-3."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-literal-words-in-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "she agreed in brackets she actually said yes",
+    "output": "She agreed (she actually said yes)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-multi-sentence-aside",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the plan is approved open parenthesis the date is provisional do not book travel yet close parenthesis",
+    "output": "The plan is approved (the date is provisional; do not book travel yet)."
+  },
+  {
+    "split": "train",
+    "category": "parentheses",
+    "family": "notation-parentheses-question",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "can we proceed open parenthesis assuming the budget is approved close parenthesis question mark",
+    "output": "Can we proceed (assuming the budget is approved)?"
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-speak-about-command",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the transcript contains open bracket and close bracket as spoken words",
+    "output": "The transcript contains \"open bracket\" and \"close bracket\" as spoken words."
+  },
+  {
+    "split": "train",
+    "category": "hyphen",
+    "family": "notation-punctuation-sequence",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the filename is notes hyphen two dot txt",
+    "output": "The filename is notes-2.txt."
+  },
+  {
+    "split": "train",
+    "category": "literal",
+    "family": "notation-do-not-invent-openers",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the file is called notes two dot txt",
+    "output": "The file is called notes 2.txt."
+  },
+  {
+    "split": "validation",
+    "category": "hyphen",
+    "family": "notation-val-annex",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please attach annex hyphen eleven",
+    "output": "Please attach annex-11."
+  },
+  {
+    "split": "validation",
+    "category": "hyphen",
+    "family": "notation-val-room",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the room label is C dash zero nine",
+    "output": "The room label is C-09."
+  },
+  {
+    "split": "validation",
+    "category": "hyphen",
+    "family": "notation-val-correction",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "rename it preview hyphen six no preview hyphen eight",
+    "output": "Rename it preview-8."
+  },
+  {
+    "split": "validation",
+    "category": "parentheses",
+    "family": "notation-val-bracket",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "it's available in brackets only on weekends",
+    "output": "It's available (only on weekends)."
+  },
+  {
+    "split": "validation",
+    "category": "parentheses",
+    "family": "notation-val-internal",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the invoice open brackets the updated copy close brackets is attached",
+    "output": "The invoice (the updated copy) is attached."
+  },
+  {
+    "split": "validation",
+    "category": "square_brackets",
+    "family": "notation-val-square",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the label is approved in square brackets with conditions",
+    "output": "The label is approved [with conditions]."
+  },
+  {
+    "split": "validation",
+    "category": "curly_braces",
+    "family": "notation-val-curly",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "use open curly bracket project_id close curly bracket as the placeholder",
+    "output": "Use {project_id} as the placeholder."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-metal",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "those brackets support the radiator",
+    "output": "Those brackets support the radiator."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-dash",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "he added a dash of pepper",
+    "output": "He added a dash of pepper."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-hyphen-word",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the instructions mention the phrase hyphen eleven",
+    "output": "The instructions mention the phrase \"hyphen eleven.\""
+  },
+  {
+    "split": "validation",
+    "category": "numerals",
+    "family": "notation-val-quantities",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we sold eight tickets and reserved two seats",
+    "output": "We sold 8 tickets and reserved 2 seats."
+  },
+  {
+    "split": "validation",
+    "category": "numerals",
+    "family": "notation-val-distance",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the station is four kilometres away",
+    "output": "The station is 4 kilometres away."
+  },
+  {
+    "split": "validation",
+    "category": "numerals",
+    "family": "notation-val-ref",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "look at page seven line five",
+    "output": "Look at page 7, line 5."
+  },
+  {
+    "split": "validation",
+    "category": "numerals",
+    "family": "notation-val-leading-zero",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the locker code is zero three zero six",
+    "output": "The locker code is 0306."
+  },
+  {
+    "split": "validation",
+    "category": "numerals",
+    "family": "notation-val-time",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the call starts at six forty am",
+    "output": "The call starts at 6:40 AM."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-idiom",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "that's one way to look at it",
+    "output": "That's one way to look at it."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-proper",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the venue is called Seven Dials",
+    "output": "The venue is called Seven Dials."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-words",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "keep the number eight written as a word",
+    "output": "Keep the number eight written as a word."
+  },
+  {
+    "split": "validation",
+    "category": "parentheses",
+    "family": "notation-val-mixed",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "send diagram hyphen four in brackets not the old copy close brackets to three people",
+    "output": "Send diagram-4 (not the old copy) to 3 people."
+  },
+  {
+    "split": "validation",
+    "category": "literal",
+    "family": "notation-val-unknown-slug",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "i named the folder preview eight",
+    "output": "I named the folder preview 8."
+  },
+  {
+    "split": "test",
+    "category": "hyphen",
+    "family": "notation-test-batch",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the batch number is lot hyphen twenty one",
+    "output": "The batch number is lot-21."
+  },
+  {
+    "split": "test",
+    "category": "hyphen",
+    "family": "notation-test-code",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "look for label R dash zero zero eight",
+    "output": "Look for label R-008."
+  },
+  {
+    "split": "test",
+    "category": "hyphen",
+    "family": "notation-test-corrected",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "use appendix hyphen three wait no appendix hyphen nine",
+    "output": "Use appendix-9."
+  },
+  {
+    "split": "test",
+    "category": "parentheses",
+    "family": "notation-test-bracket",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the room is quiet in brackets unless the window is open",
+    "output": "The room is quiet (unless the window is open)."
+  },
+  {
+    "split": "test",
+    "category": "parentheses",
+    "family": "notation-test-scope",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the estimate open parenthesis labour only close parenthesis excludes materials",
+    "output": "The estimate (labour only) excludes materials."
+  },
+  {
+    "split": "test",
+    "category": "square_brackets",
+    "family": "notation-test-square",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "write the status in square brackets awaiting payment",
+    "output": "Write the status [awaiting payment]."
+  },
+  {
+    "split": "test",
+    "category": "curly_braces",
+    "family": "notation-test-curly",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the template token is open brace customer_id close brace",
+    "output": "The template token is {customer_id}."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-literal-bracket",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the word brackets is plural",
+    "output": "The word \"brackets\" is plural."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-literal-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the editor asked whether the title needs a hyphen",
+    "output": "The editor asked whether the title needs a hyphen."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-quoted-hyphen",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "he read out dash zero zero eight from the instructions",
+    "output": "He read out \"dash zero zero eight\" from the instructions."
+  },
+  {
+    "split": "test",
+    "category": "numerals",
+    "family": "notation-test-count",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "there are nine volunteers and four coordinators",
+    "output": "There are 9 volunteers and 4 coordinators."
+  },
+  {
+    "split": "test",
+    "category": "numerals",
+    "family": "notation-test-unit",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the gap is one point five millimetres",
+    "output": "The gap is 1.5 millimetres."
+  },
+  {
+    "split": "test",
+    "category": "numerals",
+    "family": "notation-test-label",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "refer to table six item eight",
+    "output": "Refer to table 6, item 8."
+  },
+  {
+    "split": "test",
+    "category": "numerals",
+    "family": "notation-test-id",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "my booking code is zero zero six one",
+    "output": "My booking code is 0061."
+  },
+  {
+    "split": "test",
+    "category": "numerals",
+    "family": "notation-test-time",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the gate closes at seven twenty five pm",
+    "output": "The gate closes at 7:25 PM."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-idiom",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "we need to get our second wind",
+    "output": "We need to get our second wind."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-proper",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the film is called Ocean's Eleven",
+    "output": "The film is called Ocean's Eleven."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-request-words",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "please leave nine spelled out as a word",
+    "output": "Please leave nine spelled out as a word."
+  },
+  {
+    "split": "test",
+    "category": "parentheses",
+    "family": "notation-test-mixed",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "review memo hyphen twelve in brackets revised yesterday close brackets before printing six copies",
+    "output": "Review memo-12 (revised yesterday) before printing 6 copies."
+  },
+  {
+    "split": "test",
+    "category": "literal",
+    "family": "notation-test-unknown",
+    "instruction": "Clean up this dictated transcript. Return only the cleaned text.",
+    "input": "the drawing is named elevation nine",
+    "output": "The drawing is named elevation 9."
+  }
+]
