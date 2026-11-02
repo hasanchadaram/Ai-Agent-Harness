@@ -34,6 +34,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
             matchingFallbacks += listOf("release")
             isDebuggable = false
+            // This variant is the in-place APK for the existing ARM64 phone.
+            // Debug/release retain other ABIs; don't ship their unused VAD runtimes here.
+            ndk { abiFilters += "arm64-v8a" }
         }
     }
     compileOptions {
@@ -65,6 +68,7 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.24.3")
 
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)

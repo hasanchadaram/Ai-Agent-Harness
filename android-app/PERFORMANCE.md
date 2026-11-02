@@ -15,14 +15,14 @@ Reviewed UI composition/list rendering, network requests, notification processin
 - Accessibility skips window inspection when the overlay is disabled and no target is active, skips redundant idle text/selection events, and reuses one active-window snapshot per event. Active-session destination validation remains immediate. Preference changes for model settings or overlay coordinates no longer trigger visibility refreshes. Reconnection cancels the previous state observer before registering another.
 - Android 13+ dictation insertion uses the active input connection when available, including editors that hide their cursor in accessibility nodes. Bounded editor snapshots are read on Dispatchers.IO at session start and insertion/verification. There is no new polling while scrolling or recording, and no keyboard replacement. A commit is issued once, then verified without retrying the write.
 - Compact dictation controls show only with an eligible editor and visible keyboard, apart from an active session's Stop/Cancel controls. Keyboard window bounds are read on focus/window events; no timer polls for keyboard visibility. Layout updates occur only when size or saved screen position changes. Keyboard animation cannot move the saved screen position. Idle has one 48 dp button; recording expands horizontally to 248 by 48 dp with explicit Listening feedback. A small dot pulses only during visible recording, and the spinner runs only during startup/inference. Hide/destroy cancels the listening animation; there is no idle animation. Short show/hide fades respect the system animation setting.
-- AudioRecord cleanup also runs if cancellation happens before the capture coroutine starts. Capture buffers start at one second of audio to avoid the initial series of small array expansions. The five-minute cap and whole-recording workflow remain in place.
+- AudioRecord cleanup also runs if cancellation happens before the capture coroutine starts. Capture buffers start at one second of audio to avoid the initial series of small array expansions. The five-minute cap remains; the later streaming update below changes the default transcription workflow.
 - Release builds now enable R8 and resource shrinking. The locally signed `optimized` variant is non-debuggable, uses the existing app ID/debug signing key for in-place updates, and excludes debug fixtures/tooling. It is intended for local everyday testing, not store distribution with a debug key.
 
 ## Evidence and limits
 
 Before the update, the phone's cumulative debug-process frame counters reported 40 missed frame deadlines out of 429 frames (9.32%), a 5 ms median, and a 32 ms 95th percentile. These counters mixed startup, overlay, and activity usage; they are not a controlled scrolling benchmark and cannot establish the speedup from this change.
 
-The optimized APK is approximately 1.7 MB versus approximately 17 MB for the debug APK. Smaller APK size is a packaging result, not a measured frame-rate improvement.
+Before adding the native VAD runtime, the optimized APK was approximately 1.7 MB versus approximately 17 MB for the debug APK. Current packaging is described below. APK size is not a measured frame-rate improvement.
 
 All 21 JVM tests passed, covering the existing dictation protocol/client, input-connection snapshots, concurrent saved-memory writes/cache invalidation, HTTP response reuse on success/error, and actual request cancellation. Debug and optimized builds and lint are checked. The in-process editor fixture passed all 14 insertion safeguards without recording or network access. Initial attempts were blocked by the phone's lock screen; all cases passed once the phone was unlocked with the fixture visible.
 
@@ -37,6 +37,16 @@ The subsequent complete-surface fade animates window alpha instead of root-view 
 The Notes focus follow-up removes that startup activity entirely. A microphone foreground service is prepared from the resumed Dictation screen and retained as **Dictation ready** while floating controls are enabled. Idle readiness has no AudioRecord, wake lock, timer, polling loop or network request; it retains a service object and silent foreground notification. This does not establish a measured battery cost. Session completion/cancellation releases the recorder and returns to readiness; disabling controls/accessibility stops the service. After reboot or a stopped service, the user opens Dictation to arm it again.
 
 The 26 JVM tests and 25 editor/overlay checks passed with the new flow. A pause-sensitive synthetic editor and the actual ColorOS Notes editor both retained the same keyboard, field, text and cursor through a real recording start/cancel. No note text was inserted or changed and no audio left the phone. AppOps showed capture stopped after cancellation and no active microphone operation in idle readiness. Turning readiness off was checked for service shutdown and notification removal.
+
+## Bounded background transcription (2026-11-02)
+
+Background transcription now uses Silero VAD on the phone and requests bounded to eight seconds, including Stop and overlap retries. With continuous speech, a three-second overlap lets windows advance without repeatedly sending the entire session. One request runs at a time; capture notifications are conflated rather than queued. All audio stays in RAM for the existing five-minute cap. Ambiguous overlap reconciliation errors instead of inserting an incomplete assembled transcript.
+
+The bundled 1.29 MB Silero model and ONNX Runtime Android increase the optimized APK to 29,268,480 bytes. This locally signed variant includes ARM64 native libraries for the connected phone; debug/release retain other architectures. VAD uses one CPU thread during recording. A battery or heap benchmark has not been performed.
+
+The regular JVM suite passed 51 tests, and the optional PC live-ASR replay passed separately. Build/lint and all 25 phone editor/overlay checks passed. Recording startup/cancellation retained editor focus, selection, and keyboard; AppOps confirmed capture ended after 323 ms.
+
+Two 62.69-second synthetic noisy phone replays passed through the saved ASR route. Normal segmentation detected 16 pauses and kept requests within 5,088 ms; deliberately disabling pause segmentation forced 11 window rolls with an 8,000 ms maximum. Remaining ASR after Stop measured 241 and 265 ms respectively, excluding cleanup and insertion. All section markers and repeated reference phrases survived; short-window ASR pluralized one marker. These individual synthetic runs demonstrate bounded requests and coverage, not general recognition accuracy or a latency benchmark. See [the test guide](./STREAMING_DICTATION_TESTING.md) for reproduction and limits.
 
 ## Building
 

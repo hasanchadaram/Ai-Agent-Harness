@@ -17,7 +17,9 @@ data class DictationState(
     val message: String = "Ready to dictate",
     val timings: String = "",
     val polished: Boolean = true,
-    val inserted: Boolean = false
+    val inserted: Boolean = false,
+    val streaming: StreamingProgress? = null,
+    val inspectTranscription: Boolean = false
 ) {
     val busy get() = when (phase) {
         DictationPhase.STARTING, DictationPhase.RECORDING,
@@ -28,12 +30,17 @@ data class DictationState(
 
 /** Main-thread session owner. Dictation never passes through the notification agent or its tools. */
 class DictationController private constructor(context: Context) {
+    private val appContext = context.applicationContext
     val settings = DictationSettings(context.applicationContext)
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val mutableState = MutableStateFlow(DictationState(polished = settings.polished))
     val state = mutableState.asStateFlow()
     private val client = DictationClient()
     private var recorder: PcmRecorder? = null
+    private var streaming: StreamingTranscriber? = null
+    private var sessionAsr: ModelEndpoint? = null
+    private var sessionCleanup: ModelEndpoint? = null
+    private var sessionBackgroundAsr = false
     private var work: Job? = null
     private var finishService: (() -> Unit)? = null
     private var destination: InsertionTarget? = null
@@ -45,12 +52,16 @@ class DictationController private constructor(context: Context) {
     }
     data class InsertionOutcome(val inserted: Boolean, val message: String)
 
-    fun prepare(target: InsertionTarget?): String {
+    fun prepare(target: InsertionTarget?, backgroundAsr: Boolean = settings.backgroundAsr): String {
         check(!state.value.busy) { "A dictation is already running." }
         releaseDestination()
         destination = target
         val id = UUID.randomUUID().toString()
+        sessionAsr = settings.asr
+        sessionCleanup = settings.cleanup
+        sessionBackgroundAsr = backgroundAsr
         mutableState.value = DictationState(id, DictationPhase.STARTING, polished = settings.polished,
+            inspectTranscription = settings.inspectTranscription,
             message = "Starting microphone…")
         return id
     }
@@ -58,19 +69,37 @@ class DictationController private constructor(context: Context) {
     fun start(id: String, onFinished: () -> Unit) {
         if (id != state.value.id || state.value.phase != DictationPhase.STARTING) { onFinished(); return }
         finishService = onFinished
-        try {
-            val capture = PcmRecorder(scope)
+        work = scope.launch {
+          var detector: SpeechDetector? = null
+          var transferred = false
+          try {
+            // Assign inside IO so cancellation on the dispatch back to Main
+            // still lets finally release a fully created native session.
+            if (sessionBackgroundAsr) withContext(Dispatchers.IO) { detector = SileroSpeechDetector(appContext) }
+            ensureActive()
+            val capture = PcmRecorder(scope, detector)
+            transferred = true
             recorder = capture
+            if (sessionBackgroundAsr) {
+                val asr = checkNotNull(sessionAsr)
+                streaming = StreamingTranscriber(scope, capture.buffer,
+                    transcribe = { pcm, allowEmpty -> client.transcribe(asr, pcm, allowEmpty) },
+                    inspect = state.value.inspectTranscription,
+                    onProgress = { progress ->
+                        scope.launch {
+                            if (state.value.id == id && state.value.busy)
+                                mutableState.value = state.value.copy(streaming = progress)
+                        }
+                    })
+            }
             mutableState.value = state.value.copy(phase = DictationPhase.RECORDING,
                 message = "Recording · tap Stop when finished (5 minute limit)")
-            work = scope.launch {
-                try {
-                    capture.audio.await()
-                    if (state.value.id == id && state.value.phase == DictationPhase.RECORDING) stop()
-                } catch (error: CancellationException) { throw error }
-                catch (error: Exception) { if (state.value.id == id) fail(error.message ?: "Microphone capture failed.") }
-            }
-        } catch (error: Exception) { fail(error.message ?: "Cannot start the microphone.") }
+            capture.audio.await()
+            if (state.value.id == id && state.value.phase == DictationPhase.RECORDING) stop()
+          } catch (error: CancellationException) { throw error }
+          catch (error: Exception) { if (state.value.id == id) fail(error.message ?: "Microphone capture failed.") }
+          finally { if (!transferred) detector?.close() }
+        }
     }
 
     fun setPolished(enabled: Boolean) {
@@ -84,23 +113,30 @@ class DictationController private constructor(context: Context) {
         val id = state.value.id
         val capture = recorder ?: return
         val polishedAtStop = state.value.polished
-        val asr = settings.asr
-        val cleanup = settings.cleanup
+        val asr = checkNotNull(sessionAsr)
+        val cleanup = checkNotNull(sessionCleanup)
+        val background = streaming
         val stopped = SystemClock.elapsedRealtime()
         mutableState.value = state.value.copy(phase = DictationPhase.TRANSCRIBING, message = "Transcribing on your PC…")
         work?.cancel()
         capture.stop()
         work = scope.launch {
             try {
-                val pcm = capture.audio.await()
+                capture.audio.await()
                 recorder = null
                 val audioReady = SystemClock.elapsedRealtime()
-                val original = client.transcribe(asr, pcm)
+                val original = if (background != null) background.result.await() else {
+                    val pcm = withContext(Dispatchers.Default) {
+                        capture.buffer.snapshot(0, capture.buffer.position().samples)
+                    }
+                    client.transcribe(asr, pcm)
+                }
                 ensureActive()
                 if (state.value.id != id) return@launch
                 val asrDone = SystemClock.elapsedRealtime()
                 mutableState.value = state.value.copy(original = original, result = original,
-                    timings = "Audio ready ${audioReady - stopped} ms · ASR request ${asrDone - audioReady} ms")
+                    timings = "Audio ready ${audioReady - stopped} ms · " +
+                        (if (background != null) "Remaining ASR" else "ASR request") + " ${asrDone - audioReady} ms")
                 var result = original
                 var cleanupFailure: String? = null
                 if (polishedAtStop) {
@@ -122,6 +158,8 @@ class DictationController private constructor(context: Context) {
                     timings = state.value.timings + (if (polishedAtStop) " · Cleanup request ${cleanupDone - asrDone} ms" else "") +
                         " · Insertion ${finished - cleanupDone} ms · Stop to result ${finished - stopped} ms")
                 releaseDestination()
+                streaming = null
+                sessionAsr = null; sessionCleanup = null
                 work = null
                 stopService()
             } catch (error: CancellationException) { throw error }
@@ -135,6 +173,8 @@ class DictationController private constructor(context: Context) {
         // Invalidate before cancelling so late network/service callbacks cannot publish or insert.
         mutableState.value = DictationState(polished = settings.polished, message = "Cancelled")
         work?.cancel(); work = null
+        streaming?.cancel(); streaming = null
+        sessionAsr = null; sessionCleanup = null
         recorder?.cancel(); recorder = null
         releaseDestination()
         stopService()
@@ -155,6 +195,8 @@ class DictationController private constructor(context: Context) {
 
     private fun fail(message: String) {
         work?.cancel(); work = null
+        streaming?.cancel(); streaming = null
+        sessionAsr = null; sessionCleanup = null
         recorder?.cancel(); recorder = null
         mutableState.value = state.value.copy(phase = DictationPhase.ERROR, message = message)
         releaseDestination()

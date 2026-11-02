@@ -6,6 +6,7 @@ import okhttp3.Dns
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import okhttp3.mockwebserver.SocketPolicy
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -25,7 +26,7 @@ class DictationClientTest {
             .dns(object : Dns {
                 override fun lookup(hostname: String) = listOf(InetAddress.getByName("127.0.0.1"))
             })
-            .followRedirects(false).callTimeout(5, TimeUnit.SECONDS).build())
+            .followRedirects(false).retryOnConnectionFailure(false).callTimeout(5, TimeUnit.SECONDS).build())
     }
     @After fun teardown() { server.shutdown() }
     private fun completion(text: String, finish: String = "stop") = buildJsonObject {
@@ -42,6 +43,7 @@ class DictationClientTest {
         assertEquals("/v1/chat/completions", request.path)
         assertEquals("Bearer private-key", request.getHeader("Authorization"))
         val body = Json.parseToJsonElement(request.body.readUtf8()).jsonObject
+        assertEquals("English", body["language"]!!.jsonPrimitive.content)
         val audio = body["messages"]!!.jsonArray[0].jsonObject["content"]!!.jsonArray[0].jsonObject["input_audio"]!!.jsonObject
         assertEquals("wav", audio["format"]!!.jsonPrimitive.content)
         val decoded = Base64.getDecoder().decode(audio["data"]!!.jsonPrimitive.content)
@@ -54,6 +56,7 @@ class DictationClientTest {
         assertEquals("Very, very good.", client.polish(endpoint, "very very good"))
         val body = Json.parseToJsonElement(server.takeRequest().body.readUtf8()).jsonObject
         assertEquals(false, body["chat_template_kwargs"]!!.jsonObject["enable_thinking"]!!.jsonPrimitive.boolean)
+        assertEquals("none", body["reasoning_effort"]!!.jsonPrimitive.content)
         assertEquals("very very good", body["messages"]!!.jsonArray[1].jsonObject["content"]!!.jsonPrimitive.content)
         assertFalse(body.containsKey("tools"))
     }
@@ -62,6 +65,14 @@ class DictationClientTest {
         server.enqueue(MockResponse().setBody("""{"data":[{"id":"wrong-model"}]}"""))
         try { client.test(endpoint); fail("Must reject mismatched model") }
         catch (error: IllegalArgumentException) { assertTrue(error.message!!.contains("wrong-model")) }
+    }
+
+    @Test fun streamingCanAcceptBlankButNeverTruncatedOutput() = runBlocking {
+        server.enqueue(MockResponse().setBody(completion("")))
+        assertEquals("", client.transcribe(endpoint, byteArrayOf(0, 0), allowEmpty = true))
+        server.enqueue(MockResponse().setBody(completion("partial", "length")))
+        try { client.transcribe(endpoint, byteArrayOf(0, 0), allowEmpty = true); fail("Must reject truncation") }
+        catch (_: IllegalArgumentException) { }
     }
 
     @Test fun rejectsTruncatedAndBlankCompletions() = runBlocking {
@@ -73,13 +84,46 @@ class DictationClientTest {
     }
 
     @Test fun serverFailureDoesNotExposeResponseBodyOrApiKey() = runBlocking {
-        server.enqueue(MockResponse().setResponseCode(503).setBody("sensitive server debug output"))
+        repeat(3) { server.enqueue(MockResponse().setResponseCode(503).setBody("sensitive server debug output")) }
         try { client.test(endpoint); fail("Expected failure") }
         catch (error: java.io.IOException) {
             assertTrue(error.message!!.contains("not ready"))
             assertFalse(error.message!!.contains("sensitive"))
             assertFalse(error.message!!.contains("private-key"))
         }
+    }
+
+    @Test fun transientModelFailureRetriesTheSameAudio() = runBlocking {
+        server.enqueue(MockResponse().setResponseCode(500).setBody("model traceback"))
+        server.enqueue(MockResponse().setBody(completion("Recovered text.")))
+        assertEquals("Recovered text.", client.transcribe(endpoint, byteArrayOf(0, 0)))
+        assertEquals(server.takeRequest().body.readUtf8(), server.takeRequest().body.readUtf8())
+        assertEquals(2, server.requestCount)
+    }
+
+    @Test fun interruptedResponseBodyRetriesWithoutReturningPartialText() = runBlocking {
+        server.enqueue(MockResponse().setBody(completion("incomplete ".repeat(1000)))
+            .setSocketPolicy(SocketPolicy.DISCONNECT_DURING_RESPONSE_BODY))
+        server.enqueue(MockResponse().setBody(completion("Complete text.")))
+        assertEquals("Complete text.", client.transcribe(endpoint, byteArrayOf(0, 0)))
+        assertEquals(2, server.requestCount)
+    }
+
+    @Test fun permanentAuthorizationFailureIsNotRetried() = runBlocking {
+        server.enqueue(MockResponse().setResponseCode(401))
+        try { client.polish(endpoint, "Draft."); fail("Expected failure") }
+        catch (error: java.io.IOException) { assertTrue(error.message!!.contains("API key")) }
+        assertEquals(1, server.requestCount)
+    }
+
+    @Test fun cancellationDuringRetryBackoffDoesNotSendAnotherRequest() = runBlocking {
+        server.enqueue(MockResponse().setResponseCode(503))
+        val job = async { client.transcribe(endpoint, byteArrayOf(0, 0)) }
+        withContext(Dispatchers.IO) { assertNotNull(server.takeRequest(2, TimeUnit.SECONDS)) }
+        delay(50)
+        job.cancelAndJoin()
+        delay(300)
+        assertEquals(1, server.requestCount)
     }
 
     @Test fun cancellationCancelsAnInflightRequest() = runBlocking {

@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Android dictation checks",
+      "type": "shell",
+      "command": "C:\\Users\\hasan\\.gradle\\wrapper\\dists\\gradle-8.11.1-bin\\bpt9gzteqjrbo1mjrsomdt32c\\gradle-8.11.1\\bin\\gradle.bat",
+      "args": [
+        "-p",
+        "C:\\AI\\Ai-Notifications\\android-app",
+        ":app:testDebugUnitTest",
+        ":app:assembleDebug",
+        ":app:assembleOptimized",
+        ":app:lintDebug",
+        "--console=plain"
+      ],
+      "isBackground": false,
+      "problemMatcher": [],
+      "group": "build",
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Users\\hasan\\.jdks\\jbr-21.0.11"
+        }
+      }
+    }
+  ]
+}

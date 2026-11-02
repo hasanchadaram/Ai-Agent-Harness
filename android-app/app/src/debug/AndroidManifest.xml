@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
+        <receiver android:name=".dictation.DictationInsertionCheckReceiver" android:exported="true"
+            android:permission="android.permission.DUMP" />
         <receiver android:name=".dictation.DictationFocusCheckReceiver" android:exported="true"
             android:permission="android.permission.DUMP" />
         <activity android:name=".dictation.DictationEditorFixture" android:exported="true"
+            android:permission="android.permission.DUMP"
+            android:theme="@style/Theme.AiNotifications" />
+        <activity android:name=".dictation.DictationStreamingFixture" android:exported="true"
             android:permission="android.permission.DUMP"
             android:theme="@style/Theme.AiNotifications" />
     </application>

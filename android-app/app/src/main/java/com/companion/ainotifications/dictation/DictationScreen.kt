@@ -44,6 +44,8 @@ fun DictationScreen() {
     var overlayEnabled by remember { mutableStateOf(settings.overlayEnabled) }
     var overlaySide by remember { mutableStateOf(settings.overlaySide) }
     var overlayOpacity by remember { mutableFloatStateOf(settings.overlayOpacity.toFloat()) }
+    var backgroundAsr by remember { mutableStateOf(settings.backgroundAsr) }
+    var inspectTranscription by remember { mutableStateOf(settings.inspectTranscription) }
     var asr by remember { mutableStateOf(settings.asr) }
     var cleanup by remember { mutableStateOf(settings.cleanup) }
     var connectionStatus by remember { mutableStateOf("") }
@@ -74,7 +76,7 @@ fun DictationScreen() {
             Text("Private dictation", style = MaterialTheme.typography.headlineSmall)
         }
         item(key = "intro", contentType = "text") {
-            Text("Use your current keyboard. Tap the floating mic, speak, then tap the checkmark to finish. Your PC transcribes the recording and optionally polishes it.")
+            Text("Use your current keyboard. Tap the floating mic, speak, then tap the checkmark to finish. With background transcription enabled, recorded audio goes to your PC while you speak. The complete transcript is optionally polished after Stop.")
         }
         item(key = "permissions", contentType = "card") {
             Card(Modifier.fillMaxWidth()) {
@@ -130,6 +132,29 @@ fun DictationScreen() {
             }
         }
 
+        item(key = "background_asr", contentType = "card") {
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                        Text("Transcribe while speaking", Modifier.weight(1f))
+                        Switch(checked = backgroundAsr, enabled = !state.busy, onCheckedChange = {
+                            backgroundAsr = it; settings.backgroundAsr = it
+                        })
+                    }
+                    Text("Uses speech detection and rolling audio windows of at most 8 seconds. Turn off to send one recording after Stop.",
+                        style = MaterialTheme.typography.bodySmall)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                        Text("Show transcription details", Modifier.weight(1f))
+                        Switch(checked = inspectTranscription, enabled = !state.busy, onCheckedChange = {
+                            inspectTranscription = it; settings.inspectTranscription = it
+                        })
+                    }
+                    Text("Enable before recording to inspect the last 24 ASR updates, stable words and changing endings. Details stay in app memory until the next recording or Cancel; nothing is written to logs or files.",
+                        style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        }
+
         item(key = "session", contentType = "card") {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -165,6 +190,41 @@ fun DictationScreen() {
                         Text("Copy explicitly places the transcript on the system clipboard.", style = MaterialTheme.typography.bodySmall)
                     }
                     if (state.timings.isNotBlank()) Text(state.timings, style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        }
+
+        state.streaming?.let { progress ->
+            item(key = "streaming_summary", contentType = "text") {
+                Text("ASR requests: ${progress.requests} · Responses: ${progress.completed} · " +
+                    "Retries needed: ${progress.failures} · Committed parts: ${progress.sections} · Reused: ${progress.reused}\n" +
+                    "Resolved audio: ${progress.finalizedSamples / 16} / ${progress.capturedSamples / 16} ms\n" +
+                    "Window starts at ${progress.windowStartSample / 16} ms · Rolls: ${progress.rolls}\n" +
+                    "Largest request: ${progress.maxRequestSamples / 16} ms\n" +
+                    "${progress.detector} · Pauses detected: ${progress.detectedPauses}",
+                    style = MaterialTheme.typography.bodySmall)
+                if (progress.overlapping) Text("Checking the shared words before committing the next window.",
+                    style = MaterialTheme.typography.bodySmall)
+            }
+            if (state.inspectTranscription && inspectTranscription) {
+                item(key = "streaming_preview", contentType = "card") {
+                    Card(Modifier.fillMaxWidth()) {
+                        Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Text("Live transcription details", style = MaterialTheme.typography.titleMedium)
+                            Text("Stable preview: ${progress.stable.ifBlank { "(waiting for agreement)" }}")
+                            Text("Changing ending: ${progress.tentative.ifBlank { "(none)" }}")
+                            Text("Stable preview means consecutive results agree; recent words and punctuation can still change. Pauses keep the same context. Parts are accepted after matching overlapping windows or Stop. Nothing is inserted until Stop.",
+                                style = MaterialTheme.typography.bodySmall)
+                        }
+                    }
+                }
+                progress.history.forEach { update ->
+                    item(key = "asr_update_${update.number}_${update.kind}", contentType = "text") {
+                        Text("#${update.number} · ${update.rangeLabel} · ${update.kind} · ${update.durationMs} ms",
+                            style = MaterialTheme.typography.labelLarge)
+                        if (update.stable.isNotBlank()) Text("Stable: ${update.stable}")
+                        if (update.tentative.isNotBlank()) Text("Changing: ${update.tentative}")
+                    }
                 }
             }
         }

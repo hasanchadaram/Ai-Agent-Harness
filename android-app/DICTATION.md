@@ -1,21 +1,20 @@
-# Private dictation: first working version
+# Private dictation
 
-This version records one complete utterance, transcribes it on the PC, optionally polishes it once, and attempts insertion into the original editor. Chunking, background ASR during recording, and performance tuning are deferred.
+Dictation transcribes bounded rolling audio windows on the PC while recording. Silero VAD reports pauses without finalizing sentences; overlapping windows preserve acoustic context across hesitations. Every ASR request in background mode, including Stop and recovery, contains at most eight seconds of recognition audio. Normal pauses remain intact; excess quiet in gaps over 1.5 seconds is removed only from the recognition view, preserving original PCM. Both Android and Python explicitly request English from Qwen. Stop finishes unresolved windows, optionally polishes the complete transcript once, and attempts insertion into the original editor. Disable **Transcribe while speaking** to use the original one-request batch flow. See [background transcription testing](./STREAMING_DICTATION_TESTING.md) to inspect original audio positions, request durations, pause counts, stable words and committed parts.
 
-## PC setup verified on October 31, 2026
+## PC setup verified on November 2, 2026
 
-- ASR: llama.cpp b11707 on `127.0.0.1:8081`, Qwen3-ASR-1.7B-Q8_0 GGUF and its matching audio projector.
-- ASR model ID: `C:/Users/hasan/.lmstudio/models/Qwen/Qwen3-ASR-1.7B-Q8_0/Qwen3-ASR-1.7B-Q8_0.gguf`.
-- Cleanup: llama.cpp b11707 on `127.0.0.1:8080`, `Qwen3.8-27B-GSQ-RCO-IQ3_XXS-mtp.gguf`, alias `qwen3.8-27b-mtp`.
+- ASR: [Qwen Python server](../asr_server.py) on port `8000`, using model ID `Qwen/Qwen3-ASR-1.7B` and its forced aligner.
+- Cleanup: llama.cpp b11707 on `127.0.0.1:8080`, model ID `C:/Users/hasan/.lmstudio/models/Unsloth-Fine-Tuned/Qwen3.5-4B-Q4_K_M/Qwen3.5-4B.Q4_K_M.gguf`.
 - Existing tailnet-only cleanup route: `https://hasan-pc.tail99bd0f.ts.net/v1`.
 - Added tailnet-only ASR route: `https://hasan-pc.tail99bd0f.ts.net:8443/v1`.
 
-Both servers stay on PC loopback. Tailscale Serve supplies HTTPS inside the tailnet. No Funnel/public endpoint or cloud fallback is configured. Both phone and PC must be connected to Tailscale, and the tailnet policy must allow the phone to reach the PC on ports 443 and 8443.
+The cleanup server listens on loopback; the existing ASR server listens on all PC interfaces. Tailscale Serve supplies HTTPS inside the tailnet. No Funnel/public endpoint or cloud fallback is configured. Both phone and PC must be connected to Tailscale, and the tailnet policy must allow the phone to reach the PC on ports 443 and 8443.
 
 To restore the private ASR route if needed:
 
 ```powershell
-tailscale serve --bg --https=8443 http://127.0.0.1:8081
+tailscale serve --bg --https=8443 http://127.0.0.1:8000
 tailscale serve status
 ```
 
@@ -50,8 +49,9 @@ The background is light with **50% opacity** by default. **Background opacity** 
 
 ## Behavior and limits
 
-- One recording, one ASR request, optional one cleanup request. The Polish switch's value at Stop is used. Changing it while recording is supported.
-- Mono 16 kHz, signed 16-bit PCM, wrapped in WAV. Capture continues independently of the network because networking starts after Stop.
+- One recording, serial background ASR requests, optional one cleanup request for the assembled transcript. The Polish switch's value at Stop is used. Changing it while recording is supported. Endpoint settings are captured at session preparation.
+- Mono 16 kHz, signed 16-bit PCM, wrapped in WAV. Capture continues independently of networking. At most one ASR request is active per session, with approximately 750 ms pacing between responses and the next speculative request; Stop interrupts pacing. Background requests have a four-second timeout. Audio remains in memory for failed-request recovery and exact sample-range checks.
+- LocalAgreement-2 compares consecutive hypotheses of the same window and displays a revisable stable prefix. Silero VAD, running on one phone CPU thread, uses 32 ms frames and about 320 ms of non-speech to offer boundaries. A blank early section is deferred for more context. Audio windows are bounded to eight seconds and normally overlap by three seconds when no pause is found; matching phrases reconcile their text. One bounded retry can increase overlap. Unresolvable matches report an error instead of silently losing speech or sending the full recording. No provisional text is inserted; cleanup still receives the complete assembled transcript.
 - Five-minute recording cap bounds memory use; reaching the cap automatically finishes capture and processes it. Short recordings are flushed at Stop.
 - Original and polished transcripts remain in process memory for review/copy. **Use original** selects the original for copying; it does not rewrite a field that may have subsequently changed.
 - Cleanup failure retains the original for review/copy. Network failures show errors and allow a new recording. Audio is not retained for retry after failure in this version.
@@ -60,9 +60,9 @@ The background is light with **50% opacity** by default. **Background opacity** 
 - On Android 13+, accessibility also connects to the active editor through `InputMethod.AccessibilityInputConnection`. This coexists with Gboard without replacing the keyboard. A bounded surrounding-text snapshot supplies the actual selection even when the accessibility node reports `-1, -1` or an unflagged placeholder. The original node, window, editor identity, text and selection must still match before one `commitText` call. Selection changes invalidate the destination even if the cursor returns. The result is read back; an uncertain acknowledgement never triggers a second commit. Blocking editor reads run on Dispatchers.IO at dictation start and insertion/verification, not while scrolling.
 - Older Android versions and editors without a usable input connection use `ACTION_SET_TEXT` where supported. The replacement preserves surrounding text and restores the cursor where possible. Unknown positions in a nonempty accessibility node are never guessed. Web editors and app versions differ; there is no guarantee for every app/field. Nothing is sent/submitted automatically.
 - Password fields are excluded. The accessibility service has broad Android screen access, but reads focused-editor metadata/text locally; screen contents are not sent to the PC.
-- Audio and transcripts are not written to files or logs. Audio is held temporarily in RAM; transcripts disappear on a new recording, cancellation, service removal, or process exit. Copy explicitly uses the system clipboard, whose behavior depends on Android/keyboard settings.
+- Actual recorded audio and transcripts are not written to files or logs. Audio is held temporarily in RAM; transcripts disappear on a new recording, cancellation, service removal, or process exit. **Show transcription details**, enabled before a session, keeps the last 24 request ranges and text previews in app memory for inspection. Copy explicitly uses the system clipboard, whose behavior depends on Android/keyboard settings. Optional debug replay fixtures use an explicitly supplied synthetic WAV and write metadata-only test reports.
 - The microphone foreground service is armed from the resumed Dictation screen to meet Android's while-in-use permission rules. Overlay taps send a recording command to that existing service. No recording-start activity is launched, so hosts such as ColorOS Notes are not paused and do not dismiss their keyboard. The previous transparent 1 by 1 pixel startup activity was removed: transparency/nonfocusability did not prevent a host activity from being paused. This change preserves the original focus/selection guards rather than restoring focus to a possibly changed editor. Android reference: https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start .
-- Timing labels distinguish audio preparation, complete ASR/cleanup requests, insertion attempt, and Stop-to-result. They are not network-only or server-only measurements, and do not claim to measure the target app's rendering latency.
+- Timing labels distinguish audio preparation, remaining ASR after Stop (or the complete batch ASR request), cleanup, insertion attempt, and Stop-to-result. Background request ranges/durations are available separately in transcription details. These are not network-only or server-only measurements, and do not claim to measure the target app's rendering latency.
 
 ## Build and verification
 
@@ -109,3 +109,21 @@ The shell-protected debug mode `--ez startup_check true` arms readiness while th
 On-demand `adb shell dumpsys activity service com.companion.ainotifications/.dictation.DictationAccessibilityService` diagnostics report package/field/window identifiers, lengths, selection positions and insertion state, without text or audio contents. No continuous logging is added. Android API reference: https://developer.android.com/reference/android/accessibilityservice/InputMethod.AccessibilityInputConnection .
 
 Manual acceptance: test a short sentence; several minutes of speech; deliberate repetition; Polish on/off and changing it before Stop; cancel during recording/ASR/cleanup; switch apps/fields/cursor during processing; edit existing text; replace selected text; unavailable PC/Tailscale; unsupported web editors; deny/revoke microphone permission; dismiss/re-enable the overlay. Verify that no text is ever submitted as a message automatically.
+
+## Notes and request reliability follow-up (2026-11-02)
+
+The connected ColorOS Notes editor showed a false insertion warning even though the text had landed. Metadata recorded five extra characters and a caret five positions later than expected. Confirmation now accepts paragraph/whitespace normalization only when the entire surrounding text from offset zero and the logical caret still match the expected result. It does not accept a substring match, missing words, changed text, or a submitted-but-unverified commit. Confirmation can read a fresh input connection after an editor restart, while checking that the original field is still focused. Accessibility-only insertion also waits for asynchronous editor updates. Text is still committed only once; confirmation never performs a second insertion.
+
+Mobile cleanup sends both `reasoning_effort: "none"` and `chat_template_kwargs: {"enable_thinking": false}`. Transient model/network failures receive at most three attempts with cancellable backoff. Authentication/configuration errors and truncated model output are not retried. These retries apply only to model inference, which has no editor side effects.
+
+The PC server log also exposed HTTP 500s from strict punctuation restoration after forced alignment. Mobile transcription does not consume timestamps, so chat requests now skip forced alignment by default. Clients can opt in with `return_time_stamps: true`; unusable optional timestamp metadata leaves the complete transcript available. The PC's timestamp-based streaming-window endpoint retains strict alignment validation.
+
+Verification on the connected phone:
+
+- A marked two-paragraph synthetic insertion into an empty **ColorOS Notes** body returned confirmed success. The sample remains in that test note; no existing note contents were replaced.
+- Both configured PC model routes and a synthetic non-thinking cleanup request passed from the phone.
+- A 7.01-second synthetic audio replay through the phone's actual VAD/ASR route passed: **8 requests, 0 failures, 2 detected pauses**, both clauses retained, full sample coverage, longest request **4.032 seconds**, and **606 ms** from Stop to the assembled transcript. This is one smoke measurement, not a latency benchmark.
+- All **25 on-phone editor/overlay checks** passed, including selected-text replacement, preserving drafts, hidden cursor support, cancellation, and rejecting field/cursor/text changes.
+- **60 JVM tests passed**, one optional live integration test was skipped, and **60 Python tests passed**. Debug/optimized builds and Android lint passed.
+
+The optimized APK was installed in place with `adb install -r`, preserving app data and settings. No microphone recording or message submission was used in this follow-up. Test reports are under `app/build/mobile-sanity/` on the PC. The debug-only `DictationInsertionCheckReceiver`, protected by the shell/system `DUMP` permission, can check a blank Notes editor with marked synthetic text or test the saved network endpoints with `--ez network_only true`; it is absent from the optimized build.

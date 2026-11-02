@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+Qwen3-ASR/
+dictation-recovery/
+test-data/dictation-reliability/

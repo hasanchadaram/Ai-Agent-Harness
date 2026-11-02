@@ -155,6 +155,11 @@ class DictationAccessibilityService : AccessibilityService() {
     override fun dump(fd: FileDescriptor, writer: PrintWriter, args: Array<out String>?) {
         writer.println("Private dictation metadata (no text/audio contents)")
         writer.println("phase=${controller.state.value.phase}")
+        controller.state.value.streaming?.let {
+            writer.println("asr: requests=${it.requests} responses=${it.completed} failures=${it.failures} " +
+                "committedParts=${it.sections} windowStartMs=${it.windowStartSample / 16} " +
+                "maxRequestMs=${it.maxRequestSamples / 16} rolls=${it.rolls} pauses=${it.detectedPauses} detector=${it.detector}")
+        }
         writer.println("overlay: attached=${overlay?.isAttached} editor=$lastEditorAvailable keyboardTop=$keyboardTop side=${controller.settings.overlaySide} ${overlay?.placementMetadata()}")
         val current = focusedEditor()
         try { writer.println("current: ${metadata(current)}") } finally { current?.recycle() }
@@ -162,10 +167,12 @@ class DictationAccessibilityService : AccessibilityService() {
         if (Build.VERSION.SDK_INT >= 33) writer.println("input: ${inputBridge?.metadata()}")
     }
 
-    private fun begin() {
+    private fun begin() { beginSession(controller.settings.backgroundAsr) }
+
+    private fun beginSession(backgroundAsr: Boolean) {
         if (controller.state.value.busy) return
         val captured = captureInsertionTarget() as? EditorTarget
-        val id = controller.prepare(captured)
+        val id = controller.prepare(captured, backgroundAsr)
         scope.launch {
             try {
                 captured?.prepareInput()
@@ -179,7 +186,7 @@ class DictationAccessibilityService : AccessibilityService() {
     }
 
     /** Invoked only by the shell-protected debug fixture; release builds have no caller. */
-    internal fun beginStartupCheck() { begin() }
+    internal fun beginStartupCheck() { beginSession(backgroundAsr = false) }
 
     internal fun captureInsertionTarget(): DictationController.InsertionTarget? {
         // Keep a node identity, complete text, and selection only for this session, in memory.
@@ -191,6 +198,21 @@ class DictationAccessibilityService : AccessibilityService() {
         val captured = captureInsertionTarget() as? EditorTarget
         captured?.prepareInput()
         return captured
+    }
+
+    /** Caller exists only in the shell-protected debug receiver. Reports metadata only. */
+    internal suspend fun checkSyntheticInsertion(expectedPackage: String, text: String): String {
+        check(!controller.state.value.busy)
+        val current = focusedEditor() ?: error("Focus the empty Notes body first")
+        try { check(current.packageName?.toString() == expectedPackage) { "Expected the Notes editor" } }
+        finally { current.recycle() }
+        val captured = captureInsertionTarget() as EditorTarget? ?: error("No editor")
+        try {
+            captured.prepareInput()
+            check(captured.hasEmptyInput()) { "Only a blank Notes body can receive synthetic text" }
+            val outcome = captured.insert(text)
+            return "${if (outcome.inserted) "SUCCESS" else "FAIL"} ${outcome.message}; $insertionDiagnostic"
+        } finally { captured.release() }
     }
 
     private fun updateOverlay() {
@@ -270,6 +292,7 @@ class DictationAccessibilityService : AccessibilityService() {
         private var invalid = false
         private var released = false
         fun invalidate() { invalid = true }
+        fun hasEmptyInput() = actualInput?.text?.all { it.isWhitespace() || it == '\u200B' } == true
         fun selectionChanged(changedPackage: String?, start: Int, end: Int) {
             val snapshot = actualInput ?: return
             if (changedPackage == editorPackage && start >= 0 && end >= 0 &&
@@ -320,9 +343,19 @@ class DictationAccessibilityService : AccessibilityService() {
                     putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, replacement)
                 })
                 if (!success) return DictationController.InsertionOutcome(false, "The editor declined insertion. Transcript retained; use Copy.")
-                current.refresh()
                 // Avoid a second write on failure: an app may accept the action asynchronously.
-                if (editorText(current) != replacement) {
+                var confirmed = false
+                repeat(12) {
+                    if (!confirmed) {
+                        delay(100)
+                        val after = focusedEditor()
+                        try {
+                            confirmed = !released && after != null && node == after && after.windowId == window &&
+                                after.refresh() && editorText(after) == replacement
+                        } finally { after?.recycle() }
+                    }
+                }
+                if (!confirmed) {
                     return DictationController.InsertionOutcome(false, "Insertion could not be confirmed. Check the field before using Copy.")
                 }
                 current.performAction(AccessibilityNodeInfo.ACTION_SET_SELECTION, Bundle().apply {
@@ -348,17 +381,56 @@ class DictationAccessibilityService : AccessibilityService() {
                 // Commit only once. A delayed/uncertain acknowledgement must never cause a duplicate paste.
                 bridge.commit(handle, text)
                 insertionDiagnostic = "InputConnection commit submitted; package=$editorPackage"
-                repeat(4) {
-                    delay(50)
-                    if (released || !bridge.isCurrent(handle)) return unconfirmedInsertion()
-                    val after = bridge.read(handle) ?: return unconfirmedInsertion()
-                    if (bridge.isCurrent(handle) && after == expected) {
+                repeat(12) { attempt ->
+                    delay(100)
+                    if (released) return unconfirmedInsertion()
+                    // A rich editor may restart its input connection after the
+                    // commit. A fresh handle is safe for read-only confirmation
+                    // only while the original accessibility field is focused.
+                    if (!sameFocusedEditor()) return@repeat
+                    val verificationHandle = bridge.handle(editorPackage)?.takeIf { it.fieldId == inputFieldId }
+                    val after = try { verificationHandle?.let { bridge.read(it) } }
+                        catch (error: CancellationException) { throw error }
+                        catch (_: Exception) { null }
+                    if (verificationHandle != null && bridge.isCurrent(verificationHandle) && sameFocusedEditor() && after?.confirmsInsertion(
+                            expected, minOf(originalInput.absoluteStart, originalInput.absoluteEnd), text.length) == true) {
                         insertionDiagnostic = "InputConnection insertion verified; package=$editorPackage"
                         return DictationController.InsertionOutcome(true, "Inserted. Transcript is also available in Dictation.")
                     }
+                    if (accessibilityConfirmsInsertion(originalInput, expected)) {
+                        insertionDiagnostic = "Accessibility insertion verified after InputConnection commit; package=$editorPackage"
+                        return DictationController.InsertionOutcome(true, "Inserted. Transcript is also available in Dictation.")
+                    }
+                    insertionDiagnostic = "InputConnection verification pending; package=$editorPackage attempt=${attempt + 1} " +
+                        "connectionCurrent=${bridge.isCurrent(handle)} " +
+                        "expectedLength=${expected.text.length} expectedOffset=${expected.offset} " +
+                        "expectedSelection=${expected.absoluteStart},${expected.absoluteEnd} " +
+                        "observedLength=${after?.text?.length} observedOffset=${after?.offset} " +
+                        "observedSelection=${after?.absoluteStart},${after?.absoluteEnd} " +
+                        "expectedWhitespace=${expected.text.count { it.isWhitespace() }} " +
+                        "observedWhitespace=${after?.text?.count { it.isWhitespace() }}"
                 }
                 return unconfirmedInsertion()
             } finally { writing = false }
+        }
+
+        private fun sameFocusedEditor(): Boolean {
+            val current = focusedEditor() ?: return false
+            return try {
+                !released && node == current && current.windowId == window && current.isFocused &&
+                    current.isEditable && !sensitive(current)
+            } finally { current.recycle() }
+        }
+
+        /** A complete, matching pre-commit node makes an exact post-commit node check safe. */
+        private fun accessibilityConfirmsInsertion(before: EditorInputSnapshot, expected: EditorInputSnapshot): Boolean {
+            if (released || before.offset != 0 || original != before.text ||
+                selectionStart != before.absoluteStart || selectionEnd != before.absoluteEnd) return false
+            val current = focusedEditor() ?: return false
+            return try {
+                node == current && current.windowId == window && current.isFocused && current.isEditable &&
+                    !sensitive(current) && current.refresh() && editorText(current) == expected.text
+            } finally { current.recycle() }
         }
 
         private fun changedDestination() = DictationController.InsertionOutcome(false,

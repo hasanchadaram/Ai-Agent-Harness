@@ -1,0 +1,13 @@
+# Install into the CUDA-enabled Qwen3-ASR environment; keep its existing torch.
+qwen-asr==0.0.6
+fastapi>=0.115
+uvicorn>=0.30
+python-multipart>=0.0.20
+numpy>=1.26
+scipy>=1.13
+soundfile>=0.13
+sounddevice>=0.5
+requests>=2.32
+onnxruntime>=1.24,<2
+# Used by the deterministic API regression tests.
+httpx>=0.28

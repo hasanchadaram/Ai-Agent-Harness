@@ -1,0 +1,6623 @@
+[
+  {
+    "id": "v4-mixed-0028",
+    "split": "train",
+    "family": "filler-vs-quoted",
+    "tags": [
+      "fillers",
+      "voice",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:28",
+    "provenance": "AI-authored synthetic",
+    "row_index": 0,
+    "input_sha256": "e70fef62c20d45a7da36bb8163a0428e9fbc24da31be2a2ce3c93d4ec8e27849"
+  },
+  {
+    "id": "v4-extended-0032",
+    "split": "train",
+    "family": "sustained-incident",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "numbers",
+      "quotes",
+      "meaning",
+      "paragraphs"
+    ],
+    "source": "cases_extended.txt:32",
+    "provenance": "AI-authored synthetic",
+    "row_index": 1,
+    "input_sha256": "c86445f29a5bd89c42eb89b8f4d39d26bb2c006bd4465f01add7cd7403056b2d"
+  },
+  {
+    "id": "v4-train-0079",
+    "split": "train",
+    "family": "negation-preserve",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_train.txt:79",
+    "provenance": "AI-authored synthetic",
+    "row_index": 2,
+    "input_sha256": "faeb27a05ba1c1ddb9295db3b8b7f27dc496de05687e462cbe56172d7b9d54a2"
+  },
+  {
+    "id": "v4-train-0054",
+    "split": "train",
+    "family": "correction-date",
+    "tags": [
+      "correction",
+      "numbers"
+    ],
+    "source": "cases_train.txt:54",
+    "provenance": "AI-authored synthetic",
+    "row_index": 3,
+    "input_sha256": "8dc9cf077cd01b3b2a54ba0c2843dfa76fe99041f6dc6b046a149a43e8452289"
+  },
+  {
+    "id": "v4-train-0204",
+    "split": "train",
+    "family": "mixed-deploy",
+    "tags": [
+      "mixed",
+      "numbered",
+      "technical",
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_train.txt:204",
+    "provenance": "AI-authored synthetic",
+    "row_index": 4,
+    "input_sha256": "3eeae76520a08f026af1e180c80d5ade31e0172fce72dd48374f93fca491e747"
+  },
+  {
+    "id": "v4-train-0175",
+    "split": "train",
+    "family": "counted-setup",
+    "tags": [
+      "numbered"
+    ],
+    "source": "cases_train.txt:175",
+    "provenance": "AI-authored synthetic",
+    "row_index": 5,
+    "input_sha256": "8c4bb609de7cd634cecdf7fff3b372b5fb71d73d4bbaccb8234508bb825b4daa"
+  },
+  {
+    "id": "v4-train-0176",
+    "split": "train",
+    "family": "counted-setup",
+    "tags": [
+      "numbered"
+    ],
+    "source": "cases_train.txt:176",
+    "provenance": "AI-authored synthetic",
+    "row_index": 6,
+    "input_sha256": "7d5290821bf7214c6d890f2832b00f2a096221512c44adf580d0ed15aa9ad147"
+  },
+  {
+    "id": "v4-mixed-0053",
+    "split": "train",
+    "family": "punctuation-semantics",
+    "tags": [
+      "punctuation",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:53",
+    "provenance": "AI-authored synthetic",
+    "row_index": 7,
+    "input_sha256": "23abc0568f96a96e78038feec7f8e25ad4fed81d93e8e752a79992879c6a1bfd"
+  },
+  {
+    "id": "v4-mixed-0095",
+    "split": "train",
+    "family": "clean-list-format",
+    "tags": [
+      "identity",
+      "numbered"
+    ],
+    "source": "cases_mixed.txt:95",
+    "provenance": "AI-authored synthetic",
+    "row_index": 8,
+    "input_sha256": "8c65a225c644731931536da7be70ca58c246a0c380613da3f71535f99762c430"
+  },
+  {
+    "id": "v4-train-0058",
+    "split": "train",
+    "family": "correction-scope",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_train.txt:58",
+    "provenance": "AI-authored synthetic",
+    "row_index": 9,
+    "input_sha256": "41014a9a65fab40c00304000e28b5a0a571b889e9b3cfec391e56abe33bd1970"
+  },
+  {
+    "id": "v4-mixed-0067",
+    "split": "train",
+    "family": "date-context",
+    "tags": [
+      "numbers",
+      "correction",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:67",
+    "provenance": "AI-authored synthetic",
+    "row_index": 10,
+    "input_sha256": "8349fc747b481ed0c882e6e00e40bcdc074cfdb267c117d860ba5dec48dcfeb7"
+  },
+  {
+    "id": "v4-train-0068",
+    "split": "train",
+    "family": "english-functions",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:68",
+    "provenance": "AI-authored synthetic",
+    "row_index": 11,
+    "input_sha256": "9e876d1f354b80fe2b50d80660dcd49c7a0015b59eb2c1b309fe36b563e7d89a"
+  },
+  {
+    "id": "v4-train-0165",
+    "split": "train",
+    "family": "hyphen-names",
+    "tags": [
+      "technical",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:165",
+    "provenance": "AI-authored synthetic",
+    "row_index": 12,
+    "input_sha256": "9441ab5003e146580994b174c39db7ee4a021e8a2cae17506aa18e0431a93ac8"
+  },
+  {
+    "id": "v4-train-0171",
+    "split": "train",
+    "family": "topics-list",
+    "tags": [
+      "bullets"
+    ],
+    "source": "cases_train.txt:171",
+    "provenance": "AI-authored synthetic",
+    "row_index": 13,
+    "input_sha256": "493ac0efd7aa7af09aa0db42b220fde0191034c2fa7bd0c5c493ec24e50acfce"
+  },
+  {
+    "id": "v4-train-0125",
+    "split": "train",
+    "family": "date-format",
+    "tags": [
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_train.txt:125",
+    "provenance": "AI-authored synthetic",
+    "row_index": 14,
+    "input_sha256": "df3db63d876ca6ed4c0bfc1690f44db6615724085e7f17c0e4c3ae50aef33de2"
+  },
+  {
+    "id": "v4-train-0026",
+    "split": "train",
+    "family": "logical-so",
+    "tags": [
+      "literal",
+      "prose"
+    ],
+    "source": "cases_train.txt:26",
+    "provenance": "AI-authored synthetic",
+    "row_index": 15,
+    "input_sha256": "105d12994136e948671aec3c2c6d7f81616a5ac1c3d65cd4f3d17f95ea7bc944"
+  },
+  {
+    "id": "v4-train-0052",
+    "split": "train",
+    "family": "restart-sentence",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_train.txt:52",
+    "provenance": "AI-authored synthetic",
+    "row_index": 16,
+    "input_sha256": "8d82b5e6dba24ffd651a20c06a97273cf2dd7024d0eae95bd838f22e55441e2d"
+  },
+  {
+    "id": "v4-mixed-0031",
+    "split": "train",
+    "family": "filler-not-empty",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_mixed.txt:31",
+    "provenance": "AI-authored synthetic",
+    "row_index": 17,
+    "input_sha256": "f3196aad7830567c111b9868b7baa5383c3e5fd01345ae06a480b15a96a1d597"
+  },
+  {
+    "id": "v4-train-0089",
+    "split": "train",
+    "family": "technical-case",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:89",
+    "provenance": "AI-authored synthetic",
+    "row_index": 18,
+    "input_sha256": "896843ae7cfb6eb9ad2402ea9daa1f55f8f618671a2e66ac828a50142089a849"
+  },
+  {
+    "id": "v4-extended-0035",
+    "split": "train",
+    "family": "sustained-customer-questions",
+    "tags": [
+      "long",
+      "mixed",
+      "no_answer",
+      "bullets",
+      "quotes",
+      "meaning",
+      "numbers"
+    ],
+    "source": "cases_extended.txt:35",
+    "provenance": "AI-authored synthetic",
+    "row_index": 19,
+    "input_sha256": "30e084f692a0d05e543e1d13c58cdedf75f65bcfe940421f6028217b3dd0b914"
+  },
+  {
+    "id": "v4-train-0096",
+    "split": "train",
+    "family": "url-path",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:96",
+    "provenance": "AI-authored synthetic",
+    "row_index": 20,
+    "input_sha256": "7dd94a020f62ab130da927e26fb6d472e08980168cb71890aa8627e5f376b8ff"
+  },
+  {
+    "id": "v4-train-0174",
+    "split": "train",
+    "family": "parallel-items",
+    "tags": [
+      "bullets"
+    ],
+    "source": "cases_train.txt:174",
+    "provenance": "AI-authored synthetic",
+    "row_index": 21,
+    "input_sha256": "8a69507cc21048bfc553047762053ec254cf95ff46064086d894ff61a9c2e22c"
+  },
+  {
+    "id": "v4-train-0082",
+    "split": "train",
+    "family": "facts-preserve",
+    "tags": [
+      "facts",
+      "numbers"
+    ],
+    "source": "cases_train.txt:82",
+    "provenance": "AI-authored synthetic",
+    "row_index": 22,
+    "input_sha256": "0b0416698caae184ea465a2b640740822ac44d21db5af36446849d4802691864"
+  },
+  {
+    "id": "v4-train-0034",
+    "split": "train",
+    "family": "basically-retain",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:34",
+    "provenance": "AI-authored synthetic",
+    "row_index": 23,
+    "input_sha256": "a6be5f848b79d6ecff38b8c45c826e5966872868fe77026ef6a3e9fb863da1bc"
+  },
+  {
+    "id": "v4-train-0085",
+    "split": "train",
+    "family": "obvious-asr",
+    "tags": [
+      "asr_error"
+    ],
+    "source": "cases_train.txt:85",
+    "provenance": "AI-authored synthetic",
+    "row_index": 24,
+    "input_sha256": "5652039b33108c1c2d37fdfe781d9e22a85dca231e68b83e1009e303799aea15"
+  },
+  {
+    "id": "v4-mixed-0021",
+    "split": "train",
+    "family": "partial-correction",
+    "tags": [
+      "correction",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:21",
+    "provenance": "AI-authored synthetic",
+    "row_index": 25,
+    "input_sha256": "a2966337f9605aad1f51a715020de189b4b3415f8bbcad169cab473329699d3e"
+  },
+  {
+    "id": "v4-train-0113",
+    "split": "train",
+    "family": "percent-decimal",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:113",
+    "provenance": "AI-authored synthetic",
+    "row_index": 26,
+    "input_sha256": "6a1fde71f5e882e2879baad4b2fd369a63b60645b77cc7cd28481c8badf97410"
+  },
+  {
+    "id": "v4-train-0201",
+    "split": "train",
+    "family": "style-identity",
+    "tags": [
+      "identity"
+    ],
+    "source": "cases_train.txt:201",
+    "provenance": "AI-authored synthetic",
+    "row_index": 27,
+    "input_sha256": "ed7c3fb4a22f7c71496956fb830d638f0b4a7f972cf8ac06fcb9c3eaec1cc8ef"
+  },
+  {
+    "id": "v4-train-0030",
+    "split": "train",
+    "family": "like-boundary",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_train.txt:30",
+    "provenance": "AI-authored synthetic",
+    "row_index": 28,
+    "input_sha256": "b5c1320c7495ce6f8ad6a32fd0294ae1d24bd8b4cc7bf55389f3e1cb3f9bf334"
+  },
+  {
+    "id": "v4-train-0178",
+    "split": "train",
+    "family": "story-sequence",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_train.txt:178",
+    "provenance": "AI-authored synthetic",
+    "row_index": 29,
+    "input_sha256": "9c3f6a3a96af00407f9e9be79042f12d4728eea96e71396769859c1bd8034c3b"
+  },
+  {
+    "id": "v4-mixed-0010",
+    "split": "train",
+    "family": "quote-middle",
+    "tags": [
+      "quotes",
+      "brackets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:10",
+    "provenance": "AI-authored synthetic",
+    "row_index": 30,
+    "input_sha256": "e254c4a783c214f390ce7cf76cc9f5bb4414d5ff0864d427d4b4c5c1595663fc"
+  },
+  {
+    "id": "v4-mixed-0011",
+    "split": "train",
+    "family": "quote-middle",
+    "tags": [
+      "quotes",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:11",
+    "provenance": "AI-authored synthetic",
+    "row_index": 31,
+    "input_sha256": "1b7a546f3b65c826ac54e5215c6506f42843de0fc0ce2fac623e2d0c1d29d86d"
+  },
+  {
+    "id": "v4-train-0065",
+    "split": "train",
+    "family": "english-agreement",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:65",
+    "provenance": "AI-authored synthetic",
+    "row_index": 32,
+    "input_sha256": "e0c46ba291512add27d68e7ed9706c48c23f1d4c0ce2c620055a04ce3a3fbd83"
+  },
+  {
+    "id": "v4-mixed-0070",
+    "split": "train",
+    "family": "time-no-inference",
+    "tags": [
+      "numbers",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:70",
+    "provenance": "AI-authored synthetic",
+    "row_index": 33,
+    "input_sha256": "de325a219b7c90e684abd430fbe9e39056ed116e8097964e7e4faa90eaa7ebcc"
+  },
+  {
+    "id": "v4-train-0173",
+    "split": "train",
+    "family": "parallel-items",
+    "tags": [
+      "numbered"
+    ],
+    "source": "cases_train.txt:173",
+    "provenance": "AI-authored synthetic",
+    "row_index": 34,
+    "input_sha256": "ebf1a63caafde1e408bc76152dc08a85da4605bcd173dbd14a9b70b00a56ef36"
+  },
+  {
+    "id": "v4-train-0025",
+    "split": "train",
+    "family": "filler-openers",
+    "tags": [
+      "fillers",
+      "voice"
+    ],
+    "source": "cases_train.txt:25",
+    "provenance": "AI-authored synthetic",
+    "row_index": 35,
+    "input_sha256": "9052a1bb6e728974045b6c8b0106ae857b6786a14156a618b3e0546053f09f27"
+  },
+  {
+    "id": "v4-extended-0007",
+    "split": "train",
+    "family": "medium-actual-voice",
+    "tags": [
+      "mixed",
+      "voice",
+      "prose"
+    ],
+    "source": "cases_extended.txt:7",
+    "provenance": "AI-authored synthetic",
+    "row_index": 36,
+    "input_sha256": "6567d5495e646d2dc39ed540c52310bc6b7642da16c15952a7cd41f522e0d126"
+  },
+  {
+    "id": "v4-train-0161",
+    "split": "train",
+    "family": "bracket-literal",
+    "tags": [
+      "brackets",
+      "literal"
+    ],
+    "source": "cases_train.txt:161",
+    "provenance": "AI-authored synthetic",
+    "row_index": 37,
+    "input_sha256": "64c52f32a423c690334db88840bab88b453aabfdeed609df8a0f739be79dd292"
+  },
+  {
+    "id": "v4-extended-0004",
+    "split": "train",
+    "family": "medium-reset",
+    "tags": [
+      "mixed",
+      "numbered",
+      "technical",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:4",
+    "provenance": "AI-authored synthetic",
+    "row_index": 38,
+    "input_sha256": "3b9ecc92fb3428c4b5b12e71b0b9b950ac6e15e90359035d37d820ce696c2add"
+  },
+  {
+    "id": "v4-extended-0009",
+    "split": "train",
+    "family": "medium-flat-repair",
+    "tags": [
+      "mixed",
+      "correction",
+      "brackets",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:9",
+    "provenance": "AI-authored synthetic",
+    "row_index": 39,
+    "input_sha256": "198215ae87ace735f0a2a28b77a074b4911fb9995000cf6c36ec79807da832bc"
+  },
+  {
+    "id": "v4-train-0083",
+    "split": "train",
+    "family": "facts-preserve",
+    "tags": [
+      "facts"
+    ],
+    "source": "cases_train.txt:83",
+    "provenance": "AI-authored synthetic",
+    "row_index": 40,
+    "input_sha256": "980b41a0b8986d44aaf478924e9881340e736ed4be2aafaae083483027595d71"
+  },
+  {
+    "id": "v4-mixed-0022",
+    "split": "train",
+    "family": "multiple-corrections",
+    "tags": [
+      "correction",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:22",
+    "provenance": "AI-authored synthetic",
+    "row_index": 41,
+    "input_sha256": "b5db5ed4ca9c71338e1aca234849dcdac1d138b1aa09c230ff64938c572c2e88"
+  },
+  {
+    "id": "v4-train-0116",
+    "split": "train",
+    "family": "negative",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:116",
+    "provenance": "AI-authored synthetic",
+    "row_index": 42,
+    "input_sha256": "bf87b8c714a57d4fbf67af1635a46446f802d98d0c5633cfeae75476b8c653ba"
+  },
+  {
+    "id": "v4-train-0006",
+    "split": "train",
+    "family": "question-weather",
+    "tags": [
+      "identity",
+      "no_answer"
+    ],
+    "source": "cases_train.txt:6",
+    "provenance": "AI-authored synthetic",
+    "row_index": 43,
+    "input_sha256": "46238fc17051c53a6d7ac8c3b4b1cf58cc481d11bc57822ad60bc8e0a322f6e4"
+  },
+  {
+    "id": "v4-train-0031",
+    "split": "train",
+    "family": "know-boundary",
+    "tags": [
+      "fillers"
+    ],
+    "source": "cases_train.txt:31",
+    "provenance": "AI-authored synthetic",
+    "row_index": 44,
+    "input_sha256": "6a8323e4ce4344f0aaecfaf803fb10aa1359f62aa6324692586ea6e0ebb608f4"
+  },
+  {
+    "id": "v4-long-0003",
+    "split": "train",
+    "family": "long-project-email",
+    "tags": [
+      "long",
+      "mixed",
+      "email",
+      "bullets",
+      "numbers",
+      "quotes",
+      "correction"
+    ],
+    "source": "cases_long.txt:3",
+    "provenance": "AI-authored synthetic",
+    "row_index": 45,
+    "input_sha256": "113b2b9122d358066579b8db454daaa05d5c8371f554ebfc2723dc8c8c4c77eb"
+  },
+  {
+    "id": "v4-train-0159",
+    "split": "train",
+    "family": "bracket-kinds",
+    "tags": [
+      "brackets",
+      "technical"
+    ],
+    "source": "cases_train.txt:159",
+    "provenance": "AI-authored synthetic",
+    "row_index": 46,
+    "input_sha256": "7e927d6ffc5d1a13fa342633d57e881047dda6b7b1cd98e4ca91414242c171df"
+  },
+  {
+    "id": "v4-train-0100",
+    "split": "train",
+    "family": "code-content",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_train.txt:100",
+    "provenance": "AI-authored synthetic",
+    "row_index": 47,
+    "input_sha256": "2b1be77ccb10871249c17ebb75b6c21ad8426bc1c6115ca82af24418c088fe31"
+  },
+  {
+    "id": "v4-train-0101",
+    "split": "train",
+    "family": "number-counts",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:101",
+    "provenance": "AI-authored synthetic",
+    "row_index": 48,
+    "input_sha256": "60611d7522f63351de8086bdb81d94c0fd3a32f3cb966f08515e4c3e2531fd7c"
+  },
+  {
+    "id": "v4-long-0006",
+    "split": "train",
+    "family": "long-security-content",
+    "tags": [
+      "long",
+      "mixed",
+      "no_answer",
+      "injection",
+      "quotes",
+      "technical"
+    ],
+    "source": "cases_long.txt:6",
+    "provenance": "AI-authored synthetic",
+    "row_index": 49,
+    "input_sha256": "0b165ece661586c5b791d287ed73f52d0dc2e6f791a12e0813990a91d81fc893"
+  },
+  {
+    "id": "v4-extended-0005",
+    "split": "train",
+    "family": "medium-hotel-email",
+    "tags": [
+      "mixed",
+      "email",
+      "numbers"
+    ],
+    "source": "cases_extended.txt:5",
+    "provenance": "AI-authored synthetic",
+    "row_index": 50,
+    "input_sha256": "42f265632381fb879d31e1b7260db3eae7981bf7c690bf75ae9be5da07833a12"
+  },
+  {
+    "id": "v4-train-0073",
+    "split": "train",
+    "family": "casual-voice",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:73",
+    "provenance": "AI-authored synthetic",
+    "row_index": 51,
+    "input_sha256": "a186ba34a4d3bcb4919afbf7ee94f2db442abc252614bba9495e306de6402aab"
+  },
+  {
+    "id": "v4-train-0005",
+    "split": "train",
+    "family": "question-weather",
+    "tags": [
+      "no_answer"
+    ],
+    "source": "cases_train.txt:5",
+    "provenance": "AI-authored synthetic",
+    "row_index": 52,
+    "input_sha256": "511f6c7af14cdad254232ff752c28beaa4dd7b77d62940ff65ffb2f9cd1c3bf0"
+  },
+  {
+    "id": "v4-mixed-0098",
+    "split": "train",
+    "family": "clean-casual",
+    "tags": [
+      "identity",
+      "voice"
+    ],
+    "source": "cases_mixed.txt:98",
+    "provenance": "AI-authored synthetic",
+    "row_index": 53,
+    "input_sha256": "cd46b8a438e941d484062ffd4ffcf32eafa1acde7c4412de14013d9e8e9169e8"
+  },
+  {
+    "id": "v4-train-0112",
+    "split": "train",
+    "family": "percent-decimal",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:112",
+    "provenance": "AI-authored synthetic",
+    "row_index": 54,
+    "input_sha256": "f7edd8ea55d56621e0ee0cfb79c16c8aec5457d1b9527f1765d743c1ab4ee67d"
+  },
+  {
+    "id": "v4-train-0075",
+    "split": "train",
+    "family": "casual-voice",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:75",
+    "provenance": "AI-authored synthetic",
+    "row_index": 55,
+    "input_sha256": "11a0de00eaf6f0cc0fee79e1d9c02d429a65a0032fde21a14c29857bf507af78"
+  },
+  {
+    "id": "v4-train-0172",
+    "split": "train",
+    "family": "topics-list",
+    "tags": [
+      "bullets"
+    ],
+    "source": "cases_train.txt:172",
+    "provenance": "AI-authored synthetic",
+    "row_index": 56,
+    "input_sha256": "12cc3ed634b1297f593f83661f3bc890829298f293470735a55f3132cbdf3614"
+  },
+  {
+    "id": "v4-train-0104",
+    "split": "train",
+    "family": "number-counts",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:104",
+    "provenance": "AI-authored synthetic",
+    "row_index": 57,
+    "input_sha256": "184a29225b1134cb6ec8c4d39691ee019332bf9ef624ded61c5615328d37be8e"
+  },
+  {
+    "id": "v4-train-0062",
+    "split": "train",
+    "family": "literal-correction",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_train.txt:62",
+    "provenance": "AI-authored synthetic",
+    "row_index": 58,
+    "input_sha256": "0c4a57ee91a1a2d566ed76f72e416cc0d0466a7b499f82db06c576f1ac076bd5"
+  },
+  {
+    "id": "v4-train-0208",
+    "split": "train",
+    "family": "mixed-title",
+    "tags": [
+      "mixed",
+      "fragments",
+      "brackets",
+      "correction"
+    ],
+    "source": "cases_train.txt:208",
+    "provenance": "AI-authored synthetic",
+    "row_index": 59,
+    "input_sha256": "674cb18d4667bfea8972bc2344896ad1b9d5d31577a960aa904cac28b2b22412"
+  },
+  {
+    "id": "v4-mixed-0036",
+    "split": "train",
+    "family": "parallel-actions",
+    "tags": [
+      "bullets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:36",
+    "provenance": "AI-authored synthetic",
+    "row_index": 60,
+    "input_sha256": "af120c46514ffe8eb45ec902ffd2bab0c335d66b8053b4a72927424bc138ae27"
+  },
+  {
+    "id": "v4-mixed-0071",
+    "split": "train",
+    "family": "time-no-inference",
+    "tags": [
+      "numbers",
+      "literal",
+      "quotes",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:71",
+    "provenance": "AI-authored synthetic",
+    "row_index": 61,
+    "input_sha256": "250fc215e56c0ed1db604af1d42ba7084e001990df9addffdb4abe9a70599d36"
+  },
+  {
+    "id": "v4-train-0160",
+    "split": "train",
+    "family": "bracket-kinds",
+    "tags": [
+      "brackets",
+      "quotes"
+    ],
+    "source": "cases_train.txt:160",
+    "provenance": "AI-authored synthetic",
+    "row_index": 62,
+    "input_sha256": "09df316f938a26cc36b06f4a136f4b0f57f0b8dc27898f36f72359042ce173f7"
+  },
+  {
+    "id": "v4-train-0183",
+    "split": "train",
+    "family": "after-list",
+    "tags": [
+      "bullets",
+      "mixed"
+    ],
+    "source": "cases_train.txt:183",
+    "provenance": "AI-authored synthetic",
+    "row_index": 63,
+    "input_sha256": "3887daf698ad8bcadbc089477d05001562fc23bc1e665618dd387317b0988829"
+  },
+  {
+    "id": "v4-mixed-0087",
+    "split": "train",
+    "family": "negative-technical",
+    "tags": [
+      "meaning",
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:87",
+    "provenance": "AI-authored synthetic",
+    "row_index": 64,
+    "input_sha256": "8f49caeac46e9e4a3bb7710d8b44f16faab2d4358cfcfe8d349bd896dd23350b"
+  },
+  {
+    "id": "v4-train-0111",
+    "split": "train",
+    "family": "money-symbol",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:111",
+    "provenance": "AI-authored synthetic",
+    "row_index": 65,
+    "input_sha256": "fb44628790b26aa86298ddfcd5e8cf5df3219e940155309482d6c37d6dcdaf75"
+  },
+  {
+    "id": "v4-mixed-0066",
+    "split": "train",
+    "family": "uncertain-money",
+    "tags": [
+      "numbers",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:66",
+    "provenance": "AI-authored synthetic",
+    "row_index": 66,
+    "input_sha256": "1942d884c97baf0989180568af6617e1013a1849ba136738934897320ad7f4e8"
+  },
+  {
+    "id": "v4-train-0190",
+    "split": "train",
+    "family": "sentence-endings",
+    "tags": [
+      "punctuation",
+      "no_answer"
+    ],
+    "source": "cases_train.txt:190",
+    "provenance": "AI-authored synthetic",
+    "row_index": 67,
+    "input_sha256": "d447edb43e44b10a9a8e9fbb245ab9fed9087fade992f6d82ce46e44c4c531a9"
+  },
+  {
+    "id": "v4-train-0114",
+    "split": "train",
+    "family": "percent-decimal",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:114",
+    "provenance": "AI-authored synthetic",
+    "row_index": 68,
+    "input_sha256": "be24743d0a780938a89a989dd8ab5c8b846d9f082469a5b2b36e1283042e9c3f"
+  },
+  {
+    "id": "v4-mixed-0085",
+    "split": "train",
+    "family": "false-facts-mixed",
+    "tags": [
+      "facts",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:85",
+    "provenance": "AI-authored synthetic",
+    "row_index": 69,
+    "input_sha256": "738fa11e6b08222d8fc1922282781712a6d5f8c2c3baaa2a337abcbc11acb624"
+  },
+  {
+    "id": "v4-train-0059",
+    "split": "train",
+    "family": "correction-scope",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_train.txt:59",
+    "provenance": "AI-authored synthetic",
+    "row_index": 70,
+    "input_sha256": "b08e8a8a90a8af210947091c8e4e07f156355d6cd309d51d33aaaeaf5821a578"
+  },
+  {
+    "id": "v4-mixed-0038",
+    "split": "train",
+    "family": "count-not-index",
+    "tags": [
+      "bullets",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:38",
+    "provenance": "AI-authored synthetic",
+    "row_index": 71,
+    "input_sha256": "09e36c319cd41c5788cc874d431526efcd82aef118d3ff371152a4af7107ff3c"
+  },
+  {
+    "id": "v4-mixed-0061",
+    "split": "train",
+    "family": "units-not-counts",
+    "tags": [
+      "numbers",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:61",
+    "provenance": "AI-authored synthetic",
+    "row_index": 72,
+    "input_sha256": "ecb1cc6e1a5ccb36e6222297c9cc0075f22e15e63ead9fa2a45858db0252c1c4"
+  },
+  {
+    "id": "v4-train-0021",
+    "split": "train",
+    "family": "filler-audio",
+    "tags": [
+      "empty",
+      "fillers"
+    ],
+    "source": "cases_train.txt:21",
+    "provenance": "AI-authored synthetic",
+    "row_index": 73,
+    "input_sha256": "79a932375d68382129e4fd0e16cb037c162063720399a5a3a8908a2e80bf25b8"
+  },
+  {
+    "id": "v4-mixed-0005",
+    "split": "train",
+    "family": "quoted-imperative",
+    "tags": [
+      "quotes",
+      "no_answer",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:5",
+    "provenance": "AI-authored synthetic",
+    "row_index": 74,
+    "input_sha256": "114cecd0a74b0dea4eb96cacc4e8d7f6be353ed6a5907fc9fccf2edcc07d3e54"
+  },
+  {
+    "id": "v4-mixed-0062",
+    "split": "train",
+    "family": "money-decimal",
+    "tags": [
+      "numbers",
+      "correction",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:62",
+    "provenance": "AI-authored synthetic",
+    "row_index": 75,
+    "input_sha256": "13bad522f6a90256e86ef1a3160b3bcfdb5f40021ac04d16c6236afcde48d8ae"
+  },
+  {
+    "id": "v4-long-0007",
+    "split": "train",
+    "family": "long-purchase-plan",
+    "tags": [
+      "long",
+      "mixed",
+      "bullets",
+      "numbers",
+      "correction",
+      "meaning"
+    ],
+    "source": "cases_long.txt:7",
+    "provenance": "AI-authored synthetic",
+    "row_index": 76,
+    "input_sha256": "a1e523d2f7e5465602621eb961e61a61e1be879d440f066f29c9bd5b44717e25"
+  },
+  {
+    "id": "v4-train-0018",
+    "split": "train",
+    "family": "explanation-request",
+    "tags": [
+      "no_answer"
+    ],
+    "source": "cases_train.txt:18",
+    "provenance": "AI-authored synthetic",
+    "row_index": 77,
+    "input_sha256": "e3bcda83846c9a6514df27fe255724926e8e8cf507d649a8d6ca580413a86053"
+  },
+  {
+    "id": "v4-mixed-0027",
+    "split": "train",
+    "family": "filler-vs-quoted",
+    "tags": [
+      "fillers",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:27",
+    "provenance": "AI-authored synthetic",
+    "row_index": 78,
+    "input_sha256": "1a443019a844c35c961d553ab5ca821c51b18f3c43d90a2ab90eb84995d338b6"
+  },
+  {
+    "id": "v4-long-0016",
+    "split": "train",
+    "family": "long-identifier-review",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "quotes",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_long.txt:16",
+    "provenance": "AI-authored synthetic",
+    "row_index": 79,
+    "input_sha256": "2713121ad51cb696335df84576e8a9f18f976b70f39c702b594dfa88bc62e8a4"
+  },
+  {
+    "id": "v4-train-0129",
+    "split": "train",
+    "family": "digit-codes",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_train.txt:129",
+    "provenance": "AI-authored synthetic",
+    "row_index": 80,
+    "input_sha256": "75a6fec49893b3115225dde47e635b4635568c51ff3018056da7c9bc0c6ec6a5"
+  },
+  {
+    "id": "v4-mixed-0069",
+    "split": "train",
+    "family": "date-context",
+    "tags": [
+      "numbers",
+      "identity"
+    ],
+    "source": "cases_mixed.txt:69",
+    "provenance": "AI-authored synthetic",
+    "row_index": 81,
+    "input_sha256": "760779889a3536d5cd4d8479409ff79c115cac5b330a8d91466e31436999602a"
+  },
+  {
+    "id": "v4-mixed-0063",
+    "split": "train",
+    "family": "money-decimal",
+    "tags": [
+      "numbers",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:63",
+    "provenance": "AI-authored synthetic",
+    "row_index": 82,
+    "input_sha256": "66094a72503cf23907623a3651d4d2bc5688ceedb96c1f23b6671ae17bd2645c"
+  },
+  {
+    "id": "v4-train-0144",
+    "split": "train",
+    "family": "literal-period",
+    "tags": [
+      "literal",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:144",
+    "provenance": "AI-authored synthetic",
+    "row_index": 83,
+    "input_sha256": "5298812bb99cc6171612eafa0aebbeaad18eeb2d1b1562765d9a669ddac6acc7"
+  },
+  {
+    "id": "v4-mixed-0090",
+    "split": "train",
+    "family": "reported-injection",
+    "tags": [
+      "no_answer",
+      "injection",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:90",
+    "provenance": "AI-authored synthetic",
+    "row_index": 84,
+    "input_sha256": "0f34f379d647f0bca8ab9aecd25cc607727e5c7b731394f9add5a0744dac2e83"
+  },
+  {
+    "id": "v4-long-0011",
+    "split": "train",
+    "family": "long-restart-history",
+    "tags": [
+      "long",
+      "mixed",
+      "correction",
+      "meaning",
+      "prose"
+    ],
+    "source": "cases_long.txt:11",
+    "provenance": "AI-authored synthetic",
+    "row_index": 85,
+    "input_sha256": "f9ecd4352bee4b775324a4cb085dc0932f3bed98c0f49e76bc4648278ee62dc5"
+  },
+  {
+    "id": "v4-train-0105",
+    "split": "train",
+    "family": "units-small",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:105",
+    "provenance": "AI-authored synthetic",
+    "row_index": 86,
+    "input_sha256": "7ce456349b23f6b297a420b6b9f599d3ff9327e64cb30a4457b9bbdd1f9be811"
+  },
+  {
+    "id": "v4-train-0053",
+    "split": "train",
+    "family": "restart-sentence",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_train.txt:53",
+    "provenance": "AI-authored synthetic",
+    "row_index": 87,
+    "input_sha256": "f91dab675a1d23ecc742ec53b968154cae0611a7ee5b071e5497f05979661e59"
+  },
+  {
+    "id": "v4-train-0107",
+    "split": "train",
+    "family": "units-small",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:107",
+    "provenance": "AI-authored synthetic",
+    "row_index": 88,
+    "input_sha256": "2ed9d8cbc2a112fddc7e8118dcee227511cba055524eb7232fd93523965c9f51"
+  },
+  {
+    "id": "v4-train-0016",
+    "split": "train",
+    "family": "tool-request",
+    "tags": [
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_train.txt:16",
+    "provenance": "AI-authored synthetic",
+    "row_index": 89,
+    "input_sha256": "ef3cf8ee670bafa27fef67fce8bd049d3ac0f6fe0c6c515ed95fa0fc350aa06c"
+  },
+  {
+    "id": "v4-extended-0002",
+    "split": "train",
+    "family": "medium-booking",
+    "tags": [
+      "mixed",
+      "correction",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:2",
+    "provenance": "AI-authored synthetic",
+    "row_index": 90,
+    "input_sha256": "58a14b89b43aab42e41e2897cbb371d682f64380f3e86047168362c9dd62e28c"
+  },
+  {
+    "id": "v4-extended-0019",
+    "split": "train",
+    "family": "medium-grammatical",
+    "tags": [
+      "mixed",
+      "grammar",
+      "numbers"
+    ],
+    "source": "cases_extended.txt:19",
+    "provenance": "AI-authored synthetic",
+    "row_index": 91,
+    "input_sha256": "146442c03708102da66434c1897d3b6c7367a75cc2ed10469a2a6a6850010b27"
+  },
+  {
+    "id": "v4-train-0162",
+    "split": "train",
+    "family": "bracket-literal",
+    "tags": [
+      "brackets",
+      "literal"
+    ],
+    "source": "cases_train.txt:162",
+    "provenance": "AI-authored synthetic",
+    "row_index": 92,
+    "input_sha256": "858061be6aa0a22668145951831142bef4a0102b6ed6f18457e062c9d344160d"
+  },
+  {
+    "id": "v4-mixed-0040",
+    "split": "train",
+    "family": "list-quoted-items",
+    "tags": [
+      "bullets",
+      "quotes",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:40",
+    "provenance": "AI-authored synthetic",
+    "row_index": 93,
+    "input_sha256": "46ad4663effdf0edea9ecd37c6aacf8503199804e22e7802bf3fcd75938f4a0f"
+  },
+  {
+    "id": "v4-mixed-0078",
+    "split": "train",
+    "family": "paths-and-literal",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_mixed.txt:78",
+    "provenance": "AI-authored synthetic",
+    "row_index": 94,
+    "input_sha256": "afca718a7832641d42ecf8f87b451935b95bfa1c10741e220977cef37da4ae71"
+  },
+  {
+    "id": "v4-train-0077",
+    "split": "train",
+    "family": "certainty-preserve",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_train.txt:77",
+    "provenance": "AI-authored synthetic",
+    "row_index": 95,
+    "input_sha256": "8ba201f446ceb58bf3a14779530d55151fd3ae7490745117c48a9f4673cc296b"
+  },
+  {
+    "id": "v4-train-0202",
+    "split": "train",
+    "family": "mixed-purchase",
+    "tags": [
+      "mixed",
+      "bullets",
+      "numbers",
+      "correction",
+      "brackets"
+    ],
+    "source": "cases_train.txt:202",
+    "provenance": "AI-authored synthetic",
+    "row_index": 96,
+    "input_sha256": "985bc01905ed7b3827d77a98a3c87b1dc02e94921389a7b2817238c83938d399"
+  },
+  {
+    "id": "v4-train-0080",
+    "split": "train",
+    "family": "negation-preserve",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_train.txt:80",
+    "provenance": "AI-authored synthetic",
+    "row_index": 97,
+    "input_sha256": "4140913cd5821d7706d20c45c28926e9608b188023df3f34bd69996b351e1a34"
+  },
+  {
+    "id": "v4-mixed-0073",
+    "split": "train",
+    "family": "precision-vs-version",
+    "tags": [
+      "numbers",
+      "technical",
+      "identity"
+    ],
+    "source": "cases_mixed.txt:73",
+    "provenance": "AI-authored synthetic",
+    "row_index": 98,
+    "input_sha256": "442360af255b4544cf69e17420c55bd6755a89d8d4232e61982addb4c3359f84"
+  },
+  {
+    "id": "v4-mixed-0042",
+    "split": "train",
+    "family": "list-bracket-items",
+    "tags": [
+      "bullets",
+      "brackets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:42",
+    "provenance": "AI-authored synthetic",
+    "row_index": 99,
+    "input_sha256": "7f3f430545df13b675a0e5ef98faed6095f93882955c905da255dc9eaaa14d8e"
+  },
+  {
+    "id": "v4-mixed-0026",
+    "split": "train",
+    "family": "filler-vs-quoted",
+    "tags": [
+      "fillers",
+      "quotes",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:26",
+    "provenance": "AI-authored synthetic",
+    "row_index": 100,
+    "input_sha256": "2470e1efed23f0483826d252a6960665cff63f89a9e10ef26156fb66bd844c8c"
+  },
+  {
+    "id": "v4-mixed-0056",
+    "split": "train",
+    "family": "semicolon-scope",
+    "tags": [
+      "punctuation",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:56",
+    "provenance": "AI-authored synthetic",
+    "row_index": 101,
+    "input_sha256": "032931853f7916f25ea844adc0013ae20ff792e9c4d3808c9e11fd300e486bdf"
+  },
+  {
+    "id": "v4-extended-0017",
+    "split": "train",
+    "family": "medium-clean-list",
+    "tags": [
+      "identity",
+      "bullets"
+    ],
+    "source": "cases_extended.txt:17",
+    "provenance": "AI-authored synthetic",
+    "row_index": 102,
+    "input_sha256": "918c709bffe91e24b5b8c0e82777a2c59bb36b15497404de1e1a4e1d269bf182"
+  },
+  {
+    "id": "v4-train-0011",
+    "split": "train",
+    "family": "rule-override",
+    "tags": [
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_train.txt:11",
+    "provenance": "AI-authored synthetic",
+    "row_index": 103,
+    "input_sha256": "e10ea514265891a8ec3a377414604e502ac1bac41442ac51434960ed63d5bb00"
+  },
+  {
+    "id": "v4-train-0122",
+    "split": "train",
+    "family": "date-format",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:122",
+    "provenance": "AI-authored synthetic",
+    "row_index": 104,
+    "input_sha256": "61a498a454af95066808fdc4fb96abede38dedee9b1ef60f8ed04131b2b0ebc1"
+  },
+  {
+    "id": "v4-train-0045",
+    "split": "train",
+    "family": "stutter-launch",
+    "tags": [
+      "repetition",
+      "grammar"
+    ],
+    "source": "cases_train.txt:45",
+    "provenance": "AI-authored synthetic",
+    "row_index": 105,
+    "input_sha256": "99408fe44289dd41317bd82842989f2b435e515aea65062eff0355d8a3258be2"
+  },
+  {
+    "id": "v4-train-0093",
+    "split": "train",
+    "family": "identifiers",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_train.txt:93",
+    "provenance": "AI-authored synthetic",
+    "row_index": 106,
+    "input_sha256": "567416de4ca294c545cb3511c827a42a26a7be7463e91d8e332f6e6501216faa"
+  },
+  {
+    "id": "v4-extended-0036",
+    "split": "train",
+    "family": "sustained-logistics",
+    "tags": [
+      "long",
+      "mixed",
+      "correction",
+      "numbers",
+      "brackets",
+      "meaning",
+      "paragraphs"
+    ],
+    "source": "cases_extended.txt:36",
+    "provenance": "AI-authored synthetic",
+    "row_index": 107,
+    "input_sha256": "1bf6958849a33131328d0613a447ebb037fcfa7a9cea4591f051feb3856e95e0"
+  },
+  {
+    "id": "v4-train-0081",
+    "split": "train",
+    "family": "negation-preserve",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_train.txt:81",
+    "provenance": "AI-authored synthetic",
+    "row_index": 108,
+    "input_sha256": "0385876d9613b434b9fde0ecd8e78c6b45940fae9b8e9734873e3f388fd49485"
+  },
+  {
+    "id": "v4-long-0013",
+    "split": "train",
+    "family": "long-english-grammar",
+    "tags": [
+      "long",
+      "mixed",
+      "grammar",
+      "meaning",
+      "numbers"
+    ],
+    "source": "cases_long.txt:13",
+    "provenance": "AI-authored synthetic",
+    "row_index": 109,
+    "input_sha256": "bcc957648fd65b39bd8f510e551605523a87d5595d5eee29eba355ef49780291"
+  },
+  {
+    "id": "v4-train-0146",
+    "split": "train",
+    "family": "line-commands",
+    "tags": [
+      "new_line",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:146",
+    "provenance": "AI-authored synthetic",
+    "row_index": 110,
+    "input_sha256": "af14c9905dc333dfef22eb692e990999a12f8a3fc036c0b0d43245880c6740f5"
+  },
+  {
+    "id": "v4-mixed-0016",
+    "split": "train",
+    "family": "nested-notation",
+    "tags": [
+      "quotes",
+      "brackets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:16",
+    "provenance": "AI-authored synthetic",
+    "row_index": 111,
+    "input_sha256": "ac28a37d99ad522a7608f7a981fb087183e6baaad77030f1efe4e9f8cf9643df"
+  },
+  {
+    "id": "v4-train-0064",
+    "split": "train",
+    "family": "english-agreement",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:64",
+    "provenance": "AI-authored synthetic",
+    "row_index": 112,
+    "input_sha256": "308c86a604602e9a23abc5456bf5e4ef53c09d269be08493580ad23b906c15c4"
+  },
+  {
+    "id": "v4-train-0135",
+    "split": "train",
+    "family": "idiom-numbers",
+    "tags": [
+      "literal",
+      "numbers"
+    ],
+    "source": "cases_train.txt:135",
+    "provenance": "AI-authored synthetic",
+    "row_index": 113,
+    "input_sha256": "371099da30ad821c1019762403332ab40aaf4c895209c11cd7fc2771496c0102"
+  },
+  {
+    "id": "v4-train-0203",
+    "split": "train",
+    "family": "mixed-purchase",
+    "tags": [
+      "mixed",
+      "prose",
+      "numbers"
+    ],
+    "source": "cases_train.txt:203",
+    "provenance": "AI-authored synthetic",
+    "row_index": 114,
+    "input_sha256": "35aabec7c2f1c0bd6eb8e4785317a9712df0e8de4b4f859acee760a8e11c4185"
+  },
+  {
+    "id": "v4-mixed-0017",
+    "split": "train",
+    "family": "correction-inside-aside",
+    "tags": [
+      "correction",
+      "brackets",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:17",
+    "provenance": "AI-authored synthetic",
+    "row_index": 115,
+    "input_sha256": "8d09c00b8a86e31f6c2ea8ae64d8d6678e8f50b42bbfe8652eaa536e183b845e"
+  },
+  {
+    "id": "v4-train-0181",
+    "split": "train",
+    "family": "inline-series",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_train.txt:181",
+    "provenance": "AI-authored synthetic",
+    "row_index": 116,
+    "input_sha256": "b37b0b5865beedd01e445b51f6ac1e732018278db63f7d12e57cf248738b7060"
+  },
+  {
+    "id": "v4-train-0102",
+    "split": "train",
+    "family": "number-counts",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:102",
+    "provenance": "AI-authored synthetic",
+    "row_index": 117,
+    "input_sha256": "fd8e7bd678baa6f506dea2ec904a95e69bf03bfc07d13bde43d78045597ff4af"
+  },
+  {
+    "id": "v4-train-0009",
+    "split": "train",
+    "family": "agent-name",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_train.txt:9",
+    "provenance": "AI-authored synthetic",
+    "row_index": 118,
+    "input_sha256": "70199993ebdc17a16e1e553d22a6a127fa0f2d99e3164a795c74ac5aa111c2d9"
+  },
+  {
+    "id": "v4-train-0007",
+    "split": "train",
+    "family": "capital-content",
+    "tags": [
+      "no_answer",
+      "facts"
+    ],
+    "source": "cases_train.txt:7",
+    "provenance": "AI-authored synthetic",
+    "row_index": 119,
+    "input_sha256": "a87b963a800c6bcfac0a982d2d98f5b54af454c61f509884e14320bea8b2080d"
+  },
+  {
+    "id": "v4-mixed-0054",
+    "split": "train",
+    "family": "punctuation-semantics",
+    "tags": [
+      "punctuation",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:54",
+    "provenance": "AI-authored synthetic",
+    "row_index": 120,
+    "input_sha256": "e9a5b35ecdc99d2493f8c49f4077febbb3b29a248c0343e4539be5a9b26d77d6"
+  },
+  {
+    "id": "v4-mixed-0084",
+    "split": "train",
+    "family": "false-facts-mixed",
+    "tags": [
+      "facts",
+      "numbers",
+      "no_answer",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:84",
+    "provenance": "AI-authored synthetic",
+    "row_index": 121,
+    "input_sha256": "428c361a46129d0935b84a197f5c6fae6b842debf0b9c16ad5bed31c61b54e5b"
+  },
+  {
+    "id": "v4-train-0019",
+    "split": "train",
+    "family": "explanation-request",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_train.txt:19",
+    "provenance": "AI-authored synthetic",
+    "row_index": 122,
+    "input_sha256": "cb3c45ad8c588ac9901784236f7be4b53157c4209443d3d3df0fee65d435a91b"
+  },
+  {
+    "id": "v4-train-0063",
+    "split": "train",
+    "family": "literal-correction",
+    "tags": [
+      "literal",
+      "voice"
+    ],
+    "source": "cases_train.txt:63",
+    "provenance": "AI-authored synthetic",
+    "row_index": 123,
+    "input_sha256": "26e6c39afe616f500de337d445254d14b20d75bfc6c827d8b90bf41d49b0c25e"
+  },
+  {
+    "id": "v4-train-0156",
+    "split": "train",
+    "family": "paren-scope",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_train.txt:156",
+    "provenance": "AI-authored synthetic",
+    "row_index": 124,
+    "input_sha256": "7117be46aa583cc5590cbd6914bd4bae33d6f049ae3197194492a4aff1631a1f"
+  },
+  {
+    "id": "v4-mixed-0018",
+    "split": "train",
+    "family": "correction-inside-aside",
+    "tags": [
+      "correction",
+      "brackets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:18",
+    "provenance": "AI-authored synthetic",
+    "row_index": 125,
+    "input_sha256": "54f8682425cf74504b099df65a1e60872aacd21966d8b4cf14d17371b0eac55c"
+  },
+  {
+    "id": "v4-train-0194",
+    "split": "train",
+    "family": "email-basic",
+    "tags": [
+      "email"
+    ],
+    "source": "cases_train.txt:194",
+    "provenance": "AI-authored synthetic",
+    "row_index": 126,
+    "input_sha256": "8104cbefb3c63f78036deb06dfd66734eab2b7a45adf98a475630371c9a30023"
+  },
+  {
+    "id": "v4-train-0148",
+    "split": "train",
+    "family": "line-literal",
+    "tags": [
+      "literal",
+      "new_line"
+    ],
+    "source": "cases_train.txt:148",
+    "provenance": "AI-authored synthetic",
+    "row_index": 127,
+    "input_sha256": "b148b8b332e10d563319830866a33af91b6b9f2fda9b733542ca32924dad8073"
+  },
+  {
+    "id": "v4-train-0099",
+    "split": "train",
+    "family": "code-content",
+    "tags": [
+      "technical",
+      "no_answer"
+    ],
+    "source": "cases_train.txt:99",
+    "provenance": "AI-authored synthetic",
+    "row_index": 128,
+    "input_sha256": "f206b399928ce42c583e7320e8aebe06cf5f41a3be6158839382a5150da66c08"
+  },
+  {
+    "id": "v4-train-0056",
+    "split": "train",
+    "family": "correction-amount",
+    "tags": [
+      "correction",
+      "numbers"
+    ],
+    "source": "cases_train.txt:56",
+    "provenance": "AI-authored synthetic",
+    "row_index": 129,
+    "input_sha256": "4518729616f39f11e1168aee6cdeb3b372b259bb665b4e27cba8af41289bb3d8"
+  },
+  {
+    "id": "v4-train-0132",
+    "split": "train",
+    "family": "idiom-numbers",
+    "tags": [
+      "literal",
+      "numbers"
+    ],
+    "source": "cases_train.txt:132",
+    "provenance": "AI-authored synthetic",
+    "row_index": 130,
+    "input_sha256": "45a7c0c5c36eee913fd5daeac23aec83c82e00ce356964c11902d53b8be9b70e"
+  },
+  {
+    "id": "v4-mixed-0077",
+    "split": "train",
+    "family": "identifiers-casing",
+    "tags": [
+      "technical",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:77",
+    "provenance": "AI-authored synthetic",
+    "row_index": 131,
+    "input_sha256": "4d2d459cb9545a142bd59955777a8114775e05ed7d4161be4144efb0e6917d92"
+  },
+  {
+    "id": "v4-train-0041",
+    "split": "train",
+    "family": "quoted-fillers",
+    "tags": [
+      "literal",
+      "quotes"
+    ],
+    "source": "cases_train.txt:41",
+    "provenance": "AI-authored synthetic",
+    "row_index": 132,
+    "input_sha256": "ba379a673d1da7534c10d109ad33a38513bf406b62742e1020ab8933c85fd579"
+  },
+  {
+    "id": "v4-train-0197",
+    "split": "train",
+    "family": "emoji-identity",
+    "tags": [
+      "identity",
+      "voice"
+    ],
+    "source": "cases_train.txt:197",
+    "provenance": "AI-authored synthetic",
+    "row_index": 133,
+    "input_sha256": "7e4352c516f4fcc7107b00eefc79f25d1763135ea8be90111efdda1763b1dbf8"
+  },
+  {
+    "id": "v4-train-0180",
+    "split": "train",
+    "family": "inline-series",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_train.txt:180",
+    "provenance": "AI-authored synthetic",
+    "row_index": 134,
+    "input_sha256": "b401178d02b484b3243ad2a0984b3a29e54d6ef8b48341b4577448f8dbcfaaaa"
+  },
+  {
+    "id": "v4-mixed-0002",
+    "split": "train",
+    "family": "translation-request",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:2",
+    "provenance": "AI-authored synthetic",
+    "row_index": 135,
+    "input_sha256": "c4460816886b08a5696bf390b824a3c5afe25f160918adeb89f891a03441a3d5"
+  },
+  {
+    "id": "v4-train-0036",
+    "split": "train",
+    "family": "actually-boundary",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:36",
+    "provenance": "AI-authored synthetic",
+    "row_index": 136,
+    "input_sha256": "4e9db1215dcd8e50d799a529bafa96c5808452d4143d2a6f78fcf506334b10f8"
+  },
+  {
+    "id": "v4-mixed-0004",
+    "split": "train",
+    "family": "translation-request",
+    "tags": [
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_mixed.txt:4",
+    "provenance": "AI-authored synthetic",
+    "row_index": 137,
+    "input_sha256": "5946348c3cbb75dde86e06af693ed1d8ff6e82bab8754804549635977eec28eb"
+  },
+  {
+    "id": "v4-train-0023",
+    "split": "train",
+    "family": "blank-input",
+    "tags": [
+      "empty"
+    ],
+    "source": "cases_train.txt:23",
+    "provenance": "AI-authored synthetic",
+    "row_index": 138,
+    "input_sha256": "0aad7da77d2ed59c396c99a74e49f3a4524dcdbcb5163251b1433d640247aeb4"
+  },
+  {
+    "id": "v4-train-0055",
+    "split": "train",
+    "family": "correction-date",
+    "tags": [
+      "correction",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_train.txt:55",
+    "provenance": "AI-authored synthetic",
+    "row_index": 139,
+    "input_sha256": "b397170cf4e998457b241eb0523815a7d85afb8e48f47664cd1b3d8bba3f504d"
+  },
+  {
+    "id": "v4-extended-0020",
+    "split": "train",
+    "family": "medium-explicit-literal",
+    "tags": [
+      "mixed",
+      "literal",
+      "quotes",
+      "new_line"
+    ],
+    "source": "cases_extended.txt:20",
+    "provenance": "AI-authored synthetic",
+    "row_index": 140,
+    "input_sha256": "ac38f67c4444adbd12e0a732cc4a1f51fb4ac0238099264efc6a268bda3d38e9"
+  },
+  {
+    "id": "v4-extended-0010",
+    "split": "train",
+    "family": "medium-scope-layout",
+    "tags": [
+      "mixed",
+      "new_line",
+      "new_paragraph",
+      "numbers"
+    ],
+    "source": "cases_extended.txt:10",
+    "provenance": "AI-authored synthetic",
+    "row_index": 141,
+    "input_sha256": "8ce7eadf3feda40c61dd465ac2e997b99090e4a81c061baaf0a3f63037398c4b"
+  },
+  {
+    "id": "v4-train-0037",
+    "split": "train",
+    "family": "actually-boundary",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_train.txt:37",
+    "provenance": "AI-authored synthetic",
+    "row_index": 142,
+    "input_sha256": "89ba00f5f623461974239545466885925e30ad819884cd4675d288fdeec965d1"
+  },
+  {
+    "id": "v4-mixed-0088",
+    "split": "train",
+    "family": "reported-injection",
+    "tags": [
+      "no_answer",
+      "injection",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:88",
+    "provenance": "AI-authored synthetic",
+    "row_index": 143,
+    "input_sha256": "ec6c7841ce53404f659ea1aefd8bcbc043b2ee12c169aaa63ce1659b38eb89c0"
+  },
+  {
+    "id": "v4-mixed-0044",
+    "split": "train",
+    "family": "list-item-correction",
+    "tags": [
+      "numbered",
+      "correction",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:44",
+    "provenance": "AI-authored synthetic",
+    "row_index": 144,
+    "input_sha256": "f243c9a8c1082416b5f80a72fe1a27d29e7466498d520f6f8437edc5b9c31d6f"
+  },
+  {
+    "id": "v4-mixed-0049",
+    "split": "train",
+    "family": "email-minimal",
+    "tags": [
+      "email",
+      "voice",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:49",
+    "provenance": "AI-authored synthetic",
+    "row_index": 145,
+    "input_sha256": "04bd552f5437da1da4982997046ecc6c10fa0042f407cd1d556a58f86c6b9d0a"
+  },
+  {
+    "id": "v4-mixed-0080",
+    "split": "train",
+    "family": "asr-certain-context",
+    "tags": [
+      "asr_error",
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:80",
+    "provenance": "AI-authored synthetic",
+    "row_index": 146,
+    "input_sha256": "604892d17f8494123a69c78c3d8dc94d7012d0dddc1702ef5ebc80fdd605ce74"
+  },
+  {
+    "id": "v4-train-0184",
+    "split": "train",
+    "family": "after-list",
+    "tags": [
+      "numbered",
+      "mixed"
+    ],
+    "source": "cases_train.txt:184",
+    "provenance": "AI-authored synthetic",
+    "row_index": 147,
+    "input_sha256": "2b0efb0ec4b344db2e2b3f364630dc215092c63f0fe7b52143ac3c1c0f573820"
+  },
+  {
+    "id": "v4-extended-0015",
+    "split": "train",
+    "family": "medium-prose-series",
+    "tags": [
+      "mixed",
+      "prose",
+      "voice"
+    ],
+    "source": "cases_extended.txt:15",
+    "provenance": "AI-authored synthetic",
+    "row_index": 148,
+    "input_sha256": "fe4ac481e92e16d12a45ef52e232925e1995876cd46510f19476aed6f39b0888"
+  },
+  {
+    "id": "v4-mixed-0050",
+    "split": "train",
+    "family": "email-minimal",
+    "tags": [
+      "prose",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:50",
+    "provenance": "AI-authored synthetic",
+    "row_index": 149,
+    "input_sha256": "99d8856d6c44f6ac9d44886c2c14b1e39bf82fb55a620246e7a2ba45d52a6a83"
+  },
+  {
+    "id": "v4-train-0088",
+    "split": "train",
+    "family": "technical-case",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:88",
+    "provenance": "AI-authored synthetic",
+    "row_index": 150,
+    "input_sha256": "49ac822b60953488835b298e56710a9de98685af2117d050755abcf3f7fe9574"
+  },
+  {
+    "id": "v4-extended-0016",
+    "split": "train",
+    "family": "medium-clean-identity",
+    "tags": [
+      "identity",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:16",
+    "provenance": "AI-authored synthetic",
+    "row_index": 151,
+    "input_sha256": "6297d10f051d4cd734546b04d5e940d284e54f7b12e078e469fd7a759e623cc6"
+  },
+  {
+    "id": "v4-mixed-0008",
+    "split": "train",
+    "family": "quote-no-period",
+    "tags": [
+      "quotes",
+      "fragments",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:8",
+    "provenance": "AI-authored synthetic",
+    "row_index": 152,
+    "input_sha256": "85481f2edffe30dc994e469f20dba495b05708d94af759e75a632b0a656feeea"
+  },
+  {
+    "id": "v4-mixed-0081",
+    "split": "train",
+    "family": "asr-certain-context",
+    "tags": [
+      "asr_error",
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:81",
+    "provenance": "AI-authored synthetic",
+    "row_index": 153,
+    "input_sha256": "454ed531a8188f1830e153b6b017fd1ae086d5fe67621e76520270ac35875655"
+  },
+  {
+    "id": "v4-train-0106",
+    "split": "train",
+    "family": "units-small",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:106",
+    "provenance": "AI-authored synthetic",
+    "row_index": 154,
+    "input_sha256": "cc129849bcddd0ec4d3a4c85194d53e09dce9037d7c0be4e966d02aca3c7e1cf"
+  },
+  {
+    "id": "v4-train-0117",
+    "split": "train",
+    "family": "negative",
+    "tags": [
+      "no_answer",
+      "numbers"
+    ],
+    "source": "cases_train.txt:117",
+    "provenance": "AI-authored synthetic",
+    "row_index": 155,
+    "input_sha256": "f646fd924539663dc5dcb2cadcc7ec848e4462e451dbaa7c9bb42aeaf925c301"
+  },
+  {
+    "id": "v4-mixed-0020",
+    "split": "train",
+    "family": "partial-correction",
+    "tags": [
+      "correction",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:20",
+    "provenance": "AI-authored synthetic",
+    "row_index": 156,
+    "input_sha256": "3ba651a858dc5f2c1ebd9baefdffef984257d06264f2b974161d4ee483260377"
+  },
+  {
+    "id": "v4-mixed-0046",
+    "split": "train",
+    "family": "list-with-prose",
+    "tags": [
+      "numbered",
+      "paragraphs",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:46",
+    "provenance": "AI-authored synthetic",
+    "row_index": 157,
+    "input_sha256": "c8f96e3d35283427f6c06bad41ce638986e7e00e2ff4f2402615d2b28627cb36"
+  },
+  {
+    "id": "v4-long-0015",
+    "split": "train",
+    "family": "long-identity-email",
+    "tags": [
+      "long",
+      "identity",
+      "email",
+      "bullets"
+    ],
+    "source": "cases_long.txt:15",
+    "provenance": "AI-authored synthetic",
+    "row_index": 158,
+    "input_sha256": "2dfc6014a51eedd91ec0ac4f6ab21b5b2f556bda2e2da5b2849fa99eef31b558"
+  },
+  {
+    "id": "v4-mixed-0034",
+    "split": "train",
+    "family": "two-independent",
+    "tags": [
+      "bullets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:34",
+    "provenance": "AI-authored synthetic",
+    "row_index": 159,
+    "input_sha256": "8b1be369a2ac7ac60047da1a49229d9f6ad717fe95c7e94622ab7b8d45e4c417"
+  },
+  {
+    "id": "v4-long-0004",
+    "split": "train",
+    "family": "long-bug-report",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "numbered",
+      "meaning",
+      "numbers"
+    ],
+    "source": "cases_long.txt:4",
+    "provenance": "AI-authored synthetic",
+    "row_index": 160,
+    "input_sha256": "f3c6471ac88adaa7e46ec263535cf5ca8705cb9a9268f727705cf614851ec0b7"
+  },
+  {
+    "id": "v4-mixed-0039",
+    "split": "train",
+    "family": "count-not-index",
+    "tags": [
+      "numbered",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:39",
+    "provenance": "AI-authored synthetic",
+    "row_index": 161,
+    "input_sha256": "a019a0722566f524c5c1a0d8cebe67ef765bf6eeaf52d88479e49d24baffe144"
+  },
+  {
+    "id": "v4-train-0035",
+    "split": "train",
+    "family": "basically-retain",
+    "tags": [
+      "voice",
+      "fillers"
+    ],
+    "source": "cases_train.txt:35",
+    "provenance": "AI-authored synthetic",
+    "row_index": 162,
+    "input_sha256": "e945dbc177bd97d53b104376c2f533bd385c4a47324c69854cf97495c3334bd0"
+  },
+  {
+    "id": "v4-train-0027",
+    "split": "train",
+    "family": "logical-so",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_train.txt:27",
+    "provenance": "AI-authored synthetic",
+    "row_index": 163,
+    "input_sha256": "d808524c6e41a24a33577883b641e30573f76412cd573a75c58ac3306f199460"
+  },
+  {
+    "id": "v4-train-0108",
+    "split": "train",
+    "family": "money-symbol",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:108",
+    "provenance": "AI-authored synthetic",
+    "row_index": 164,
+    "input_sha256": "846573933574019b7caaa23f9146770f0ffb42a3af1b41e22c93c8df1d767cdd"
+  },
+  {
+    "id": "v4-train-0145",
+    "split": "train",
+    "family": "line-commands",
+    "tags": [
+      "new_line",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:145",
+    "provenance": "AI-authored synthetic",
+    "row_index": 165,
+    "input_sha256": "493e9e16500daf6c872fe2d7d1c2ac72481931484bbfc51349a0d8c3f61471d5"
+  },
+  {
+    "id": "v4-mixed-0094",
+    "split": "train",
+    "family": "clean-list-format",
+    "tags": [
+      "identity",
+      "bullets"
+    ],
+    "source": "cases_mixed.txt:94",
+    "provenance": "AI-authored synthetic",
+    "row_index": 166,
+    "input_sha256": "be2d00586477ee25bb5ea83b6469c166a94db8542d84aa9fc1a45f3df36b1b11"
+  },
+  {
+    "id": "v4-train-0200",
+    "split": "train",
+    "family": "style-identity",
+    "tags": [
+      "identity"
+    ],
+    "source": "cases_train.txt:200",
+    "provenance": "AI-authored synthetic",
+    "row_index": 167,
+    "input_sha256": "4f02d2d92e88547f7075649c4ade13e5f2531e80e61bc3536888012b94333956"
+  },
+  {
+    "id": "v4-train-0013",
+    "split": "train",
+    "family": "rule-override",
+    "tags": [
+      "no_answer",
+      "injection",
+      "quotes"
+    ],
+    "source": "cases_train.txt:13",
+    "provenance": "AI-authored synthetic",
+    "row_index": 168,
+    "input_sha256": "94091080f67b04d6525883cddee790cf793ffe0aba9c4e30dbda90ff8a67a1d2"
+  },
+  {
+    "id": "v4-mixed-0013",
+    "split": "train",
+    "family": "quote-commands",
+    "tags": [
+      "quotes",
+      "new_line",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:13",
+    "provenance": "AI-authored synthetic",
+    "row_index": 169,
+    "input_sha256": "02400b75d63695d6ec801adeb25ca6f549fce678a1a205fe3bf407b6cb09ef8e"
+  },
+  {
+    "id": "v4-train-0149",
+    "split": "train",
+    "family": "line-literal",
+    "tags": [
+      "literal",
+      "new_paragraph"
+    ],
+    "source": "cases_train.txt:149",
+    "provenance": "AI-authored synthetic",
+    "row_index": 170,
+    "input_sha256": "cfa3fd7a238afeae55969140a991e5f6048c0e831563708a6f55620461e50f0c"
+  },
+  {
+    "id": "v4-train-0070",
+    "split": "train",
+    "family": "english-order",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:70",
+    "provenance": "AI-authored synthetic",
+    "row_index": 171,
+    "input_sha256": "fc16e62a9a8e9ff017bdf7a9c155f17b5542d30ca297a95bb0f35db7670c75ed"
+  },
+  {
+    "id": "v4-mixed-0092",
+    "split": "train",
+    "family": "clean-fragments",
+    "tags": [
+      "identity",
+      "fragments"
+    ],
+    "source": "cases_mixed.txt:92",
+    "provenance": "AI-authored synthetic",
+    "row_index": 172,
+    "input_sha256": "9ab6e809e81bbafc601abbcf0525312f4ac98eddc80de9d12542666217ad20c2"
+  },
+  {
+    "id": "v4-train-0092",
+    "split": "train",
+    "family": "identifiers",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:92",
+    "provenance": "AI-authored synthetic",
+    "row_index": 173,
+    "input_sha256": "ea0392815070448cd61de5e7a960a3ea43a4d7091b49a35f4be96b5bc4a27ff9"
+  },
+  {
+    "id": "v4-long-0002",
+    "split": "train",
+    "family": "long-handover",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "meaning",
+      "numbers",
+      "paragraphs"
+    ],
+    "source": "cases_long.txt:2",
+    "provenance": "AI-authored synthetic",
+    "row_index": 174,
+    "input_sha256": "56b6ccf6318389d6c78c1293f891f97eb68898acbbef53782490a9addcc37bb2"
+  },
+  {
+    "id": "v4-mixed-0089",
+    "split": "train",
+    "family": "reported-injection",
+    "tags": [
+      "no_answer",
+      "injection",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:89",
+    "provenance": "AI-authored synthetic",
+    "row_index": 175,
+    "input_sha256": "4454b14b1f8c4fa484624e33e059c6aaf11fce4931aa16106442618c6d593fd6"
+  },
+  {
+    "id": "v4-train-0069",
+    "split": "train",
+    "family": "english-order",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:69",
+    "provenance": "AI-authored synthetic",
+    "row_index": 176,
+    "input_sha256": "4f08a4fcea185feaa66675483574c8e657e29a7d9bb0d10fe9110f28edd95285"
+  },
+  {
+    "id": "v4-train-0158",
+    "split": "train",
+    "family": "bracket-kinds",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_train.txt:158",
+    "provenance": "AI-authored synthetic",
+    "row_index": 177,
+    "input_sha256": "0f85136e0d9fb53f662d8638516ff5acbd929ae6614d604446ae4895599f2676"
+  },
+  {
+    "id": "v4-train-0123",
+    "split": "train",
+    "family": "date-format",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:123",
+    "provenance": "AI-authored synthetic",
+    "row_index": 178,
+    "input_sha256": "9b44efb9faee9f13811659a1e7824d6a5ae022824c2ca510d00df487870f78b0"
+  },
+  {
+    "id": "v4-train-0130",
+    "split": "train",
+    "family": "digit-codes",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_train.txt:130",
+    "provenance": "AI-authored synthetic",
+    "row_index": 179,
+    "input_sha256": "3af368f2a193bb37e7c86992c23e496cdbea806352fa9e79c0d1e0f68c34d289"
+  },
+  {
+    "id": "v4-train-0195",
+    "split": "train",
+    "family": "email-basic",
+    "tags": [
+      "email",
+      "no_answer"
+    ],
+    "source": "cases_train.txt:195",
+    "provenance": "AI-authored synthetic",
+    "row_index": 180,
+    "input_sha256": "9b8d8f63885c5e98913417c989f2da32476299a596b9f84ca78bc8d9a969b1a7"
+  },
+  {
+    "id": "v4-mixed-0030",
+    "split": "train",
+    "family": "filler-not-empty",
+    "tags": [
+      "fragments",
+      "fillers"
+    ],
+    "source": "cases_mixed.txt:30",
+    "provenance": "AI-authored synthetic",
+    "row_index": 181,
+    "input_sha256": "244fb30ec830c829dfb5b181565900cb51e4b6218e2958a6580d398eb2699abe"
+  },
+  {
+    "id": "v4-train-0119",
+    "split": "train",
+    "family": "time-format",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:119",
+    "provenance": "AI-authored synthetic",
+    "row_index": 182,
+    "input_sha256": "cf7512b31dabc649b01a646750e5887e8491bc39d12def27400675ccd7524081"
+  },
+  {
+    "id": "v4-train-0127",
+    "split": "train",
+    "family": "version-label",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_train.txt:127",
+    "provenance": "AI-authored synthetic",
+    "row_index": 183,
+    "input_sha256": "eacf0028cb827d6a365b3119f9c5db5ef254d54973df4aba369344961fb92073"
+  },
+  {
+    "id": "v4-train-0187",
+    "split": "train",
+    "family": "fragment-titles",
+    "tags": [
+      "fragments"
+    ],
+    "source": "cases_train.txt:187",
+    "provenance": "AI-authored synthetic",
+    "row_index": 184,
+    "input_sha256": "5344c6ae58cd7746ff878a491b373d77e1749599d4f16dceac1a0ca6cb7c88b7"
+  },
+  {
+    "id": "v4-train-0151",
+    "split": "train",
+    "family": "quote-scope",
+    "tags": [
+      "quotes"
+    ],
+    "source": "cases_train.txt:151",
+    "provenance": "AI-authored synthetic",
+    "row_index": 185,
+    "input_sha256": "9a4b493c3811ee2d461aed001124b294ca2b336705eac7279e5e25401eab468a"
+  },
+  {
+    "id": "v4-train-0012",
+    "split": "train",
+    "family": "rule-override",
+    "tags": [
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_train.txt:12",
+    "provenance": "AI-authored synthetic",
+    "row_index": 186,
+    "input_sha256": "c66888daedd83c8a498b472f65868ba94f32b4f5a71a976bef60a14fde4122eb"
+  },
+  {
+    "id": "v4-train-0094",
+    "split": "train",
+    "family": "url-path",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:94",
+    "provenance": "AI-authored synthetic",
+    "row_index": 187,
+    "input_sha256": "a09ee8d7d936ee61c2389376b38b2c5e600ab37ad102d961110f01657f5f2a87"
+  },
+  {
+    "id": "v4-train-0022",
+    "split": "train",
+    "family": "blank-input",
+    "tags": [
+      "empty"
+    ],
+    "source": "cases_train.txt:22",
+    "provenance": "AI-authored synthetic",
+    "row_index": 188,
+    "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "id": "v4-train-0157",
+    "split": "train",
+    "family": "paren-scope",
+    "tags": [
+      "brackets",
+      "numbers"
+    ],
+    "source": "cases_train.txt:157",
+    "provenance": "AI-authored synthetic",
+    "row_index": 189,
+    "input_sha256": "effc396bb01c07a82bcc9b830d458f045a70d677bb5b4e94ca59e3fe7fcfaa3b"
+  },
+  {
+    "id": "v4-train-0140",
+    "split": "train",
+    "family": "spoken-basic",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:140",
+    "provenance": "AI-authored synthetic",
+    "row_index": 190,
+    "input_sha256": "fb68106ffe8aa80262127e65a99fe676a941ec8f4d416b91729e31f6b003e65a"
+  },
+  {
+    "id": "v4-train-0137",
+    "split": "train",
+    "family": "spelled-math",
+    "tags": [
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_train.txt:137",
+    "provenance": "AI-authored synthetic",
+    "row_index": 191,
+    "input_sha256": "c7b08b930a99aa282cf64fae31ae7cac1fb6a44be0a90f658b1176f52578394f"
+  },
+  {
+    "id": "v4-train-0046",
+    "split": "train",
+    "family": "emphasis-repeat",
+    "tags": [
+      "repetition",
+      "voice"
+    ],
+    "source": "cases_train.txt:46",
+    "provenance": "AI-authored synthetic",
+    "row_index": 192,
+    "input_sha256": "27c072255841193340c2e2d8412beb09d2a655c44932f32265e94a77fc8b63bd"
+  },
+  {
+    "id": "v4-mixed-0007",
+    "split": "train",
+    "family": "quoted-imperative",
+    "tags": [
+      "quotes",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:7",
+    "provenance": "AI-authored synthetic",
+    "row_index": 193,
+    "input_sha256": "4afa95c81f901bc88642867f4360147f5b10b349737d90ab1fe6d0e2efd2492b"
+  },
+  {
+    "id": "v4-extended-0033",
+    "split": "train",
+    "family": "sustained-community",
+    "tags": [
+      "long",
+      "mixed",
+      "email",
+      "bullets",
+      "numbered",
+      "correction",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:33",
+    "provenance": "AI-authored synthetic",
+    "row_index": 194,
+    "input_sha256": "ae66d6fb4f71eba3d08541448d72a79d82253d42cd648b09dbde9117d8127187"
+  },
+  {
+    "id": "v4-extended-0008",
+    "split": "train",
+    "family": "medium-reporting-request",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_extended.txt:8",
+    "provenance": "AI-authored synthetic",
+    "row_index": 195,
+    "input_sha256": "b27aac6acf1ffb5a1247a10c68b93dcdb7bc30048d61d0df9fe5800f40be1d86"
+  },
+  {
+    "id": "v4-mixed-0019",
+    "split": "train",
+    "family": "partial-correction",
+    "tags": [
+      "correction",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:19",
+    "provenance": "AI-authored synthetic",
+    "row_index": 196,
+    "input_sha256": "e8b69a1486684129c1130bfba1cbce567927a611d1712e661554062e94a2ec26"
+  },
+  {
+    "id": "v4-train-0040",
+    "split": "train",
+    "family": "mean-boundary",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_train.txt:40",
+    "provenance": "AI-authored synthetic",
+    "row_index": 197,
+    "input_sha256": "7b0990bf0a31339dc9e06c297f79ca6c2bed99794a439f15bffcc4bf668d17b9"
+  },
+  {
+    "id": "v4-mixed-0058",
+    "split": "train",
+    "family": "colon-literal",
+    "tags": [
+      "literal",
+      "meaning"
+    ],
+    "source": "cases_mixed.txt:58",
+    "provenance": "AI-authored synthetic",
+    "row_index": 198,
+    "input_sha256": "c8d93301ab75e7f0d38e7433d459f037aa72a0eeecd69c25bbe9aaf18fb1fe79"
+  },
+  {
+    "id": "v4-train-0024",
+    "split": "train",
+    "family": "filler-openers",
+    "tags": [
+      "fillers"
+    ],
+    "source": "cases_train.txt:24",
+    "provenance": "AI-authored synthetic",
+    "row_index": 199,
+    "input_sha256": "3def59d6d1c69477b97ba566454442c09446909ab1f339be1db52190c7aa4623"
+  },
+  {
+    "id": "v4-train-0066",
+    "split": "train",
+    "family": "english-agreement",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:66",
+    "provenance": "AI-authored synthetic",
+    "row_index": 200,
+    "input_sha256": "5968e6810267d7528f07ca58840f1f443c201f253af6451bafcd8a6920404899"
+  },
+  {
+    "id": "v4-long-0008",
+    "split": "train",
+    "family": "long-paragraph-commands",
+    "tags": [
+      "long",
+      "mixed",
+      "new_line",
+      "new_paragraph",
+      "quotes",
+      "numbers"
+    ],
+    "source": "cases_long.txt:8",
+    "provenance": "AI-authored synthetic",
+    "row_index": 201,
+    "input_sha256": "5ec2346dca9239bed5c22af74c98bf38505642e69a50647a8c094691474c0c2a"
+  },
+  {
+    "id": "v4-train-0110",
+    "split": "train",
+    "family": "money-symbol",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:110",
+    "provenance": "AI-authored synthetic",
+    "row_index": 202,
+    "input_sha256": "8d527b89b3cf10ab981fd36bd5ab2e9d47ec926c5f7de517edea234b80472640"
+  },
+  {
+    "id": "v4-train-0033",
+    "split": "train",
+    "family": "know-boundary",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_train.txt:33",
+    "provenance": "AI-authored synthetic",
+    "row_index": 203,
+    "input_sha256": "ca715f9dbaf49293481ebd4ee09ad75fb31eaab6b8cbc9de90af92cf7fbd29ee"
+  },
+  {
+    "id": "v4-train-0015",
+    "split": "train",
+    "family": "fake-role",
+    "tags": [
+      "no_answer",
+      "injection",
+      "literal"
+    ],
+    "source": "cases_train.txt:15",
+    "provenance": "AI-authored synthetic",
+    "row_index": 204,
+    "input_sha256": "0ed57ca79db1324e66fc80ba3c7d6819ba44cbe5875cc7833530b86f04f276a2"
+  },
+  {
+    "id": "v4-mixed-0048",
+    "split": "train",
+    "family": "email-list",
+    "tags": [
+      "email",
+      "numbered",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:48",
+    "provenance": "AI-authored synthetic",
+    "row_index": 205,
+    "input_sha256": "1a34ee88583221ae54c11b3e496a261c383987e59687c9b805f1b3cd0526aeb3"
+  },
+  {
+    "id": "v4-mixed-0041",
+    "split": "train",
+    "family": "list-quoted-items",
+    "tags": [
+      "prose",
+      "quotes",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:41",
+    "provenance": "AI-authored synthetic",
+    "row_index": 206,
+    "input_sha256": "bb9ce348b43762aaec4d1a23c206f489ea5db666e710315facf41bf00c219983"
+  },
+  {
+    "id": "v4-train-0166",
+    "split": "train",
+    "family": "hyphen-names",
+    "tags": [
+      "literal",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:166",
+    "provenance": "AI-authored synthetic",
+    "row_index": 207,
+    "input_sha256": "69c740f0b139ee5718bb2b9478b482039f02cc7307d25fdf29aa672a2a83f24b"
+  },
+  {
+    "id": "v4-train-0050",
+    "split": "train",
+    "family": "lexical-repeat",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_train.txt:50",
+    "provenance": "AI-authored synthetic",
+    "row_index": 208,
+    "input_sha256": "d7789c29fabf073902151994495e75b3996f7fe0c7e6abeb8bf8c60987818330"
+  },
+  {
+    "id": "v4-mixed-0083",
+    "split": "train",
+    "family": "asr-uncertain-context",
+    "tags": [
+      "asr_error",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:83",
+    "provenance": "AI-authored synthetic",
+    "row_index": 209,
+    "input_sha256": "b03afaa9b5b11aa0cff2323763d47f79359d1532a3a77d32f5c651dc1e7cc4da"
+  },
+  {
+    "id": "v4-train-0091",
+    "split": "train",
+    "family": "identifiers",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_train.txt:91",
+    "provenance": "AI-authored synthetic",
+    "row_index": 210,
+    "input_sha256": "6efd905cc93ea230d703ebe8d5528068eef7ace56c000f551ddc98fd5032af61"
+  },
+  {
+    "id": "v4-train-0060",
+    "split": "train",
+    "family": "cancellation",
+    "tags": [
+      "correction",
+      "empty"
+    ],
+    "source": "cases_train.txt:60",
+    "provenance": "AI-authored synthetic",
+    "row_index": 211,
+    "input_sha256": "1520bbb7d505572a219b1561782442e32c08fda426b3d6e68b7db8cd913f8e63"
+  },
+  {
+    "id": "v4-train-0074",
+    "split": "train",
+    "family": "casual-voice",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:74",
+    "provenance": "AI-authored synthetic",
+    "row_index": 212,
+    "input_sha256": "2b141206c930cfea268ce1004ff2ea521b73406c1a1924c23dbe5d1c2c1f1590"
+  },
+  {
+    "id": "v4-extended-0006",
+    "split": "train",
+    "family": "medium-quotation",
+    "tags": [
+      "mixed",
+      "quotes",
+      "literal",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:6",
+    "provenance": "AI-authored synthetic",
+    "row_index": 213,
+    "input_sha256": "459247e94a9b2d9c7bb67b5ed1df7c3c59afe90fc774c45e9b0cf08157b130b9"
+  },
+  {
+    "id": "v4-train-0008",
+    "split": "train",
+    "family": "capital-content",
+    "tags": [
+      "no_answer",
+      "facts"
+    ],
+    "source": "cases_train.txt:8",
+    "provenance": "AI-authored synthetic",
+    "row_index": 214,
+    "input_sha256": "d8b65c101966bce60d57b10cb75d5eeffdb8b067b470a5446b69c5bf82c57354"
+  },
+  {
+    "id": "v4-extended-0021",
+    "split": "train",
+    "family": "medium-ambiguous-phrase",
+    "tags": [
+      "mixed",
+      "meaning",
+      "asr_error"
+    ],
+    "source": "cases_extended.txt:21",
+    "provenance": "AI-authored synthetic",
+    "row_index": 215,
+    "input_sha256": "0443f17c85893323fae8e4a25a7423bc8db7b2ba5ba8c376ad9b9e1a87ff664d"
+  },
+  {
+    "id": "v4-extended-0018",
+    "split": "train",
+    "family": "medium-follow-up-questions",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "bullets"
+    ],
+    "source": "cases_extended.txt:18",
+    "provenance": "AI-authored synthetic",
+    "row_index": 216,
+    "input_sha256": "ba56f7f8c19162cbdf07a3d60d8d014fcacb7f62b1a9ef55663ad846961dcbd6"
+  },
+  {
+    "id": "v4-train-0207",
+    "split": "train",
+    "family": "mixed-uncertainty",
+    "tags": [
+      "mixed",
+      "meaning",
+      "numbers",
+      "voice"
+    ],
+    "source": "cases_train.txt:207",
+    "provenance": "AI-authored synthetic",
+    "row_index": 217,
+    "input_sha256": "08c2ae7922ee585e227944deeba85a9b6107ebf75feec7474bde35d24953b930"
+  },
+  {
+    "id": "v4-mixed-0029",
+    "split": "train",
+    "family": "filler-not-empty",
+    "tags": [
+      "fragments",
+      "fillers"
+    ],
+    "source": "cases_mixed.txt:29",
+    "provenance": "AI-authored synthetic",
+    "row_index": 218,
+    "input_sha256": "6e7a8159f23aba94551539b5b21b32218324a2b66866c559f6e7d01f2ef87057"
+  },
+  {
+    "id": "v4-extended-0014",
+    "split": "train",
+    "family": "medium-fee-change",
+    "tags": [
+      "mixed",
+      "numbers",
+      "correction",
+      "quotes"
+    ],
+    "source": "cases_extended.txt:14",
+    "provenance": "AI-authored synthetic",
+    "row_index": 219,
+    "input_sha256": "0a9eaeb68feaeb9e7089fea7c912025ae90d00cda93cf0e4249d1ea9515ce94c"
+  },
+  {
+    "id": "v4-mixed-0091",
+    "split": "train",
+    "family": "clean-fragments",
+    "tags": [
+      "identity",
+      "fragments"
+    ],
+    "source": "cases_mixed.txt:91",
+    "provenance": "AI-authored synthetic",
+    "row_index": 220,
+    "input_sha256": "f38eb93cc9e1af1ad160295a4a956e76075bad03cf8b8f1f3fc3009cdc515fea"
+  },
+  {
+    "id": "v4-train-0049",
+    "split": "train",
+    "family": "lexical-repeat",
+    "tags": [
+      "repetition",
+      "grammar"
+    ],
+    "source": "cases_train.txt:49",
+    "provenance": "AI-authored synthetic",
+    "row_index": 221,
+    "input_sha256": "b80f019208e15f147309c7082f97bea5d00df170cb9fbfb12ba25bc8ba16cbec"
+  },
+  {
+    "id": "v4-extended-0011",
+    "split": "train",
+    "family": "medium-numeric-no-math",
+    "tags": [
+      "mixed",
+      "numbers",
+      "facts",
+      "no_answer"
+    ],
+    "source": "cases_extended.txt:11",
+    "provenance": "AI-authored synthetic",
+    "row_index": 222,
+    "input_sha256": "caba38ca8f5b96c20fabc02246e9999f722c3fad40e40aa15ae5780d762d5d20"
+  },
+  {
+    "id": "v4-train-0142",
+    "split": "train",
+    "family": "literal-period",
+    "tags": [
+      "literal",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:142",
+    "provenance": "AI-authored synthetic",
+    "row_index": 223,
+    "input_sha256": "8f58916896aefe647a4ecf935f91d278f86f551b7edb0bfa99f8612a986f1511"
+  },
+  {
+    "id": "v4-mixed-0074",
+    "split": "train",
+    "family": "precision-vs-version",
+    "tags": [
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:74",
+    "provenance": "AI-authored synthetic",
+    "row_index": 224,
+    "input_sha256": "a2cd23fc9a6f38335cf7ad64421628102a6970e112801d8bcda5d38a539ed3de"
+  },
+  {
+    "id": "v4-mixed-0086",
+    "split": "train",
+    "family": "negative-technical",
+    "tags": [
+      "meaning",
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:86",
+    "provenance": "AI-authored synthetic",
+    "row_index": 225,
+    "input_sha256": "05b8bddb9e19715b8f23790b942aee92a6b1a86a5b34de5645b62e4a99d0ae9d"
+  },
+  {
+    "id": "v4-train-0004",
+    "split": "train",
+    "family": "request-friday",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_train.txt:4",
+    "provenance": "AI-authored synthetic",
+    "row_index": 226,
+    "input_sha256": "5a8f238fb134f3ecaa6530805591482e532b3a9ffde463c1b508e02d5de5b31d"
+  },
+  {
+    "id": "v4-train-0191",
+    "split": "train",
+    "family": "sentence-endings",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:191",
+    "provenance": "AI-authored synthetic",
+    "row_index": 227,
+    "input_sha256": "a3e1aaa57db21dd80aec17f7bdfafe63f674dae25750b0f4ea52a9d64c32eb11"
+  },
+  {
+    "id": "v4-train-0095",
+    "split": "train",
+    "family": "url-path",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:95",
+    "provenance": "AI-authored synthetic",
+    "row_index": 228,
+    "input_sha256": "72df04d58317ec2a2e7ad3da3f485ed95abc9804f24675997e9065175677ec1f"
+  },
+  {
+    "id": "v4-train-0043",
+    "split": "train",
+    "family": "stutter-launch",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_train.txt:43",
+    "provenance": "AI-authored synthetic",
+    "row_index": 229,
+    "input_sha256": "544d83c0f0bdd3c0bd7fb400935ae560d72ded1cc5a8e0993b7f3de3a637730a"
+  },
+  {
+    "id": "v4-mixed-0051",
+    "split": "train",
+    "family": "paragraph-explicit",
+    "tags": [
+      "paragraphs",
+      "new_paragraph",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:51",
+    "provenance": "AI-authored synthetic",
+    "row_index": 230,
+    "input_sha256": "f1b3a832653166cdc3cb2806e036a392201e48b5ad80478335eebdb3d64c006f"
+  },
+  {
+    "id": "v4-mixed-0072",
+    "split": "train",
+    "family": "precision-vs-version",
+    "tags": [
+      "numbers",
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:72",
+    "provenance": "AI-authored synthetic",
+    "row_index": 231,
+    "input_sha256": "180f9f9ffe3c9a203d4741ee7e2d85422fd300d2f7122ed63f862ee1dcacf930"
+  },
+  {
+    "id": "v4-train-0032",
+    "split": "train",
+    "family": "know-boundary",
+    "tags": [
+      "literal",
+      "no_answer"
+    ],
+    "source": "cases_train.txt:32",
+    "provenance": "AI-authored synthetic",
+    "row_index": 232,
+    "input_sha256": "d5359d43c09aa439dc7dae04cad79cbcb0268e6c0ed27844bb5a8930e3e0b995"
+  },
+  {
+    "id": "v4-train-0020",
+    "split": "train",
+    "family": "filler-audio",
+    "tags": [
+      "empty",
+      "fillers"
+    ],
+    "source": "cases_train.txt:20",
+    "provenance": "AI-authored synthetic",
+    "row_index": 233,
+    "input_sha256": "57fe5d2dd51e77c3d4b8873a9703e7c122b95d28b79949608d358012afacd533"
+  },
+  {
+    "id": "v4-mixed-0082",
+    "split": "train",
+    "family": "asr-uncertain-context",
+    "tags": [
+      "asr_error",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:82",
+    "provenance": "AI-authored synthetic",
+    "row_index": 234,
+    "input_sha256": "e5ca51fe31b563f300a35d5e8cd738a2f21c569846e685211faf2e69d4b310dc"
+  },
+  {
+    "id": "v4-mixed-0035",
+    "split": "train",
+    "family": "two-independent",
+    "tags": [
+      "prose",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:35",
+    "provenance": "AI-authored synthetic",
+    "row_index": 235,
+    "input_sha256": "1e33f6099ce78775f58424052bdc125cae51510b3ad68e3df3f0c40a5302cb89"
+  },
+  {
+    "id": "v4-train-0138",
+    "split": "train",
+    "family": "spoken-basic",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:138",
+    "provenance": "AI-authored synthetic",
+    "row_index": 236,
+    "input_sha256": "4bd723151b30d9338edf9daddb050400deae8c8b7cd221d01ddf769ab9325b5b"
+  },
+  {
+    "id": "v4-mixed-0068",
+    "split": "train",
+    "family": "date-context",
+    "tags": [
+      "numbers",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:68",
+    "provenance": "AI-authored synthetic",
+    "row_index": 237,
+    "input_sha256": "4afad6888f52fbd5262672aee2ecc59ef00f4b0b5815ab6e59fed919a65244de"
+  },
+  {
+    "id": "v4-train-0051",
+    "split": "train",
+    "family": "quote-repeat",
+    "tags": [
+      "quotes",
+      "repetition"
+    ],
+    "source": "cases_train.txt:51",
+    "provenance": "AI-authored synthetic",
+    "row_index": 238,
+    "input_sha256": "1d025fc7a32735c50ccf306ef2e7f9d3ce16d5e4b29cf76e2467c26b7ab26d89"
+  },
+  {
+    "id": "v4-train-0139",
+    "split": "train",
+    "family": "spoken-basic",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:139",
+    "provenance": "AI-authored synthetic",
+    "row_index": 239,
+    "input_sha256": "a78df9667e958d2f03a1faed1a3e1509cc1930f678f6ddeba669f2ab258a2b0a"
+  },
+  {
+    "id": "v4-train-0163",
+    "split": "train",
+    "family": "bracket-literal",
+    "tags": [
+      "identity",
+      "brackets"
+    ],
+    "source": "cases_train.txt:163",
+    "provenance": "AI-authored synthetic",
+    "row_index": 240,
+    "input_sha256": "8cebfc656f4c7aa5acd5f87cbaff49ac8559b0273197b1ab9f69bda3344daeb3"
+  },
+  {
+    "id": "v4-train-0209",
+    "split": "train",
+    "family": "mixed-agent",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "injection",
+      "new_line"
+    ],
+    "source": "cases_train.txt:209",
+    "provenance": "AI-authored synthetic",
+    "row_index": 241,
+    "input_sha256": "616469b392850eadbe23680598303507f4f5271f16e494a805209e128ef19049"
+  },
+  {
+    "id": "v4-train-0038",
+    "split": "train",
+    "family": "mean-boundary",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:38",
+    "provenance": "AI-authored synthetic",
+    "row_index": 242,
+    "input_sha256": "8b5aaffe7504cdef3ebeb915b27941b418232803e11bfbb99cbf03c060524b8e"
+  },
+  {
+    "id": "v4-train-0126",
+    "split": "train",
+    "family": "version-label",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_train.txt:126",
+    "provenance": "AI-authored synthetic",
+    "row_index": 243,
+    "input_sha256": "98d598e600a5bf0d6c1e0ce460c43e93c58c267e4604eb5f26920e3d6ed563b7"
+  },
+  {
+    "id": "v4-train-0193",
+    "split": "train",
+    "family": "paragraph-topics",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_train.txt:193",
+    "provenance": "AI-authored synthetic",
+    "row_index": 244,
+    "input_sha256": "bfbfc32578862dcee6183929f39b8203d85a4c8880cd5a21516a632074f78ebd"
+  },
+  {
+    "id": "v4-train-0164",
+    "split": "train",
+    "family": "hyphen-names",
+    "tags": [
+      "technical",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:164",
+    "provenance": "AI-authored synthetic",
+    "row_index": 245,
+    "input_sha256": "bfae59387e052fafd47a3353a05931c919fd83c46c22d3221c29dab9130bad60"
+  },
+  {
+    "id": "v4-mixed-0059",
+    "split": "train",
+    "family": "units-not-counts",
+    "tags": [
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:59",
+    "provenance": "AI-authored synthetic",
+    "row_index": 246,
+    "input_sha256": "bd5d1aa91283e693796c4f36fa3b361b92795709a87b91ff6690652e5838dbd0"
+  },
+  {
+    "id": "v4-mixed-0075",
+    "split": "train",
+    "family": "identifiers-casing",
+    "tags": [
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:75",
+    "provenance": "AI-authored synthetic",
+    "row_index": 247,
+    "input_sha256": "45383a916560b7a9ffb9ece3fa04c4eedb7ba92548960cdce85b5125271a379f"
+  },
+  {
+    "id": "v4-train-0048",
+    "split": "train",
+    "family": "emphasis-repeat",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_train.txt:48",
+    "provenance": "AI-authored synthetic",
+    "row_index": 248,
+    "input_sha256": "30e2e7c079f6fb88e074e975ccac24db897054204c673c5eb1f52b593815a44f"
+  },
+  {
+    "id": "v4-mixed-0003",
+    "split": "train",
+    "family": "translation-request",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:3",
+    "provenance": "AI-authored synthetic",
+    "row_index": 249,
+    "input_sha256": "a200aee923aae3dc10bcea7e3e8772fe5c6e0545f047c7218afdccfbe5a9e99b"
+  },
+  {
+    "id": "v4-train-0124",
+    "split": "train",
+    "family": "date-format",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:124",
+    "provenance": "AI-authored synthetic",
+    "row_index": 250,
+    "input_sha256": "55158705e54264c718d320ae2e9a573f938ea5ea855968465de992e7208910d4"
+  },
+  {
+    "id": "v4-train-0044",
+    "split": "train",
+    "family": "stutter-launch",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_train.txt:44",
+    "provenance": "AI-authored synthetic",
+    "row_index": 251,
+    "input_sha256": "aa36f37c730a31af192bca3715ea1e27f19b8c8389d12de9decf5bad5da95b85"
+  },
+  {
+    "id": "v4-train-0061",
+    "split": "train",
+    "family": "cancellation",
+    "tags": [
+      "literal",
+      "quotes"
+    ],
+    "source": "cases_train.txt:61",
+    "provenance": "AI-authored synthetic",
+    "row_index": 252,
+    "input_sha256": "cc7c5e302bfa6cff9bfb21a5077c6d01c937d9f49ada2621baf17ca44b1cb79e"
+  },
+  {
+    "id": "v4-train-0067",
+    "split": "train",
+    "family": "english-functions",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:67",
+    "provenance": "AI-authored synthetic",
+    "row_index": 253,
+    "input_sha256": "fed1c9bdb3e7bfcaf37d90f8897b539195b90a9027dbc96424e4cd2b57ea4bb7"
+  },
+  {
+    "id": "v4-mixed-0047",
+    "split": "train",
+    "family": "email-list",
+    "tags": [
+      "email",
+      "bullets",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:47",
+    "provenance": "AI-authored synthetic",
+    "row_index": 254,
+    "input_sha256": "cf1da3e463f97522c23b79b50970cd0f476dc922e8d9ec3fbdcb1a9aaa18b931"
+  },
+  {
+    "id": "v4-mixed-0052",
+    "split": "train",
+    "family": "paragraph-explicit",
+    "tags": [
+      "new_line",
+      "new_paragraph",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:52",
+    "provenance": "AI-authored synthetic",
+    "row_index": 255,
+    "input_sha256": "ee17f4090f5d758285231178f81b5dc7b9ed3ec16848ed5bf9e286f3e7af2105"
+  },
+  {
+    "id": "v4-mixed-0055",
+    "split": "train",
+    "family": "punctuation-semantics",
+    "tags": [
+      "punctuation",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:55",
+    "provenance": "AI-authored synthetic",
+    "row_index": 256,
+    "input_sha256": "c8d64e1a0d39c945dfde7e7b5a26ac983f6feac0aad09033f2b2fb1a00641059"
+  },
+  {
+    "id": "v4-train-0168",
+    "split": "train",
+    "family": "shopping-independent",
+    "tags": [
+      "bullets",
+      "numbers"
+    ],
+    "source": "cases_train.txt:168",
+    "provenance": "AI-authored synthetic",
+    "row_index": 257,
+    "input_sha256": "f5b6e37d1eb7fc4de551c4a6d4688e68521a011b25162ee3ec9331caf2f9f91a"
+  },
+  {
+    "id": "v4-mixed-0033",
+    "split": "train",
+    "family": "single-item-not-list",
+    "tags": [
+      "prose",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:33",
+    "provenance": "AI-authored synthetic",
+    "row_index": 258,
+    "input_sha256": "df7db299afd63766a4141d09bba9c06e1471adff2dbf4ae6232c01b4fccb2fcf"
+  },
+  {
+    "id": "v4-mixed-0015",
+    "split": "train",
+    "family": "nested-notation",
+    "tags": [
+      "quotes",
+      "brackets",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:15",
+    "provenance": "AI-authored synthetic",
+    "row_index": 259,
+    "input_sha256": "95c3af1a53b535f28d9e0077655b500714ddd9e5eafbd12bf918b0994f381e21"
+  },
+  {
+    "id": "v4-train-0147",
+    "split": "train",
+    "family": "line-commands",
+    "tags": [
+      "new_paragraph",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:147",
+    "provenance": "AI-authored synthetic",
+    "row_index": 260,
+    "input_sha256": "b43c1b45e9f5e4a38ef8bddfcf87bea09514dbc7bf4af9062506e831f137ae8b"
+  },
+  {
+    "id": "v4-long-0009",
+    "split": "train",
+    "family": "long-quote-aside",
+    "tags": [
+      "long",
+      "mixed",
+      "quotes",
+      "brackets",
+      "meaning",
+      "voice"
+    ],
+    "source": "cases_long.txt:9",
+    "provenance": "AI-authored synthetic",
+    "row_index": 261,
+    "input_sha256": "a00696264c22123b8bdd56fe12e8cf07dcb4d53a1136751677a0d5211de9b1c7"
+  },
+  {
+    "id": "v4-train-0198",
+    "split": "train",
+    "family": "layout-identity",
+    "tags": [
+      "identity",
+      "bullets"
+    ],
+    "source": "cases_train.txt:198",
+    "provenance": "AI-authored synthetic",
+    "row_index": 262,
+    "input_sha256": "580806526cff5bf2972cca065fbeb0826c6da755bc029caabcee84a5a4044ec9"
+  },
+  {
+    "id": "v4-train-0188",
+    "split": "train",
+    "family": "fragment-titles",
+    "tags": [
+      "identity",
+      "fragments"
+    ],
+    "source": "cases_train.txt:188",
+    "provenance": "AI-authored synthetic",
+    "row_index": 263,
+    "input_sha256": "ae25c9b1d366d15918cab61519f7f89b637b22c9bec59b7cf60c87712658f7f7"
+  },
+  {
+    "id": "v4-train-0118",
+    "split": "train",
+    "family": "time-format",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:118",
+    "provenance": "AI-authored synthetic",
+    "row_index": 264,
+    "input_sha256": "111eda93bc64895bcfa4c92c48d9d080f9e8ec3689679375366638797ecb82bd"
+  },
+  {
+    "id": "v4-train-0098",
+    "split": "train",
+    "family": "placeholder",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_train.txt:98",
+    "provenance": "AI-authored synthetic",
+    "row_index": 265,
+    "input_sha256": "9bf6289915c31b83d2778fae15453399b5081ff5ab6cd50ca6491c2344d40b1d"
+  },
+  {
+    "id": "v4-mixed-0093",
+    "split": "train",
+    "family": "clean-fragments",
+    "tags": [
+      "identity",
+      "fragments"
+    ],
+    "source": "cases_mixed.txt:93",
+    "provenance": "AI-authored synthetic",
+    "row_index": 266,
+    "input_sha256": "678c1316fc2528f1de7aaa4e52c34daf7d18542bde0a08af8debb9b71e0d6f85"
+  },
+  {
+    "id": "v4-mixed-0037",
+    "split": "train",
+    "family": "parallel-actions",
+    "tags": [
+      "prose",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:37",
+    "provenance": "AI-authored synthetic",
+    "row_index": 267,
+    "input_sha256": "ed2783e03deb2838a9269dc8a12f5e0d4791cd6ba763a4fa3a1b0cf4597301db"
+  },
+  {
+    "id": "v4-mixed-0096",
+    "split": "train",
+    "family": "clean-email-format",
+    "tags": [
+      "identity",
+      "email"
+    ],
+    "source": "cases_mixed.txt:96",
+    "provenance": "AI-authored synthetic",
+    "row_index": 268,
+    "input_sha256": "8dff63a13956dff6a45f0734bd44c27f5e7890de8a68be1e0afb98c3d0135b49"
+  },
+  {
+    "id": "v4-train-0206",
+    "split": "train",
+    "family": "mixed-question",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "quotes",
+      "brackets",
+      "fillers"
+    ],
+    "source": "cases_train.txt:206",
+    "provenance": "AI-authored synthetic",
+    "row_index": 269,
+    "input_sha256": "917ea03cbeb421cf6db19f1c95cb18e5430183080169189d4ad74d09174677c4"
+  },
+  {
+    "id": "v4-mixed-0009",
+    "split": "train",
+    "family": "quote-no-period",
+    "tags": [
+      "quotes",
+      "fragments",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:9",
+    "provenance": "AI-authored synthetic",
+    "row_index": 270,
+    "input_sha256": "db5dad649b7274946280486dcf248cc6df7fdb51862b816c07a1c50ac6de4465"
+  },
+  {
+    "id": "v4-train-0017",
+    "split": "train",
+    "family": "tool-request",
+    "tags": [
+      "no_answer"
+    ],
+    "source": "cases_train.txt:17",
+    "provenance": "AI-authored synthetic",
+    "row_index": 271,
+    "input_sha256": "4eccf0a8a3b075fd5fbd27d10f947d8a2b972553964caf59b57e1cf8a43e1e4f"
+  },
+  {
+    "id": "v4-mixed-0099",
+    "split": "train",
+    "family": "clean-tech-format",
+    "tags": [
+      "identity",
+      "technical"
+    ],
+    "source": "cases_mixed.txt:99",
+    "provenance": "AI-authored synthetic",
+    "row_index": 272,
+    "input_sha256": "8b88d7e75d90db71e54daa7955dbe1f8255add32ae992bdc7d2c0d273a1e8079"
+  },
+  {
+    "id": "v4-train-0177",
+    "split": "train",
+    "family": "counted-setup",
+    "tags": [
+      "numbered",
+      "correction"
+    ],
+    "source": "cases_train.txt:177",
+    "provenance": "AI-authored synthetic",
+    "row_index": 273,
+    "input_sha256": "3aaea2cde71a7eb99c2e445972f1b871fbd31c8509d7a1b37e2182ca6b863fd0"
+  },
+  {
+    "id": "v4-mixed-0097",
+    "split": "train",
+    "family": "clean-casual",
+    "tags": [
+      "identity",
+      "voice"
+    ],
+    "source": "cases_mixed.txt:97",
+    "provenance": "AI-authored synthetic",
+    "row_index": 274,
+    "input_sha256": "4ddabbcc2e2d3de82607a97bdc78aaa78a04f4c2d53943f75abd33b3834df5c5"
+  },
+  {
+    "id": "v4-train-0003",
+    "split": "train",
+    "family": "request-friday",
+    "tags": [
+      "no_answer",
+      "fillers",
+      "grammar"
+    ],
+    "source": "cases_train.txt:3",
+    "provenance": "AI-authored synthetic",
+    "row_index": 275,
+    "input_sha256": "f015decbdba7b148f9747356762d366c5d050c42a6f3f2f14599546ebbb00ab7"
+  },
+  {
+    "id": "v4-train-0078",
+    "split": "train",
+    "family": "certainty-preserve",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_train.txt:78",
+    "provenance": "AI-authored synthetic",
+    "row_index": 276,
+    "input_sha256": "e5d30b5f4e79d37b9a55e44da7af7a4a353c6dcf6ee40e86445c13341cdd0eba"
+  },
+  {
+    "id": "v4-train-0189",
+    "split": "train",
+    "family": "sentence-endings",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:189",
+    "provenance": "AI-authored synthetic",
+    "row_index": 277,
+    "input_sha256": "17ac147ba7266cdee04510ea32511a00fa7f88cd40750d2752bb9547d796e608"
+  },
+  {
+    "id": "v4-mixed-0079",
+    "split": "train",
+    "family": "paths-and-literal",
+    "tags": [
+      "technical",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:79",
+    "provenance": "AI-authored synthetic",
+    "row_index": 278,
+    "input_sha256": "0cbd0280d85ee34033d9185a1b822ad620eda64fdf7e475c827a8ad3694ad16c"
+  },
+  {
+    "id": "v4-train-0182",
+    "split": "train",
+    "family": "inline-series",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_train.txt:182",
+    "provenance": "AI-authored synthetic",
+    "row_index": 279,
+    "input_sha256": "f19974caf2a9601739c4c9a9a7767c063f7db7c84aa8fc3de411b6630531a51c"
+  },
+  {
+    "id": "v4-train-0199",
+    "split": "train",
+    "family": "layout-identity",
+    "tags": [
+      "identity",
+      "numbered"
+    ],
+    "source": "cases_train.txt:199",
+    "provenance": "AI-authored synthetic",
+    "row_index": 280,
+    "input_sha256": "e0a0243a9069aaca09daa7164ed55a7f0f99eb2b3439b8679ebe7eb390bfd8fb"
+  },
+  {
+    "id": "v4-mixed-0032",
+    "split": "train",
+    "family": "single-item-not-list",
+    "tags": [
+      "prose",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:32",
+    "provenance": "AI-authored synthetic",
+    "row_index": 281,
+    "input_sha256": "8b7e6979f7cc8391fa0ff166100f97d04515a291c0797f442360139ea5391c93"
+  },
+  {
+    "id": "v4-train-0086",
+    "split": "train",
+    "family": "ambiguous-asr",
+    "tags": [
+      "asr_error",
+      "meaning"
+    ],
+    "source": "cases_train.txt:86",
+    "provenance": "AI-authored synthetic",
+    "row_index": 282,
+    "input_sha256": "8adafe731fa8c8c980988a6c56e6e92cd8dc3ddc47170587175a6f9f0181a500"
+  },
+  {
+    "id": "v4-train-0134",
+    "split": "train",
+    "family": "idiom-numbers",
+    "tags": [
+      "literal",
+      "numbers"
+    ],
+    "source": "cases_train.txt:134",
+    "provenance": "AI-authored synthetic",
+    "row_index": 283,
+    "input_sha256": "8104f7cb476500c51c0c853b5932ee7d9b85f05696773d702d1d413eabc81601"
+  },
+  {
+    "id": "v4-train-0039",
+    "split": "train",
+    "family": "mean-boundary",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_train.txt:39",
+    "provenance": "AI-authored synthetic",
+    "row_index": 284,
+    "input_sha256": "2acb8d8c12b196181454c896e04aed547d8128ee7296487d19d9e56d2197c414"
+  },
+  {
+    "id": "v4-train-0042",
+    "split": "train",
+    "family": "quoted-fillers",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_train.txt:42",
+    "provenance": "AI-authored synthetic",
+    "row_index": 285,
+    "input_sha256": "f6652bdefa95c54e82c35d120d4cf70cd3a5af4aeb2578134e7bc3c355aa8a04"
+  },
+  {
+    "id": "v4-mixed-0045",
+    "split": "train",
+    "family": "list-with-prose",
+    "tags": [
+      "bullets",
+      "paragraphs",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:45",
+    "provenance": "AI-authored synthetic",
+    "row_index": 286,
+    "input_sha256": "dfe04d7de9a6a7e7ded24580a93d0f4d807534e25234f2c5ed849024ae1798bf"
+  },
+  {
+    "id": "v4-train-0115",
+    "split": "train",
+    "family": "negative",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:115",
+    "provenance": "AI-authored synthetic",
+    "row_index": 287,
+    "input_sha256": "8d02de2a9e7a7d032b8591171f20ef8352eef7372888540c886fc1d3e9827abf"
+  },
+  {
+    "id": "v4-extended-0013",
+    "split": "train",
+    "family": "medium-uncertain-name",
+    "tags": [
+      "mixed",
+      "asr_error",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:13",
+    "provenance": "AI-authored synthetic",
+    "row_index": 288,
+    "input_sha256": "0777fba1e65ba57cbc9a7f43ab1aafacb0a055efe6efdf690aede379eacdf893"
+  },
+  {
+    "id": "v4-train-0109",
+    "split": "train",
+    "family": "money-symbol",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:109",
+    "provenance": "AI-authored synthetic",
+    "row_index": 289,
+    "input_sha256": "93f84a8675cd76c07d7fc6e2769de47a3a0854b6591d2ad283599e90606af96f"
+  },
+  {
+    "id": "v4-train-0169",
+    "split": "train",
+    "family": "shopping-independent",
+    "tags": [
+      "bullets",
+      "numbers"
+    ],
+    "source": "cases_train.txt:169",
+    "provenance": "AI-authored synthetic",
+    "row_index": 290,
+    "input_sha256": "41c3d0a1b8879928dced1cadb39758eed32978a819b951a4d786746e903e8824"
+  },
+  {
+    "id": "v4-train-0028",
+    "split": "train",
+    "family": "like-boundary",
+    "tags": [
+      "fillers"
+    ],
+    "source": "cases_train.txt:28",
+    "provenance": "AI-authored synthetic",
+    "row_index": 291,
+    "input_sha256": "be5ef2e152483a9512900ed625c97cb16b486263485ac8c02bd87304f6aaf1f7"
+  },
+  {
+    "id": "v4-mixed-0100",
+    "split": "train",
+    "family": "clean-tech-format",
+    "tags": [
+      "identity",
+      "technical"
+    ],
+    "source": "cases_mixed.txt:100",
+    "provenance": "AI-authored synthetic",
+    "row_index": 292,
+    "input_sha256": "55e7425969d9484ed57299b54019626ec6c5e55e1e847b0635027cae8ee28288"
+  },
+  {
+    "id": "v4-train-0205",
+    "split": "train",
+    "family": "mixed-email",
+    "tags": [
+      "mixed",
+      "email",
+      "quotes",
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_train.txt:205",
+    "provenance": "AI-authored synthetic",
+    "row_index": 293,
+    "input_sha256": "6c7593646fc1bb7da35eea68d6d27b7c613197085182a8d721d005f29c4e68a5"
+  },
+  {
+    "id": "v4-train-0155",
+    "split": "train",
+    "family": "paren-scope",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_train.txt:155",
+    "provenance": "AI-authored synthetic",
+    "row_index": 294,
+    "input_sha256": "5da767459748c8399c566c2885f2dd446e5802d67fbc9f9fbae6fadef8066178"
+  },
+  {
+    "id": "v4-train-0010",
+    "split": "train",
+    "family": "agent-name",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_train.txt:10",
+    "provenance": "AI-authored synthetic",
+    "row_index": 295,
+    "input_sha256": "4fd27db8bd76171fd3f5765dab8c7a7ba80393db7f055e10df5c9904b02816c2"
+  },
+  {
+    "id": "v4-mixed-0025",
+    "split": "train",
+    "family": "restart-vs-clarify",
+    "tags": [
+      "voice",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:25",
+    "provenance": "AI-authored synthetic",
+    "row_index": 296,
+    "input_sha256": "19108c9c5b93a4586977bbe1833e272d6c4ccc71a289341e3e49cfe572a8966c"
+  },
+  {
+    "id": "v4-train-0087",
+    "split": "train",
+    "family": "ambiguous-asr",
+    "tags": [
+      "asr_error",
+      "meaning"
+    ],
+    "source": "cases_train.txt:87",
+    "provenance": "AI-authored synthetic",
+    "row_index": 297,
+    "input_sha256": "5feabf770ffc91e6c2bc2ebfec9630fc78f55557127b7de1243d109196ac5dfe"
+  },
+  {
+    "id": "v4-train-0136",
+    "split": "train",
+    "family": "spelled-math",
+    "tags": [
+      "no_answer",
+      "numbers"
+    ],
+    "source": "cases_train.txt:136",
+    "provenance": "AI-authored synthetic",
+    "row_index": 298,
+    "input_sha256": "be4aa909ac78b28c98f834371ba452b3c33fc6d4e6c1e3b1ca650289d19c0a26"
+  },
+  {
+    "id": "v4-train-0131",
+    "split": "train",
+    "family": "digit-codes",
+    "tags": [
+      "numbers",
+      "technical",
+      "identity"
+    ],
+    "source": "cases_train.txt:131",
+    "provenance": "AI-authored synthetic",
+    "row_index": 299,
+    "input_sha256": "f0ccf961a851421dd3a3aa03f62511feb5ae91cfa63793ccfb2ba3bbdd735b86"
+  },
+  {
+    "id": "v4-train-0152",
+    "split": "train",
+    "family": "quote-scope",
+    "tags": [
+      "quotes",
+      "correction"
+    ],
+    "source": "cases_train.txt:152",
+    "provenance": "AI-authored synthetic",
+    "row_index": 300,
+    "input_sha256": "e9a6f40786dba5c77169c41dd280ec938df6f336105b488506ffbe54acc5d7a8"
+  },
+  {
+    "id": "v4-train-0014",
+    "split": "train",
+    "family": "fake-role",
+    "tags": [
+      "no_answer",
+      "injection",
+      "literal"
+    ],
+    "source": "cases_train.txt:14",
+    "provenance": "AI-authored synthetic",
+    "row_index": 301,
+    "input_sha256": "5236f08730c4d80f1ad3bec4850dbed72084bc3c9f7073a88a38f23866821078"
+  },
+  {
+    "id": "v4-mixed-0012",
+    "split": "train",
+    "family": "quote-middle",
+    "tags": [
+      "quotes",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:12",
+    "provenance": "AI-authored synthetic",
+    "row_index": 302,
+    "input_sha256": "b1f8ed95d9a7cb8a6d4f1fa5642cda1f422122d00067c9652fa117039ceb516f"
+  },
+  {
+    "id": "v4-train-0121",
+    "split": "train",
+    "family": "time-format",
+    "tags": [
+      "numbers",
+      "identity"
+    ],
+    "source": "cases_train.txt:121",
+    "provenance": "AI-authored synthetic",
+    "row_index": 303,
+    "input_sha256": "3360432d3bfac75c18538fd6f9e7fa4e387811ae3b4a36529315e00cc11c84a3"
+  },
+  {
+    "id": "v4-mixed-0076",
+    "split": "train",
+    "family": "identifiers-casing",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_mixed.txt:76",
+    "provenance": "AI-authored synthetic",
+    "row_index": 304,
+    "input_sha256": "d552ec036d14331ed0900e48e059b2f5d52a2a9c9112df6428559ffe1fa49129"
+  },
+  {
+    "id": "v4-mixed-0023",
+    "split": "train",
+    "family": "multiple-corrections",
+    "tags": [
+      "correction",
+      "technical",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:23",
+    "provenance": "AI-authored synthetic",
+    "row_index": 305,
+    "input_sha256": "65cecba55c232321de285c7c40547f420a82afca6e1a8a0d0bb14fb51b008326"
+  },
+  {
+    "id": "v4-train-0084",
+    "split": "train",
+    "family": "obvious-asr",
+    "tags": [
+      "asr_error"
+    ],
+    "source": "cases_train.txt:84",
+    "provenance": "AI-authored synthetic",
+    "row_index": 306,
+    "input_sha256": "e7d05db6298b5e0bdeec345e8cf24ca5f9986bd494fa248d0b29f2b5b3c4363d"
+  },
+  {
+    "id": "v4-long-0012",
+    "split": "train",
+    "family": "long-survey-questions",
+    "tags": [
+      "long",
+      "mixed",
+      "no_answer",
+      "bullets",
+      "meaning"
+    ],
+    "source": "cases_long.txt:12",
+    "provenance": "AI-authored synthetic",
+    "row_index": 307,
+    "input_sha256": "03560b7049b86e67b778bbdb1d0630032c8e66eed4b2edb61f00330cc68a30e2"
+  },
+  {
+    "id": "v4-train-0185",
+    "split": "train",
+    "family": "fragment-titles",
+    "tags": [
+      "fragments"
+    ],
+    "source": "cases_train.txt:185",
+    "provenance": "AI-authored synthetic",
+    "row_index": 308,
+    "input_sha256": "21aedda0deb7cc2e081e7fb93963fb44205aec21e82d7e96aa884256080c8e06"
+  },
+  {
+    "id": "v4-train-0210",
+    "split": "train",
+    "family": "mixed-literal",
+    "tags": [
+      "mixed",
+      "literal",
+      "quotes",
+      "prose"
+    ],
+    "source": "cases_train.txt:210",
+    "provenance": "AI-authored synthetic",
+    "row_index": 309,
+    "input_sha256": "a6023be971797bec518591b23e915ff693bb3318e13ac032a292ea5a42530d72"
+  },
+  {
+    "id": "v4-train-0047",
+    "split": "train",
+    "family": "emphasis-repeat",
+    "tags": [
+      "repetition",
+      "voice"
+    ],
+    "source": "cases_train.txt:47",
+    "provenance": "AI-authored synthetic",
+    "row_index": 310,
+    "input_sha256": "5e663cdb13523d7801b6c32d89aed8c528ad63fcfb86bb9173f09b81d7c5f302"
+  },
+  {
+    "id": "v4-train-0097",
+    "split": "train",
+    "family": "placeholder",
+    "tags": [
+      "technical",
+      "literal"
+    ],
+    "source": "cases_train.txt:97",
+    "provenance": "AI-authored synthetic",
+    "row_index": 311,
+    "input_sha256": "43f5dd8d430d691b4edc7a559e5f5f2493befbde897ee5a160de089aa876956f"
+  },
+  {
+    "id": "v4-extended-0012",
+    "split": "train",
+    "family": "medium-config-casing",
+    "tags": [
+      "mixed",
+      "technical",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:12",
+    "provenance": "AI-authored synthetic",
+    "row_index": 312,
+    "input_sha256": "d39dfcf0e66284dbc40ba3e37c31693d61b6aa3eb9d76bc2d277ebbf25aa624a"
+  },
+  {
+    "id": "v4-extended-0003",
+    "split": "train",
+    "family": "medium-meeting",
+    "tags": [
+      "mixed",
+      "bullets",
+      "brackets"
+    ],
+    "source": "cases_extended.txt:3",
+    "provenance": "AI-authored synthetic",
+    "row_index": 313,
+    "input_sha256": "3697c48ffbc0038426e45e4202b36988fef6221c7cf15079ea9a88e93acf7d98"
+  },
+  {
+    "id": "v4-train-0141",
+    "split": "train",
+    "family": "spoken-basic",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:141",
+    "provenance": "AI-authored synthetic",
+    "row_index": 314,
+    "input_sha256": "cd02f375b0aa72f4c19313802f8c67a68a75bb183a3e4c8ccfcc6f7588761c45"
+  },
+  {
+    "id": "v4-train-0133",
+    "split": "train",
+    "family": "idiom-numbers",
+    "tags": [
+      "literal",
+      "numbers"
+    ],
+    "source": "cases_train.txt:133",
+    "provenance": "AI-authored synthetic",
+    "row_index": 315,
+    "input_sha256": "8d53f199009d5484a1bab5043613b14f11e93ac978b8d47b3115043c44499b55"
+  },
+  {
+    "id": "v4-long-0014",
+    "split": "train",
+    "family": "long-identity-report",
+    "tags": [
+      "long",
+      "identity",
+      "meaning"
+    ],
+    "source": "cases_long.txt:14",
+    "provenance": "AI-authored synthetic",
+    "row_index": 316,
+    "input_sha256": "3e85670e2cbb4dca3ff0d12bece9a40b3ef88c1fbe8a11d77c8f5d23cbd0bcf9"
+  },
+  {
+    "id": "v4-mixed-0014",
+    "split": "train",
+    "family": "quote-commands",
+    "tags": [
+      "quotes",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:14",
+    "provenance": "AI-authored synthetic",
+    "row_index": 317,
+    "input_sha256": "893b040b8d4675a9adf625c9e9b2895204e6a8c06e6a2bc3f5ba44944d504a9d"
+  },
+  {
+    "id": "v4-mixed-0006",
+    "split": "train",
+    "family": "quoted-imperative",
+    "tags": [
+      "quotes",
+      "literal",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:6",
+    "provenance": "AI-authored synthetic",
+    "row_index": 318,
+    "input_sha256": "09b3fe6f7debe31ad04489f532010d14e4c1229a09bb7001f7ec7c68369911fd"
+  },
+  {
+    "id": "v4-long-0005",
+    "split": "train",
+    "family": "long-casual-story",
+    "tags": [
+      "long",
+      "mixed",
+      "voice",
+      "prose",
+      "meaning"
+    ],
+    "source": "cases_long.txt:5",
+    "provenance": "AI-authored synthetic",
+    "row_index": 319,
+    "input_sha256": "8e88413eb9194681119fd6337516de54f01e05b3ef537fe65de26d843b173a0b"
+  },
+  {
+    "id": "v4-train-0120",
+    "split": "train",
+    "family": "time-format",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_train.txt:120",
+    "provenance": "AI-authored synthetic",
+    "row_index": 320,
+    "input_sha256": "4fe6be47f6d5070c7b1d2fd17edcc7350e403c815d58e0a13b332e1810650086"
+  },
+  {
+    "id": "v4-train-0143",
+    "split": "train",
+    "family": "literal-period",
+    "tags": [
+      "literal",
+      "punctuation"
+    ],
+    "source": "cases_train.txt:143",
+    "provenance": "AI-authored synthetic",
+    "row_index": 321,
+    "input_sha256": "9543c2465e9ea793e470c6fb3bb10622f047384650422329d3b4cae23a12c93f"
+  },
+  {
+    "id": "v4-mixed-0064",
+    "split": "train",
+    "family": "money-decimal",
+    "tags": [
+      "numbers",
+      "identity"
+    ],
+    "source": "cases_mixed.txt:64",
+    "provenance": "AI-authored synthetic",
+    "row_index": 322,
+    "input_sha256": "5e257ef89c9e4e75cce0413c5be766ff7fd7191da95a0a0957a69d42326453ca"
+  },
+  {
+    "id": "v4-train-0029",
+    "split": "train",
+    "family": "like-boundary",
+    "tags": [
+      "literal",
+      "voice"
+    ],
+    "source": "cases_train.txt:29",
+    "provenance": "AI-authored synthetic",
+    "row_index": 323,
+    "input_sha256": "2a424f82f05469699d1ee736b2943f3590560a6a2ccf6901fe2cea63e4fdcd92"
+  },
+  {
+    "id": "v4-train-0167",
+    "split": "train",
+    "family": "hyphen-names",
+    "tags": [
+      "punctuation"
+    ],
+    "source": "cases_train.txt:167",
+    "provenance": "AI-authored synthetic",
+    "row_index": 324,
+    "input_sha256": "750237b42740d7716d4a5c795cd8c6687dd33cce270fa298604ba2520589edf2"
+  },
+  {
+    "id": "v4-train-0090",
+    "split": "train",
+    "family": "technical-case",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_train.txt:90",
+    "provenance": "AI-authored synthetic",
+    "row_index": 325,
+    "input_sha256": "3993a489a1dd1eabf19310c1a8b4870028fcff2df4cb70ec864e6ecdd678d504"
+  },
+  {
+    "id": "v4-train-0153",
+    "split": "train",
+    "family": "quote-literal",
+    "tags": [
+      "literal",
+      "quotes"
+    ],
+    "source": "cases_train.txt:153",
+    "provenance": "AI-authored synthetic",
+    "row_index": 326,
+    "input_sha256": "7b26cd7c6bc0ebf54d0b40f496fbdbfae813f514b695975a9557a00a2f927a73"
+  },
+  {
+    "id": "v4-train-0072",
+    "split": "train",
+    "family": "casual-voice",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_train.txt:72",
+    "provenance": "AI-authored synthetic",
+    "row_index": 327,
+    "input_sha256": "f2757d60711cff8494f93c8109a7e9d19945cd4455265cf56b8f8a4976e207b2"
+  },
+  {
+    "id": "v4-train-0150",
+    "split": "train",
+    "family": "quote-scope",
+    "tags": [
+      "quotes"
+    ],
+    "source": "cases_train.txt:150",
+    "provenance": "AI-authored synthetic",
+    "row_index": 328,
+    "input_sha256": "8fe4d221f95903ceefc61899c43fb627eba4a5d4549bdd76888f1993df8cbee6"
+  },
+  {
+    "id": "v4-mixed-0057",
+    "split": "train",
+    "family": "semicolon-scope",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_mixed.txt:57",
+    "provenance": "AI-authored synthetic",
+    "row_index": 329,
+    "input_sha256": "87b72278dc6117e4dd10ea999a4fcdcfe9ab7bd4acd13995d369256354a26e72"
+  },
+  {
+    "id": "v4-train-0170",
+    "split": "train",
+    "family": "shopping-independent",
+    "tags": [
+      "prose",
+      "numbers"
+    ],
+    "source": "cases_train.txt:170",
+    "provenance": "AI-authored synthetic",
+    "row_index": 330,
+    "input_sha256": "c781a0bd7eca64ed70c9c01bca18f60354cf9376726e979660a6818b23a1b82a"
+  },
+  {
+    "id": "v4-mixed-0060",
+    "split": "train",
+    "family": "units-not-counts",
+    "tags": [
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:60",
+    "provenance": "AI-authored synthetic",
+    "row_index": 331,
+    "input_sha256": "8e65649214634f7749188ff31561eccbc169e777675681a9706899687f01553e"
+  },
+  {
+    "id": "v4-train-0103",
+    "split": "train",
+    "family": "number-counts",
+    "tags": [
+      "numbers",
+      "identity"
+    ],
+    "source": "cases_train.txt:103",
+    "provenance": "AI-authored synthetic",
+    "row_index": 332,
+    "input_sha256": "faf06f2edc07caf6d7e0947afc46bf387945a49ab321ddd271e9da2d6ea97a82"
+  },
+  {
+    "id": "v4-train-0179",
+    "split": "train",
+    "family": "story-sequence",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_train.txt:179",
+    "provenance": "AI-authored synthetic",
+    "row_index": 333,
+    "input_sha256": "73b240dede12be873abb3a44dc6c1a72d5539c06ee43fd7d0f046edb162c3975"
+  },
+  {
+    "id": "v4-train-0128",
+    "split": "train",
+    "family": "version-label",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_train.txt:128",
+    "provenance": "AI-authored synthetic",
+    "row_index": 334,
+    "input_sha256": "3ee30f3eb6306597d7eea1e74eee7a8936cf2f26c17a323cdd762490fdda2528"
+  },
+  {
+    "id": "v4-train-0071",
+    "split": "train",
+    "family": "english-order",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_train.txt:71",
+    "provenance": "AI-authored synthetic",
+    "row_index": 335,
+    "input_sha256": "6ba04297b4860cab847d62b3db440c0815a69595c1e0b0fdd3399e070954182c"
+  },
+  {
+    "id": "v4-mixed-0065",
+    "split": "train",
+    "family": "uncertain-money",
+    "tags": [
+      "numbers",
+      "meaning",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:65",
+    "provenance": "AI-authored synthetic",
+    "row_index": 336,
+    "input_sha256": "2ed9a20a47d16f81977ab8faf1e223e1aba15d77e78911bcc1fe9e8236d44562"
+  },
+  {
+    "id": "v4-train-0196",
+    "split": "train",
+    "family": "email-literal",
+    "tags": [
+      "literal",
+      "prose"
+    ],
+    "source": "cases_train.txt:196",
+    "provenance": "AI-authored synthetic",
+    "row_index": 337,
+    "input_sha256": "665bf13c3f5e316e54986552975bfdaedb4001e18be405823f7ce17fc9ebcaf3"
+  },
+  {
+    "id": "v4-extended-0034",
+    "split": "train",
+    "family": "sustained-product-feedback",
+    "tags": [
+      "long",
+      "mixed",
+      "voice",
+      "quotes",
+      "meaning",
+      "prose"
+    ],
+    "source": "cases_extended.txt:34",
+    "provenance": "AI-authored synthetic",
+    "row_index": 338,
+    "input_sha256": "b281b524cf72cfa80a01f0dac05f95cf256bb384b73fdc23c41a425aea855515"
+  },
+  {
+    "id": "v4-train-0076",
+    "split": "train",
+    "family": "certainty-preserve",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_train.txt:76",
+    "provenance": "AI-authored synthetic",
+    "row_index": 339,
+    "input_sha256": "888cff0b1ddcaaa4821cfadcec0ec754e56615e89ba155bdb9e2e38760eca9e0"
+  },
+  {
+    "id": "v4-mixed-0024",
+    "split": "train",
+    "family": "restart-vs-clarify",
+    "tags": [
+      "correction",
+      "voice",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:24",
+    "provenance": "AI-authored synthetic",
+    "row_index": 340,
+    "input_sha256": "18cef5812c77753b3975df9d5b44fc2329cc06ec3b4c5baa195b7a8a8d618592"
+  },
+  {
+    "id": "v4-mixed-0043",
+    "split": "train",
+    "family": "list-item-correction",
+    "tags": [
+      "bullets",
+      "correction",
+      "mixed"
+    ],
+    "source": "cases_mixed.txt:43",
+    "provenance": "AI-authored synthetic",
+    "row_index": 341,
+    "input_sha256": "06bc2f517af7efc4e6399763cc3818699da4cedf0990d634889222bf6feeb46e"
+  },
+  {
+    "id": "v4-train-0192",
+    "split": "train",
+    "family": "paragraph-topics",
+    "tags": [
+      "paragraphs"
+    ],
+    "source": "cases_train.txt:192",
+    "provenance": "AI-authored synthetic",
+    "row_index": 342,
+    "input_sha256": "19d28ad3afe92d9c4b5875807765db99ffb66b63d06e1965c4d1ad8d73640ca0"
+  },
+  {
+    "id": "v4-train-0186",
+    "split": "train",
+    "family": "fragment-titles",
+    "tags": [
+      "fragments"
+    ],
+    "source": "cases_train.txt:186",
+    "provenance": "AI-authored synthetic",
+    "row_index": 343,
+    "input_sha256": "543a58c1f023955e576a99256cb5f448e9d5a3c927d4d1279e5383131dd07274"
+  },
+  {
+    "id": "v4-train-0057",
+    "split": "train",
+    "family": "correction-amount",
+    "tags": [
+      "correction",
+      "numbers"
+    ],
+    "source": "cases_train.txt:57",
+    "provenance": "AI-authored synthetic",
+    "row_index": 344,
+    "input_sha256": "df5118d2a2747d4e4300c0b7b0aba666cb866972fb165004353834b139c9eb71"
+  },
+  {
+    "id": "v4-long-0010",
+    "split": "train",
+    "family": "long-deployment-guide",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "numbered",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_long.txt:10",
+    "provenance": "AI-authored synthetic",
+    "row_index": 345,
+    "input_sha256": "84c99ab46561a10d9b1cb25ccfc3f9316ce851e9554342ad9f9705b77f944c8a"
+  },
+  {
+    "id": "v4-train-0154",
+    "split": "train",
+    "family": "quote-literal",
+    "tags": [
+      "identity",
+      "quotes"
+    ],
+    "source": "cases_train.txt:154",
+    "provenance": "AI-authored synthetic",
+    "row_index": 346,
+    "input_sha256": "03161b85f6ff1fd29ce23d86b268c4960090427eae7a5d6be8241a2b62529153"
+  },
+  {
+    "id": "v4-validation-0024",
+    "split": "validation",
+    "family": "val-small-count",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_validation.txt:24",
+    "provenance": "AI-authored synthetic",
+    "row_index": 0,
+    "input_sha256": "bb625c151488c06d3c7f700f2b77816b2ffe40ee61e54f20eb7ea195d670a030"
+  },
+  {
+    "id": "v4-validation-0050",
+    "split": "validation",
+    "family": "val-email",
+    "tags": [
+      "email"
+    ],
+    "source": "cases_validation.txt:50",
+    "provenance": "AI-authored synthetic",
+    "row_index": 1,
+    "input_sha256": "52381f1636166652270e6d54fa7b384ec7a6fffc62ee34e6e29f0bba3dc16a9f"
+  },
+  {
+    "id": "v4-validation-0042",
+    "split": "validation",
+    "family": "val-brackets",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_validation.txt:42",
+    "provenance": "AI-authored synthetic",
+    "row_index": 2,
+    "input_sha256": "3cc25bda6ecebdd3a2406ed5f1f1b1a0af0c760ee3e19e1c4cd232e4cb0f5f4a"
+  },
+  {
+    "id": "v4-validation-0017",
+    "split": "validation",
+    "family": "val-grammar",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_validation.txt:17",
+    "provenance": "AI-authored synthetic",
+    "row_index": 3,
+    "input_sha256": "65ca0eb76c736fd6d5fc7df7ad8505a35090ea8104c030fb03145d3bbca933f8"
+  },
+  {
+    "id": "v4-validation-0020",
+    "split": "validation",
+    "family": "val-fact",
+    "tags": [
+      "facts",
+      "no_answer"
+    ],
+    "source": "cases_validation.txt:20",
+    "provenance": "AI-authored synthetic",
+    "row_index": 4,
+    "input_sha256": "942eab3238df58fff00ecebfaf2e365c59ac2130bcadcb69a57aa9eb924b6cd3"
+  },
+  {
+    "id": "v4-validation-0046",
+    "split": "validation",
+    "family": "val-numbered",
+    "tags": [
+      "numbered"
+    ],
+    "source": "cases_validation.txt:46",
+    "provenance": "AI-authored synthetic",
+    "row_index": 5,
+    "input_sha256": "221d01c6803656cdd115a55f9abe661447e3ed5d76acef65036f59582af697e9"
+  },
+  {
+    "id": "v4-extended-0037",
+    "split": "validation",
+    "family": "val-sustained-research",
+    "tags": [
+      "long",
+      "mixed",
+      "numbered",
+      "numbers",
+      "meaning",
+      "quotes"
+    ],
+    "source": "cases_extended.txt:37",
+    "provenance": "AI-authored synthetic",
+    "row_index": 6,
+    "input_sha256": "59554d8d4b1b232fb730c3650ef34575cd56c9951c3596d6a5b3cfd397371723"
+  },
+  {
+    "id": "v4-validation-0012",
+    "split": "validation",
+    "family": "val-stutter",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_validation.txt:12",
+    "provenance": "AI-authored synthetic",
+    "row_index": 7,
+    "input_sha256": "e622755b8be66f7718028a6ab31c4c34efae92a6cda0a773110993395bc50619"
+  },
+  {
+    "id": "v4-validation-0038",
+    "split": "validation",
+    "family": "val-layout-literal",
+    "tags": [
+      "literal",
+      "prose"
+    ],
+    "source": "cases_validation.txt:38",
+    "provenance": "AI-authored synthetic",
+    "row_index": 8,
+    "input_sha256": "6e6feda19ba4ce323a28ec6cf831c748925ebb52ea7cde127bd3181bbad373c0"
+  },
+  {
+    "id": "v4-validation-0028",
+    "split": "validation",
+    "family": "val-payment",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_validation.txt:28",
+    "provenance": "AI-authored synthetic",
+    "row_index": 9,
+    "input_sha256": "f31185d4fa81a4245185483e502279464d3052725f811971af7d83c364438de3"
+  },
+  {
+    "id": "v4-extended-0022",
+    "split": "validation",
+    "family": "val-medium-wardrobe",
+    "tags": [
+      "mixed",
+      "bullets",
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_extended.txt:22",
+    "provenance": "AI-authored synthetic",
+    "row_index": 10,
+    "input_sha256": "ef080cde54ccec074fe72f57e193e26bf6496986a056fcef800a894456d1d518"
+  },
+  {
+    "id": "v4-validation-0023",
+    "split": "validation",
+    "family": "val-tech",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_validation.txt:23",
+    "provenance": "AI-authored synthetic",
+    "row_index": 11,
+    "input_sha256": "b54492e365e514aae238363b6559b9d298711745e3b93d72e827b6ea7ca6b043"
+  },
+  {
+    "id": "v4-validation-0049",
+    "split": "validation",
+    "family": "val-fragment",
+    "tags": [
+      "fragments"
+    ],
+    "source": "cases_validation.txt:49",
+    "provenance": "AI-authored synthetic",
+    "row_index": 12,
+    "input_sha256": "ff23477d2a9a3eb628e981c7176b524d082d9b367df3403ad73e60e84d6b97bd"
+  },
+  {
+    "id": "v4-validation-0037",
+    "split": "validation",
+    "family": "val-paragraph-break",
+    "tags": [
+      "new_paragraph"
+    ],
+    "source": "cases_validation.txt:37",
+    "provenance": "AI-authored synthetic",
+    "row_index": 13,
+    "input_sha256": "b9a0e19602981f2b69e0b17bf31cb2f5126b2851081ca79e1d76ec972ec55f58"
+  },
+  {
+    "id": "v4-validation-0011",
+    "split": "validation",
+    "family": "val-clarification",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_validation.txt:11",
+    "provenance": "AI-authored synthetic",
+    "row_index": 14,
+    "input_sha256": "1bc48066e5d380e0c3582aca096aca4e9b650ca7975e1645ed6b7d2ffb94cfa0"
+  },
+  {
+    "id": "v4-validation-0009",
+    "split": "validation",
+    "family": "val-voice-contrast",
+    "tags": [
+      "literal",
+      "voice"
+    ],
+    "source": "cases_validation.txt:9",
+    "provenance": "AI-authored synthetic",
+    "row_index": 15,
+    "input_sha256": "21eb4bc1f02778167ae48c8790523b51cb362c46d4f5c550f31c2784c5f0c910"
+  },
+  {
+    "id": "v4-long-0021",
+    "split": "validation",
+    "family": "val-long-command-quote",
+    "tags": [
+      "long",
+      "mixed",
+      "no_answer",
+      "injection",
+      "quotes",
+      "new_paragraph"
+    ],
+    "source": "cases_long.txt:21",
+    "provenance": "AI-authored synthetic",
+    "row_index": 16,
+    "input_sha256": "811c9a6e738e88d3dc54be8bf30ff161e3a93427613fe148390d7b7f6832b7e5"
+  },
+  {
+    "id": "v4-validation-0044",
+    "split": "validation",
+    "family": "val-tasks",
+    "tags": [
+      "bullets"
+    ],
+    "source": "cases_validation.txt:44",
+    "provenance": "AI-authored synthetic",
+    "row_index": 17,
+    "input_sha256": "5aebb9eb8a33fc2cf2b4baae881e3d97c15df3c6c66c0d412cd346beb3fbd8fa"
+  },
+  {
+    "id": "v4-validation-0008",
+    "split": "validation",
+    "family": "val-voice-contrast",
+    "tags": [
+      "voice",
+      "fillers"
+    ],
+    "source": "cases_validation.txt:8",
+    "provenance": "AI-authored synthetic",
+    "row_index": 18,
+    "input_sha256": "189d8108b5aaea1e5437c34003d09aca79ca4112ce6e338740f4f9fcac189d11"
+  },
+  {
+    "id": "v4-validation-0013",
+    "split": "validation",
+    "family": "val-stutter",
+    "tags": [
+      "repetition",
+      "voice"
+    ],
+    "source": "cases_validation.txt:13",
+    "provenance": "AI-authored synthetic",
+    "row_index": 19,
+    "input_sha256": "7b9d4fca22ee31351896b44dbf513c5cb1f1ded218c240e908742d7df461f514"
+  },
+  {
+    "id": "v4-long-0019",
+    "split": "validation",
+    "family": "val-long-literary",
+    "tags": [
+      "long",
+      "mixed",
+      "prose",
+      "quotes",
+      "literal",
+      "voice"
+    ],
+    "source": "cases_long.txt:19",
+    "provenance": "AI-authored synthetic",
+    "row_index": 20,
+    "input_sha256": "c74710504bb810d9e1bc73361c43fff4b444359511b6d0dd4396eac6934c5445"
+  },
+  {
+    "id": "v4-long-0020",
+    "split": "validation",
+    "family": "val-long-identity",
+    "tags": [
+      "long",
+      "identity",
+      "meaning"
+    ],
+    "source": "cases_long.txt:20",
+    "provenance": "AI-authored synthetic",
+    "row_index": 21,
+    "input_sha256": "66031a0bcb159b2cd815727c35cd955d34e8308796eca859708eebf1ce7522b8"
+  },
+  {
+    "id": "v4-validation-0053",
+    "split": "validation",
+    "family": "val-mixed-list",
+    "tags": [
+      "mixed",
+      "bullets",
+      "numbers",
+      "correction",
+      "meaning"
+    ],
+    "source": "cases_validation.txt:53",
+    "provenance": "AI-authored synthetic",
+    "row_index": 22,
+    "input_sha256": "a1fe51988e102d17b66f7b4c8cb14a82a323ae68f78c7a39bff939c6ae471bc3"
+  },
+  {
+    "id": "v4-long-0017",
+    "split": "validation",
+    "family": "val-long-volunteer",
+    "tags": [
+      "long",
+      "mixed",
+      "email",
+      "bullets",
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_long.txt:17",
+    "provenance": "AI-authored synthetic",
+    "row_index": 23,
+    "input_sha256": "9f67827fec95318d08a844e64a9bda42cf4ebb133f9cede51b49d7e235613091"
+  },
+  {
+    "id": "v4-validation-0021",
+    "split": "validation",
+    "family": "val-fact",
+    "tags": [
+      "facts"
+    ],
+    "source": "cases_validation.txt:21",
+    "provenance": "AI-authored synthetic",
+    "row_index": 24,
+    "input_sha256": "a437b4f650bf8b735b378db6dac2ce5d8cf87b36e926f9593a2d2e6cdc0fd869"
+  },
+  {
+    "id": "v4-validation-0025",
+    "split": "validation",
+    "family": "val-small-count",
+    "tags": [
+      "numbers",
+      "identity"
+    ],
+    "source": "cases_validation.txt:25",
+    "provenance": "AI-authored synthetic",
+    "row_index": 25,
+    "input_sha256": "c62875f57ddbbe552edb3c27224dab2b8b1b09bf6c8d5f3210dbc59162d5d0be"
+  },
+  {
+    "id": "v4-extended-0024",
+    "split": "validation",
+    "family": "val-medium-narrative",
+    "tags": [
+      "mixed",
+      "prose",
+      "voice"
+    ],
+    "source": "cases_extended.txt:24",
+    "provenance": "AI-authored synthetic",
+    "row_index": 26,
+    "input_sha256": "5cc4e10f028c9a8495f7520bd33183e8bd0c686a2c5e971b5630e4d9622faa5f"
+  },
+  {
+    "id": "v4-validation-0022",
+    "split": "validation",
+    "family": "val-tech",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_validation.txt:22",
+    "provenance": "AI-authored synthetic",
+    "row_index": 27,
+    "input_sha256": "ab8c0056158399584f535f351704ccdc77dec1fc4f6e919e7a5a11286f89a52b"
+  },
+  {
+    "id": "v4-validation-0032",
+    "split": "validation",
+    "family": "val-id",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_validation.txt:32",
+    "provenance": "AI-authored synthetic",
+    "row_index": 28,
+    "input_sha256": "241c9bff39c32039c8c145f444251c9d17df0bced57102b46567f0b93a1ab68b"
+  },
+  {
+    "id": "v4-validation-0036",
+    "split": "validation",
+    "family": "val-line-break",
+    "tags": [
+      "new_line"
+    ],
+    "source": "cases_validation.txt:36",
+    "provenance": "AI-authored synthetic",
+    "row_index": 29,
+    "input_sha256": "fd6eee8836c4254328110cc097fcea76fc992c2c4dc11e224bdcf2be44c95a79"
+  },
+  {
+    "id": "v4-validation-0048",
+    "split": "validation",
+    "family": "val-story",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_validation.txt:48",
+    "provenance": "AI-authored synthetic",
+    "row_index": 30,
+    "input_sha256": "3812f8016be82bb3d86ee629ed7968c2d7942a77513d82e5517ad1a7dc6cafbd"
+  },
+  {
+    "id": "v4-mixed-0104",
+    "split": "validation",
+    "family": "val-extra-identity",
+    "tags": [
+      "identity",
+      "technical"
+    ],
+    "source": "cases_mixed.txt:104",
+    "provenance": "AI-authored synthetic",
+    "row_index": 31,
+    "input_sha256": "7e9a455d77e061114afc0acc7eed0bfa6a56494344c02dd8403fb1a45e024f32"
+  },
+  {
+    "id": "v4-validation-0016",
+    "split": "validation",
+    "family": "val-grammar",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_validation.txt:16",
+    "provenance": "AI-authored synthetic",
+    "row_index": 32,
+    "input_sha256": "be7e09afd0d433b989af25402e27f3f9719ee9a8a4a537e22dd3a0b76615c513"
+  },
+  {
+    "id": "v4-validation-0026",
+    "split": "validation",
+    "family": "val-measure",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_validation.txt:26",
+    "provenance": "AI-authored synthetic",
+    "row_index": 33,
+    "input_sha256": "70f99b4d382cd4ce9dc523fbb02ce4015ed9cd6cca6d84f3717076889d080db2"
+  },
+  {
+    "id": "v4-validation-0005",
+    "split": "validation",
+    "family": "val-secret-request",
+    "tags": [
+      "no_answer",
+      "injection",
+      "quotes"
+    ],
+    "source": "cases_validation.txt:5",
+    "provenance": "AI-authored synthetic",
+    "row_index": 34,
+    "input_sha256": "8ba0d46e2ec9ed24fb76cd307555f4db50bacb5a63f0c33f94c3da5301422628"
+  },
+  {
+    "id": "v4-extended-0026",
+    "split": "validation",
+    "family": "val-medium-identity",
+    "tags": [
+      "identity",
+      "technical"
+    ],
+    "source": "cases_extended.txt:26",
+    "provenance": "AI-authored synthetic",
+    "row_index": 35,
+    "input_sha256": "d4e2c304576d920a1dd2f126b3c0d96aa297f030af3771ff245e11362ecd7d30"
+  },
+  {
+    "id": "v4-extended-0023",
+    "split": "validation",
+    "family": "val-medium-quote",
+    "tags": [
+      "mixed",
+      "quotes",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:23",
+    "provenance": "AI-authored synthetic",
+    "row_index": 36,
+    "input_sha256": "ba938b3801e0f898f4b828e31501d9d182d1b3c2a246bb0c82103d7f982434dc"
+  },
+  {
+    "id": "v4-validation-0040",
+    "split": "validation",
+    "family": "val-quote",
+    "tags": [
+      "quotes",
+      "literal"
+    ],
+    "source": "cases_validation.txt:40",
+    "provenance": "AI-authored synthetic",
+    "row_index": 37,
+    "input_sha256": "d916a9fe4ba9ec2bb89fbbf666523edf41215108306f34c4591441d79a074c86"
+  },
+  {
+    "id": "v4-validation-0045",
+    "split": "validation",
+    "family": "val-tasks",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_validation.txt:45",
+    "provenance": "AI-authored synthetic",
+    "row_index": 38,
+    "input_sha256": "2b63c998585f395326fb42c9bbc5cb612d2217413b9fd9ec31955431dbf58dac"
+  },
+  {
+    "id": "v4-mixed-0105",
+    "split": "validation",
+    "family": "val-extra-translation",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:105",
+    "provenance": "AI-authored synthetic",
+    "row_index": 39,
+    "input_sha256": "30e43de06a257ba01ead375805fdcce37226c850bee6d728c83e8db36dbe6626"
+  },
+  {
+    "id": "v4-mixed-0103",
+    "split": "validation",
+    "family": "val-extra-injection",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "injection",
+      "new_line"
+    ],
+    "source": "cases_mixed.txt:103",
+    "provenance": "AI-authored synthetic",
+    "row_index": 40,
+    "input_sha256": "800068d743d34a353c7a3a2bbd16c446f79a49496689e4d8d88b9550a40dbcfb"
+  },
+  {
+    "id": "v4-validation-0043",
+    "split": "validation",
+    "family": "val-brackets",
+    "tags": [
+      "brackets",
+      "literal"
+    ],
+    "source": "cases_validation.txt:43",
+    "provenance": "AI-authored synthetic",
+    "row_index": 41,
+    "input_sha256": "762262c1b33b9b70bd91d4a619017ab804f2e415ef0c29f0d492794a5a944f11"
+  },
+  {
+    "id": "v4-validation-0007",
+    "split": "validation",
+    "family": "val-empty-noise",
+    "tags": [
+      "empty",
+      "fillers"
+    ],
+    "source": "cases_validation.txt:7",
+    "provenance": "AI-authored synthetic",
+    "row_index": 42,
+    "input_sha256": "1ef7e938d074d239548634fffa7d40a041041b7f739cef799f0f617450c7a9a3"
+  },
+  {
+    "id": "v4-validation-0015",
+    "split": "validation",
+    "family": "val-correction-venue",
+    "tags": [
+      "correction",
+      "brackets",
+      "mixed"
+    ],
+    "source": "cases_validation.txt:15",
+    "provenance": "AI-authored synthetic",
+    "row_index": 43,
+    "input_sha256": "e851c5f1a81cec0c53737fafa11ccb7a93f3463a553cd44afaf16881e76391f9"
+  },
+  {
+    "id": "v4-validation-0031",
+    "split": "validation",
+    "family": "val-calendar",
+    "tags": [
+      "meaning",
+      "numbers"
+    ],
+    "source": "cases_validation.txt:31",
+    "provenance": "AI-authored synthetic",
+    "row_index": 44,
+    "input_sha256": "a6c456df25194ef6789fc9b0ddfa4c6caf2ca94ea1e04b09ebd011a0fd61ae72"
+  },
+  {
+    "id": "v4-validation-0035",
+    "split": "validation",
+    "family": "val-word-number",
+    "tags": [
+      "literal",
+      "numbers"
+    ],
+    "source": "cases_validation.txt:35",
+    "provenance": "AI-authored synthetic",
+    "row_index": 45,
+    "input_sha256": "fbf0d95aea370a00ca519a8cd1154d94bb1ae1240d55e5373a731209b3eb8c17"
+  },
+  {
+    "id": "v4-validation-0039",
+    "split": "validation",
+    "family": "val-quote",
+    "tags": [
+      "quotes"
+    ],
+    "source": "cases_validation.txt:39",
+    "provenance": "AI-authored synthetic",
+    "row_index": 46,
+    "input_sha256": "0b8a73559a2851a21a9de718d616be0a4c4d1468eccc17c9ec45d0a4331f9662"
+  },
+  {
+    "id": "v4-validation-0041",
+    "split": "validation",
+    "family": "val-brackets",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_validation.txt:41",
+    "provenance": "AI-authored synthetic",
+    "row_index": 47,
+    "input_sha256": "019ebf53917ccd51a2c75921eb8d80d7099d12f59b6607ffb31a84b9bbef925e"
+  },
+  {
+    "id": "v4-validation-0027",
+    "split": "validation",
+    "family": "val-payment",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_validation.txt:27",
+    "provenance": "AI-authored synthetic",
+    "row_index": 48,
+    "input_sha256": "718c3f1e8354d48174d97c7a096d2a297af40cf53c81f3f2c05e4532f02ccaa0"
+  },
+  {
+    "id": "v4-validation-0051",
+    "split": "validation",
+    "family": "val-email",
+    "tags": [
+      "email",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_validation.txt:51",
+    "provenance": "AI-authored synthetic",
+    "row_index": 49,
+    "input_sha256": "d82dc1484085bae30700f4b26804cff2016bd4fe7dd6909b2ca24122905a62da"
+  },
+  {
+    "id": "v4-mixed-0102",
+    "split": "validation",
+    "family": "val-extra-scope",
+    "tags": [
+      "mixed",
+      "quotes",
+      "meaning"
+    ],
+    "source": "cases_mixed.txt:102",
+    "provenance": "AI-authored synthetic",
+    "row_index": 50,
+    "input_sha256": "ac3f8ff4b2751328c42f8f7ec6ead8cdc576520c0df82d89a8d7d524f7a20304"
+  },
+  {
+    "id": "v4-validation-0034",
+    "split": "validation",
+    "family": "val-word-number",
+    "tags": [
+      "literal",
+      "numbers"
+    ],
+    "source": "cases_validation.txt:34",
+    "provenance": "AI-authored synthetic",
+    "row_index": 51,
+    "input_sha256": "4638ded4368d675e2d391deecb590e236682fa66094ec1545c71a4a3468baa4c"
+  },
+  {
+    "id": "v4-validation-0014",
+    "split": "validation",
+    "family": "val-correction-venue",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_validation.txt:14",
+    "provenance": "AI-authored synthetic",
+    "row_index": 52,
+    "input_sha256": "798ecf83a40fb23b05030afeb95edb5a1a3d66f666ecd042c3bcb068f2a37a04"
+  },
+  {
+    "id": "v4-validation-0054",
+    "split": "validation",
+    "family": "val-identity-layout",
+    "tags": [
+      "identity",
+      "new_line"
+    ],
+    "source": "cases_validation.txt:54",
+    "provenance": "AI-authored synthetic",
+    "row_index": 53,
+    "input_sha256": "07f663b3f7b165d25341e94eb67c8712a9e01fecc63090abeeaf7fd49a135275"
+  },
+  {
+    "id": "v4-long-0018",
+    "split": "validation",
+    "family": "val-long-evaluation",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "numbered",
+      "meaning",
+      "numbers"
+    ],
+    "source": "cases_long.txt:18",
+    "provenance": "AI-authored synthetic",
+    "row_index": 54,
+    "input_sha256": "0b6d6dc58a6de7634e1353a1b0c4d38db5dceba5348c135b294d09ed6ee92de5"
+  },
+  {
+    "id": "v4-validation-0018",
+    "split": "validation",
+    "family": "val-meaning",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_validation.txt:18",
+    "provenance": "AI-authored synthetic",
+    "row_index": 55,
+    "input_sha256": "fd2719513570cf4996f56963fc9bd82da2ec3cdf8c669d0e86794677222202de"
+  },
+  {
+    "id": "v4-validation-0030",
+    "split": "validation",
+    "family": "val-calendar",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_validation.txt:30",
+    "provenance": "AI-authored synthetic",
+    "row_index": 56,
+    "input_sha256": "3217f0cab03e2a2ba9659b07bb93da4866223bcb3106dc158c106cc674c4f68a"
+  },
+  {
+    "id": "v4-validation-0029",
+    "split": "validation",
+    "family": "val-clock",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_validation.txt:29",
+    "provenance": "AI-authored synthetic",
+    "row_index": 57,
+    "input_sha256": "a5a45bba58c4c219c7a13ede1f95c301c27c02cc57d8b6224451418b88b173e6"
+  },
+  {
+    "id": "v4-validation-0033",
+    "split": "validation",
+    "family": "val-id",
+    "tags": [
+      "numbers",
+      "technical"
+    ],
+    "source": "cases_validation.txt:33",
+    "provenance": "AI-authored synthetic",
+    "row_index": 58,
+    "input_sha256": "0a42a6a1d6a1fd0964265526f640b39f5feb41f160095b70fa1d688d292857cd"
+  },
+  {
+    "id": "v4-validation-0047",
+    "split": "validation",
+    "family": "val-numbered",
+    "tags": [
+      "numbered",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_validation.txt:47",
+    "provenance": "AI-authored synthetic",
+    "row_index": 59,
+    "input_sha256": "7709a58e45374dc14db2c9a26b2da53a8796abd8b8a845159305eec467d51ce7"
+  },
+  {
+    "id": "v4-validation-0002",
+    "split": "validation",
+    "family": "val-travel-query",
+    "tags": [
+      "no_answer",
+      "fillers"
+    ],
+    "source": "cases_validation.txt:2",
+    "provenance": "AI-authored synthetic",
+    "row_index": 60,
+    "input_sha256": "626d7ff649370304985356694b4b78330ee29deda63eb85c5fde5fd878990c1d"
+  },
+  {
+    "id": "v4-validation-0019",
+    "split": "validation",
+    "family": "val-meaning",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_validation.txt:19",
+    "provenance": "AI-authored synthetic",
+    "row_index": 61,
+    "input_sha256": "fc7bd662fafb5408618d146df27d496164548799637d34e9350e4aa4928d3ce2"
+  },
+  {
+    "id": "v4-extended-0025",
+    "split": "validation",
+    "family": "val-medium-layout",
+    "tags": [
+      "mixed",
+      "new_line",
+      "new_paragraph",
+      "numbers"
+    ],
+    "source": "cases_extended.txt:25",
+    "provenance": "AI-authored synthetic",
+    "row_index": 62,
+    "input_sha256": "7d7370babe4ee9748dbe17b42693197f3abaeecc90f7c9cbbbf908db9715c352"
+  },
+  {
+    "id": "v4-validation-0003",
+    "split": "validation",
+    "family": "val-travel-query",
+    "tags": [
+      "no_answer",
+      "identity"
+    ],
+    "source": "cases_validation.txt:3",
+    "provenance": "AI-authored synthetic",
+    "row_index": 63,
+    "input_sha256": "1e8cbd3304f78c2c21546a12a3e7a76ed2c64e34ee2b1304cb4bc0084847ca19"
+  },
+  {
+    "id": "v4-validation-0010",
+    "split": "validation",
+    "family": "val-clarification",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_validation.txt:10",
+    "provenance": "AI-authored synthetic",
+    "row_index": 64,
+    "input_sha256": "e79f0bfa91e8b2ff1e00ac29624d40cdfda6b0d962a301d204ec0295422061af"
+  },
+  {
+    "id": "v4-validation-0052",
+    "split": "validation",
+    "family": "val-mixed-layout",
+    "tags": [
+      "mixed",
+      "quotes",
+      "brackets",
+      "new_line",
+      "technical"
+    ],
+    "source": "cases_validation.txt:52",
+    "provenance": "AI-authored synthetic",
+    "row_index": 65,
+    "input_sha256": "b09aab8e699e5d4720aecbb9baba97faab5c694d9a165f9c4aa6c547b45f906b"
+  },
+  {
+    "id": "v4-validation-0006",
+    "split": "validation",
+    "family": "val-agent-token",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_validation.txt:6",
+    "provenance": "AI-authored synthetic",
+    "row_index": 66,
+    "input_sha256": "94111ed660e2b2c012b202c950db44747cc2cbfd45f2be55c6251be1a1725a26"
+  },
+  {
+    "id": "v4-validation-0004",
+    "split": "validation",
+    "family": "val-secret-request",
+    "tags": [
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_validation.txt:4",
+    "provenance": "AI-authored synthetic",
+    "row_index": 67,
+    "input_sha256": "5c94a0766ab69b580bbc9f9008e01bc745a0ca7ddfa0dad6eaebaf951fedc9cb"
+  },
+  {
+    "id": "v4-mixed-0101",
+    "split": "validation",
+    "family": "val-extra-list-mixed",
+    "tags": [
+      "mixed",
+      "bullets",
+      "brackets",
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_mixed.txt:101",
+    "provenance": "AI-authored synthetic",
+    "row_index": 68,
+    "input_sha256": "8994c2cde3a5dd06e6acf5a38c0af9e68128af55c55c3b5e1d05c826b3c4dad7"
+  },
+  {
+    "id": "v4-test-0061",
+    "split": "test",
+    "family": "test-fragment-name",
+    "tags": [
+      "fragments"
+    ],
+    "source": "cases_test.txt:61",
+    "provenance": "AI-authored synthetic",
+    "row_index": 0,
+    "input_sha256": "93b769a11aafdaef8cccb3e8c3351a41f9b1ffd9dfd14625ec9f7d1b0817cbe6"
+  },
+  {
+    "id": "v4-test-0058",
+    "split": "test",
+    "family": "test-list-numbers",
+    "tags": [
+      "numbered"
+    ],
+    "source": "cases_test.txt:58",
+    "provenance": "AI-authored synthetic",
+    "row_index": 1,
+    "input_sha256": "b27fde21e57abbb24ba5f0bf428ecd71de28c1f6ab21a598f41a667e82a6854f"
+  },
+  {
+    "id": "v4-test-0004",
+    "split": "test",
+    "family": "test-role-takeover",
+    "tags": [
+      "no_answer",
+      "injection"
+    ],
+    "source": "cases_test.txt:4",
+    "provenance": "AI-authored synthetic",
+    "row_index": 2,
+    "input_sha256": "b90eb9491dfef9ffb866cf2406a72784a4180c63c72dbc2b676ef89780000cbf"
+  },
+  {
+    "id": "v4-test-0047",
+    "split": "test",
+    "family": "test-commands",
+    "tags": [
+      "punctuation",
+      "new_line"
+    ],
+    "source": "cases_test.txt:47",
+    "provenance": "AI-authored synthetic",
+    "row_index": 3,
+    "input_sha256": "f2696018244ae5be94f35246d0c0d41c7195334847d13352fd67526cad242ddb"
+  },
+  {
+    "id": "v4-extended-0031",
+    "split": "test",
+    "family": "test-medium-identity",
+    "tags": [
+      "identity",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:31",
+    "provenance": "AI-authored synthetic",
+    "row_index": 4,
+    "input_sha256": "fcd9ae99b613c9fe5fd89d8ad2e8369d5833785dc8288e4b76b5914c4f5a22d9"
+  },
+  {
+    "id": "v4-test-0046",
+    "split": "test",
+    "family": "test-idiom",
+    "tags": [
+      "numbers",
+      "literal"
+    ],
+    "source": "cases_test.txt:46",
+    "provenance": "AI-authored synthetic",
+    "row_index": 5,
+    "input_sha256": "3d690efa6c2bcd55dee4ee2fba47487f58666e161a216e006b4865ed101206e0"
+  },
+  {
+    "id": "v4-long-0025",
+    "split": "test",
+    "family": "test-long-prose",
+    "tags": [
+      "long",
+      "mixed",
+      "prose",
+      "voice",
+      "meaning"
+    ],
+    "source": "cases_long.txt:25",
+    "provenance": "AI-authored synthetic",
+    "row_index": 6,
+    "input_sha256": "a53063b4d50457aa229007ca627f015fd13b24b84e78e18b5b220c4676174b70"
+  },
+  {
+    "id": "v4-test-0008",
+    "split": "test",
+    "family": "test-disfluency",
+    "tags": [
+      "fillers",
+      "voice"
+    ],
+    "source": "cases_test.txt:8",
+    "provenance": "AI-authored synthetic",
+    "row_index": 7,
+    "input_sha256": "4d8572112a64174dfe80cb87c49d16bb626e3355e4b179efaafe819a3839fbaa"
+  },
+  {
+    "id": "v4-test-0040",
+    "split": "test",
+    "family": "test-clock",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:40",
+    "provenance": "AI-authored synthetic",
+    "row_index": 8,
+    "input_sha256": "dc976606c0a2283690b56dc7aae8a34dee5a938eb827219df07093c641827756"
+  },
+  {
+    "id": "v4-test-0025",
+    "split": "test",
+    "family": "test-negative",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_test.txt:25",
+    "provenance": "AI-authored synthetic",
+    "row_index": 9,
+    "input_sha256": "def292ee838eca6a4f6fe86d5741af4a29b830d8a337305b7a200a126fefe515"
+  },
+  {
+    "id": "v4-test-0012",
+    "split": "test",
+    "family": "test-actually",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_test.txt:12",
+    "provenance": "AI-authored synthetic",
+    "row_index": 10,
+    "input_sha256": "fe1a2408109a364401c31cd9277af702618eaac1585032a21eca938218693ebf"
+  },
+  {
+    "id": "v4-extended-0038",
+    "split": "test",
+    "family": "test-sustained-venue",
+    "tags": [
+      "long",
+      "mixed",
+      "email",
+      "bullets",
+      "correction",
+      "numbers",
+      "quotes",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:38",
+    "provenance": "AI-authored synthetic",
+    "row_index": 11,
+    "input_sha256": "9732f26df960774ced14a791a37624a9596f5f91e0a9196407abcfd76d085058"
+  },
+  {
+    "id": "v4-test-0010",
+    "split": "test",
+    "family": "test-reason-so",
+    "tags": [
+      "literal",
+      "prose"
+    ],
+    "source": "cases_test.txt:10",
+    "provenance": "AI-authored synthetic",
+    "row_index": 12,
+    "input_sha256": "d9e62d9877cf1f3ffb04949ee4352b2df89c2db884d5c1f14d5556d53d94aa8f"
+  },
+  {
+    "id": "v4-long-0023",
+    "split": "test",
+    "family": "test-long-lab-plan",
+    "tags": [
+      "long",
+      "mixed",
+      "numbered",
+      "technical",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_long.txt:23",
+    "provenance": "AI-authored synthetic",
+    "row_index": 13,
+    "input_sha256": "bef612b87b927b2d17da32f4d584b95fe0be45aa82543b13c0850885c99bb6a1"
+  },
+  {
+    "id": "v4-test-0050",
+    "split": "test",
+    "family": "test-command-literal",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_test.txt:50",
+    "provenance": "AI-authored synthetic",
+    "row_index": 14,
+    "input_sha256": "dfcf3bb0b04764534db84280711db4d1756bb5c3c0aa72e4dc76102b2cc3dd77"
+  },
+  {
+    "id": "v4-extended-0028",
+    "split": "test",
+    "family": "test-medium-correction",
+    "tags": [
+      "mixed",
+      "correction",
+      "numbers",
+      "brackets"
+    ],
+    "source": "cases_extended.txt:28",
+    "provenance": "AI-authored synthetic",
+    "row_index": 15,
+    "input_sha256": "c2673a4ec726e5b84e13f0f67138c12cddfcab1d371ef7cb63e103de281e7767"
+  },
+  {
+    "id": "v4-test-0031",
+    "split": "test",
+    "family": "test-url",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_test.txt:31",
+    "provenance": "AI-authored synthetic",
+    "row_index": 16,
+    "input_sha256": "2ca3f55824663bb49b325cfa22f0b0a0206c323ea6c7cfe449cac5b19f9610a1"
+  },
+  {
+    "id": "v4-test-0066",
+    "split": "test",
+    "family": "test-preserved-style",
+    "tags": [
+      "identity",
+      "quotes"
+    ],
+    "source": "cases_test.txt:66",
+    "provenance": "AI-authored synthetic",
+    "row_index": 17,
+    "input_sha256": "776d498b82d767e8e3b38941a7dc7d57ac6d6a244e99038387582014361adf46"
+  },
+  {
+    "id": "v4-test-0064",
+    "split": "test",
+    "family": "test-email-layout",
+    "tags": [
+      "email",
+      "mixed",
+      "numbers",
+      "quotes"
+    ],
+    "source": "cases_test.txt:64",
+    "provenance": "AI-authored synthetic",
+    "row_index": 18,
+    "input_sha256": "82385e05c643352fef9fac374cb2bfc27b4edd6c39aac6ec065f682007160f04"
+  },
+  {
+    "id": "v4-test-0053",
+    "split": "test",
+    "family": "test-bracket-scope",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_test.txt:53",
+    "provenance": "AI-authored synthetic",
+    "row_index": 19,
+    "input_sha256": "67f423b6535e3a291869498a41fca65bd761081094974c7416271c06a405f13d"
+  },
+  {
+    "id": "v4-test-0002",
+    "split": "test",
+    "family": "test-question-map",
+    "tags": [
+      "no_answer",
+      "fillers"
+    ],
+    "source": "cases_test.txt:2",
+    "provenance": "AI-authored synthetic",
+    "row_index": 20,
+    "input_sha256": "1470ba870934b5911cb07ed88489ee7bd9787d2af26e75e04485446b106ac23d"
+  },
+  {
+    "id": "v4-test-0024",
+    "split": "test",
+    "family": "test-negative",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_test.txt:24",
+    "provenance": "AI-authored synthetic",
+    "row_index": 21,
+    "input_sha256": "7167c6d0571c56c6bf6e8fce94f3f11a00c7d25c6cc140fc1c7100b240be6b22"
+  },
+  {
+    "id": "v4-test-0055",
+    "split": "test",
+    "family": "test-bracket-literal",
+    "tags": [
+      "literal",
+      "brackets"
+    ],
+    "source": "cases_test.txt:55",
+    "provenance": "AI-authored synthetic",
+    "row_index": 22,
+    "input_sha256": "c07c051b4029c773389592f9ea6b20ef24e1e475543adf1484c9aa923f723421"
+  },
+  {
+    "id": "v4-test-0022",
+    "split": "test",
+    "family": "test-grammar-repair",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_test.txt:22",
+    "provenance": "AI-authored synthetic",
+    "row_index": 23,
+    "input_sha256": "3d25edc307741a0aad194f1cefa937b7fc3ba38c68c92ba04eccb261f48247a0"
+  },
+  {
+    "id": "v4-mixed-0110",
+    "split": "test",
+    "family": "test-extra-translation",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_mixed.txt:110",
+    "provenance": "AI-authored synthetic",
+    "row_index": 24,
+    "input_sha256": "593e9dc7f2a3f62e7ba1100e074b7677f9a2ea6fab002f0660c56b1ca9d83aaa"
+  },
+  {
+    "id": "v4-test-0006",
+    "split": "test",
+    "family": "test-actor-name",
+    "tags": [
+      "no_answer",
+      "literal"
+    ],
+    "source": "cases_test.txt:6",
+    "provenance": "AI-authored synthetic",
+    "row_index": 25,
+    "input_sha256": "4745705c2fea37406f0ea662a9efd0e115c0eccaaa2329d704dc0c93cd62e6bb"
+  },
+  {
+    "id": "v4-test-0044",
+    "split": "test",
+    "family": "test-code-leading",
+    "tags": [
+      "technical",
+      "numbers"
+    ],
+    "source": "cases_test.txt:44",
+    "provenance": "AI-authored synthetic",
+    "row_index": 26,
+    "input_sha256": "275f1f5a7fbb1bf974014ac44f5be88dd83869f4e2a887d3ece6f824585edea3"
+  },
+  {
+    "id": "v4-extended-0039",
+    "split": "test",
+    "family": "test-sustained-software",
+    "tags": [
+      "long",
+      "mixed",
+      "technical",
+      "numbered",
+      "quotes",
+      "meaning",
+      "numbers"
+    ],
+    "source": "cases_extended.txt:39",
+    "provenance": "AI-authored synthetic",
+    "row_index": 27,
+    "input_sha256": "eb43187be165671dff60d4f0799823333f8d3013aa9cb2d394b7b002facb1505"
+  },
+  {
+    "id": "v4-test-0027",
+    "split": "test",
+    "family": "test-false-fact",
+    "tags": [
+      "facts",
+      "numbers"
+    ],
+    "source": "cases_test.txt:27",
+    "provenance": "AI-authored synthetic",
+    "row_index": 28,
+    "input_sha256": "586b5a23170c9ae0a0d3dc3e767f81242c4e6944b3396fb9a4b6cc99ed330940"
+  },
+  {
+    "id": "v4-mixed-0106",
+    "split": "test",
+    "family": "test-extra-mixed",
+    "tags": [
+      "mixed",
+      "numbered",
+      "quotes",
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_mixed.txt:106",
+    "provenance": "AI-authored synthetic",
+    "row_index": 29,
+    "input_sha256": "204dcf6d2cfc756fcaa15ac71652104955111d37cce40f449c970ea4842e5af4"
+  },
+  {
+    "id": "v4-mixed-0109",
+    "split": "test",
+    "family": "test-extra-identity",
+    "tags": [
+      "identity",
+      "technical"
+    ],
+    "source": "cases_mixed.txt:109",
+    "provenance": "AI-authored synthetic",
+    "row_index": 30,
+    "input_sha256": "336e93d6ae0cf84854749820fff5438ce8bd35d7ddd3ce9fd5858e5559973f29"
+  },
+  {
+    "id": "v4-test-0007",
+    "split": "test",
+    "family": "test-filler",
+    "tags": [
+      "empty",
+      "fillers"
+    ],
+    "source": "cases_test.txt:7",
+    "provenance": "AI-authored synthetic",
+    "row_index": 31,
+    "input_sha256": "35e9a946290da43561ae28754fd383389963ac7197d2c6e7fd9032a4a5c95843"
+  },
+  {
+    "id": "v4-test-0039",
+    "split": "test",
+    "family": "test-precise-number",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:39",
+    "provenance": "AI-authored synthetic",
+    "row_index": 32,
+    "input_sha256": "707f49f5f412afef9eed33e3b5cc041573d037108aa84acc6c7a54a532014eb5"
+  },
+  {
+    "id": "v4-test-0059",
+    "split": "test",
+    "family": "test-list-numbers",
+    "tags": [
+      "numbered",
+      "numbers",
+      "mixed"
+    ],
+    "source": "cases_test.txt:59",
+    "provenance": "AI-authored synthetic",
+    "row_index": 33,
+    "input_sha256": "96ecd2f66f6974ef00557bd08aa01df4710af982a83d537196624cacbc783a17"
+  },
+  {
+    "id": "v4-test-0036",
+    "split": "test",
+    "family": "test-currency",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:36",
+    "provenance": "AI-authored synthetic",
+    "row_index": 34,
+    "input_sha256": "f1a882829780ab7ef1ae471564d0f36918c9bc07cafe748a7e6d5ce589fff635"
+  },
+  {
+    "id": "v4-test-0035",
+    "split": "test",
+    "family": "test-currency",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:35",
+    "provenance": "AI-authored synthetic",
+    "row_index": 35,
+    "input_sha256": "0bd1370ce945f0c605d9c4528b5fe5177588081c16d9d139ddd03c6661c367f7"
+  },
+  {
+    "id": "v4-test-0030",
+    "split": "test",
+    "family": "test-tech-acronym",
+    "tags": [
+      "technical",
+      "identity"
+    ],
+    "source": "cases_test.txt:30",
+    "provenance": "AI-authored synthetic",
+    "row_index": 36,
+    "input_sha256": "f283ab9aa5dbc63002f99979c5963b94ff7343db3ee40adb7b9a22b578c9f67b"
+  },
+  {
+    "id": "v4-test-0068",
+    "split": "test",
+    "family": "test-list-continuation",
+    "tags": [
+      "mixed",
+      "bullets",
+      "meaning"
+    ],
+    "source": "cases_test.txt:68",
+    "provenance": "AI-authored synthetic",
+    "row_index": 37,
+    "input_sha256": "7514e887ecf33dcb74e615cf9408ca7bc04e5088c55be9289bb8b5c66e595d54"
+  },
+  {
+    "id": "v4-test-0062",
+    "split": "test",
+    "family": "test-fragment-name",
+    "tags": [
+      "fragments",
+      "technical"
+    ],
+    "source": "cases_test.txt:62",
+    "provenance": "AI-authored synthetic",
+    "row_index": 38,
+    "input_sha256": "00b60c832bb69b3a6d1061619a6c049cef3fed50057323b5b28ebf2971bdc785"
+  },
+  {
+    "id": "v4-test-0049",
+    "split": "test",
+    "family": "test-command-literal",
+    "tags": [
+      "literal"
+    ],
+    "source": "cases_test.txt:49",
+    "provenance": "AI-authored synthetic",
+    "row_index": 39,
+    "input_sha256": "df44c07f0fcb9d2b2528b51bfe0d8525ddc9ca9fa37aacf8d5c83e6dd50d8228"
+  },
+  {
+    "id": "v4-test-0023",
+    "split": "test",
+    "family": "test-grammar-repair",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_test.txt:23",
+    "provenance": "AI-authored synthetic",
+    "row_index": 40,
+    "input_sha256": "8d205bd9716eb9d6f8d1a3b12b0243b71b94c22ccdc6f7089ee7edc4c1e1c4ad"
+  },
+  {
+    "id": "v4-test-0057",
+    "split": "test",
+    "family": "test-list-items",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_test.txt:57",
+    "provenance": "AI-authored synthetic",
+    "row_index": 41,
+    "input_sha256": "71e3953af757d1d52e25882e499fd6524558d8903f9795776103b431c2f4e78b"
+  },
+  {
+    "id": "v4-test-0051",
+    "split": "test",
+    "family": "test-quote-scope",
+    "tags": [
+      "quotes"
+    ],
+    "source": "cases_test.txt:51",
+    "provenance": "AI-authored synthetic",
+    "row_index": 42,
+    "input_sha256": "997f5c106bf5b7337262b511d62d3aa07a212c364ad1ba0e7fd9ff6576ef9503"
+  },
+  {
+    "id": "v4-test-0067",
+    "split": "test",
+    "family": "test-unknown-homophone",
+    "tags": [
+      "asr_error",
+      "meaning"
+    ],
+    "source": "cases_test.txt:67",
+    "provenance": "AI-authored synthetic",
+    "row_index": 43,
+    "input_sha256": "a55b9fb276e1b862216d85dd48f992bca4e58caae525965c959f574b74f78a3d"
+  },
+  {
+    "id": "v4-long-0026",
+    "split": "test",
+    "family": "test-long-identity",
+    "tags": [
+      "long",
+      "identity",
+      "technical",
+      "meaning"
+    ],
+    "source": "cases_long.txt:26",
+    "provenance": "AI-authored synthetic",
+    "row_index": 44,
+    "input_sha256": "77a779ea1b938972ac338fdb3815b22e5bb98f7a62c47db1d6a088eef68ce200"
+  },
+  {
+    "id": "v4-test-0041",
+    "split": "test",
+    "family": "test-date",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:41",
+    "provenance": "AI-authored synthetic",
+    "row_index": 45,
+    "input_sha256": "78a4d75994aef0a6e9b13772239c61bfc7c132669a9475c54a36b16103ff7f7f"
+  },
+  {
+    "id": "v4-test-0013",
+    "split": "test",
+    "family": "test-i-mean",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_test.txt:13",
+    "provenance": "AI-authored synthetic",
+    "row_index": 46,
+    "input_sha256": "41aa1a6d3ceea126c378698c7464c5087cf204a53627ff48158d48284ed35ffe"
+  },
+  {
+    "id": "v4-test-0019",
+    "split": "test",
+    "family": "test-restart-destination",
+    "tags": [
+      "correction",
+      "mixed",
+      "numbers"
+    ],
+    "source": "cases_test.txt:19",
+    "provenance": "AI-authored synthetic",
+    "row_index": 47,
+    "input_sha256": "778e3aa9991191fa0621aceedf0a2b87b5ee27d82ead1771fbf9f628e49b423d"
+  },
+  {
+    "id": "v4-test-0009",
+    "split": "test",
+    "family": "test-preference",
+    "tags": [
+      "literal",
+      "voice"
+    ],
+    "source": "cases_test.txt:9",
+    "provenance": "AI-authored synthetic",
+    "row_index": 48,
+    "input_sha256": "40306cf710fea6a91ea46fea722215583d2a2f3c8268e056bc6a72059c0b0bb0"
+  },
+  {
+    "id": "v4-test-0038",
+    "split": "test",
+    "family": "test-percentage",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:38",
+    "provenance": "AI-authored synthetic",
+    "row_index": 49,
+    "input_sha256": "5c88cf3fab4aaa7f8bfb9b6d5750dbcb2c988a0027ea07e86d625f35ba7f8d3a"
+  },
+  {
+    "id": "v4-test-0056",
+    "split": "test",
+    "family": "test-list-items",
+    "tags": [
+      "bullets"
+    ],
+    "source": "cases_test.txt:56",
+    "provenance": "AI-authored synthetic",
+    "row_index": 50,
+    "input_sha256": "2ba28e6dc177111182844501ca78557a872aa8ffbf957b8a7a1050c3546538c6"
+  },
+  {
+    "id": "v4-test-0018",
+    "split": "test",
+    "family": "test-restart-destination",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_test.txt:18",
+    "provenance": "AI-authored synthetic",
+    "row_index": 51,
+    "input_sha256": "0b5cc93c7e7e1d378424c8ffb750d848d7f96b4fbd7c870bfd927771bf2f0f6a"
+  },
+  {
+    "id": "v4-test-0037",
+    "split": "test",
+    "family": "test-currency",
+    "tags": [
+      "numbers",
+      "correction"
+    ],
+    "source": "cases_test.txt:37",
+    "provenance": "AI-authored synthetic",
+    "row_index": 52,
+    "input_sha256": "c2ecbd3c811e588063ea7b9cc5c14d570629b379ad027f567703ca9eb3b0de5c"
+  },
+  {
+    "id": "v4-test-0016",
+    "split": "test",
+    "family": "test-deliberate-repeat",
+    "tags": [
+      "repetition",
+      "voice"
+    ],
+    "source": "cases_test.txt:16",
+    "provenance": "AI-authored synthetic",
+    "row_index": 53,
+    "input_sha256": "1f5e43708c5d555addfde6aefbd866efc267849ba41cc37db1df51e6e2d7306c"
+  },
+  {
+    "id": "v4-test-0017",
+    "split": "test",
+    "family": "test-deliberate-repeat",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_test.txt:17",
+    "provenance": "AI-authored synthetic",
+    "row_index": 54,
+    "input_sha256": "3c867dfc62e9c306976692d5c2029ea23a5a507e0350c14b2c0fea9bb41b7f1a"
+  },
+  {
+    "id": "v4-test-0020",
+    "split": "test",
+    "family": "test-reported-correction",
+    "tags": [
+      "literal",
+      "quotes"
+    ],
+    "source": "cases_test.txt:20",
+    "provenance": "AI-authored synthetic",
+    "row_index": 55,
+    "input_sha256": "ea6f3bf8d7ff3d287ddde31bbd26659ddd36d15454eaca2076d23c24c2964cfd"
+  },
+  {
+    "id": "v4-test-0052",
+    "split": "test",
+    "family": "test-quote-scope",
+    "tags": [
+      "quotes",
+      "correction"
+    ],
+    "source": "cases_test.txt:52",
+    "provenance": "AI-authored synthetic",
+    "row_index": 56,
+    "input_sha256": "ce2486d1650a3b0f87a87471572803a13ccd85c244de1d2a2220eff616af0d72"
+  },
+  {
+    "id": "v4-test-0028",
+    "split": "test",
+    "family": "test-false-fact",
+    "tags": [
+      "facts",
+      "no_answer"
+    ],
+    "source": "cases_test.txt:28",
+    "provenance": "AI-authored synthetic",
+    "row_index": 57,
+    "input_sha256": "085e414601d38acd61cb34e1d9392a0ab3c229722d300f7bf9947b8f697b19b9"
+  },
+  {
+    "id": "v4-test-0063",
+    "split": "test",
+    "family": "test-email-layout",
+    "tags": [
+      "email"
+    ],
+    "source": "cases_test.txt:63",
+    "provenance": "AI-authored synthetic",
+    "row_index": 58,
+    "input_sha256": "d921ad9d16dd9d8dc0535b3544efe86e792e0af3f29779c55b29f9c93703e784"
+  },
+  {
+    "id": "v4-long-0022",
+    "split": "test",
+    "family": "test-long-maintenance",
+    "tags": [
+      "long",
+      "mixed",
+      "bullets",
+      "brackets",
+      "numbers",
+      "correction",
+      "meaning"
+    ],
+    "source": "cases_long.txt:22",
+    "provenance": "AI-authored synthetic",
+    "row_index": 59,
+    "input_sha256": "cc10af2efd13096c94854d4bf4de7d3be06daa5abd9432beb12cedad732de7b3"
+  },
+  {
+    "id": "v4-mixed-0107",
+    "split": "test",
+    "family": "test-extra-scope",
+    "tags": [
+      "mixed",
+      "brackets",
+      "meaning"
+    ],
+    "source": "cases_mixed.txt:107",
+    "provenance": "AI-authored synthetic",
+    "row_index": 60,
+    "input_sha256": "8122830ea2325c4b5da368def2133f3c646a39d24fbf3b1ac277e05cd8abfa05"
+  },
+  {
+    "id": "v4-test-0003",
+    "split": "test",
+    "family": "test-question-map",
+    "tags": [
+      "no_answer",
+      "identity"
+    ],
+    "source": "cases_test.txt:3",
+    "provenance": "AI-authored synthetic",
+    "row_index": 61,
+    "input_sha256": "b5a9691d793e9312b0a9345ad51996cf54f7d99c32c5f1ac876c29edf0b6143a"
+  },
+  {
+    "id": "v4-test-0029",
+    "split": "test",
+    "family": "test-tech-acronym",
+    "tags": [
+      "technical"
+    ],
+    "source": "cases_test.txt:29",
+    "provenance": "AI-authored synthetic",
+    "row_index": 62,
+    "input_sha256": "f27df31499b75732036b56f9248c0a38a54cfe5d5d8e738ec849452742f9775e"
+  },
+  {
+    "id": "v4-test-0021",
+    "split": "test",
+    "family": "test-grammar-repair",
+    "tags": [
+      "grammar"
+    ],
+    "source": "cases_test.txt:21",
+    "provenance": "AI-authored synthetic",
+    "row_index": 63,
+    "input_sha256": "d188bd1318ded52afebdbbc5b462f5ede5900497b8cc580171a7ae15d47aafca"
+  },
+  {
+    "id": "v4-mixed-0108",
+    "split": "test",
+    "family": "test-extra-injection",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "injection",
+      "quotes"
+    ],
+    "source": "cases_mixed.txt:108",
+    "provenance": "AI-authored synthetic",
+    "row_index": 64,
+    "input_sha256": "caf7cd707af789c1c8db6a3b4288c359b2c0e7bd4fe3b7bfad960a1cafc2f93b"
+  },
+  {
+    "id": "v4-test-0015",
+    "split": "test",
+    "family": "test-accidental-repeat",
+    "tags": [
+      "repetition"
+    ],
+    "source": "cases_test.txt:15",
+    "provenance": "AI-authored synthetic",
+    "row_index": 65,
+    "input_sha256": "1d431104f40c819d787a2bfe6f7afd0d9a4a2f02dfab2e7e923ee8c7a543d7b2"
+  },
+  {
+    "id": "v4-test-0045",
+    "split": "test",
+    "family": "test-idiom",
+    "tags": [
+      "numbers",
+      "literal"
+    ],
+    "source": "cases_test.txt:45",
+    "provenance": "AI-authored synthetic",
+    "row_index": 66,
+    "input_sha256": "65b63706c32d47bfc60312c92e9ba351835a7dcc840a7f8bc0ee329513179cc1"
+  },
+  {
+    "id": "v4-test-0005",
+    "split": "test",
+    "family": "test-role-takeover",
+    "tags": [
+      "no_answer",
+      "injection",
+      "quotes"
+    ],
+    "source": "cases_test.txt:5",
+    "provenance": "AI-authored synthetic",
+    "row_index": 67,
+    "input_sha256": "e1de9adc7dec7c723ffea5c12f6e6e373d14e6df37ae22388b4978fe8d06929b"
+  },
+  {
+    "id": "v4-test-0042",
+    "split": "test",
+    "family": "test-date",
+    "tags": [
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_test.txt:42",
+    "provenance": "AI-authored synthetic",
+    "row_index": 68,
+    "input_sha256": "bd9c0b26883be12a6da404fb1049a96e1dc27bf67ada1afc3a916dd0196b13b5"
+  },
+  {
+    "id": "v4-extended-0030",
+    "split": "test",
+    "family": "test-medium-email",
+    "tags": [
+      "mixed",
+      "email",
+      "technical",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:30",
+    "provenance": "AI-authored synthetic",
+    "row_index": 69,
+    "input_sha256": "3194a328075d3d5c143f46df877a428c95c7c09c96891942c441f82cdc5c636b"
+  },
+  {
+    "id": "v4-test-0033",
+    "split": "test",
+    "family": "test-count",
+    "tags": [
+      "numbers",
+      "identity"
+    ],
+    "source": "cases_test.txt:33",
+    "provenance": "AI-authored synthetic",
+    "row_index": 70,
+    "input_sha256": "6299788d1277b3597aa51a044ed37e01d02b676e5b477b4a60bbaea70637dda4"
+  },
+  {
+    "id": "v4-test-0043",
+    "split": "test",
+    "family": "test-code-leading",
+    "tags": [
+      "technical",
+      "numbers"
+    ],
+    "source": "cases_test.txt:43",
+    "provenance": "AI-authored synthetic",
+    "row_index": 71,
+    "input_sha256": "0dc57ad2ec35be3f14319331317984f226afe6a1c90aa10531792933bfb67b1e"
+  },
+  {
+    "id": "v4-long-0024",
+    "split": "test",
+    "family": "test-long-complaint",
+    "tags": [
+      "long",
+      "mixed",
+      "email",
+      "quotes",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_long.txt:24",
+    "provenance": "AI-authored synthetic",
+    "row_index": 72,
+    "input_sha256": "d2c642441ec2b220922a6cf9e3e2cb28c438e1b289927af92d0592988d6699f3"
+  },
+  {
+    "id": "v4-test-0054",
+    "split": "test",
+    "family": "test-bracket-scope",
+    "tags": [
+      "brackets"
+    ],
+    "source": "cases_test.txt:54",
+    "provenance": "AI-authored synthetic",
+    "row_index": 73,
+    "input_sha256": "bce3da9f4711c5adc7f94e4a17ab667619e9e4834587a8c4ac1bbf9906ffc17f"
+  },
+  {
+    "id": "v4-extended-0027",
+    "split": "test",
+    "family": "test-medium-library",
+    "tags": [
+      "mixed",
+      "numbered",
+      "numbers",
+      "meaning"
+    ],
+    "source": "cases_extended.txt:27",
+    "provenance": "AI-authored synthetic",
+    "row_index": 74,
+    "input_sha256": "bad27fc145b685c64d7e870728a41780306840b45ac0b1bd6a851282013ae31b"
+  },
+  {
+    "id": "v4-test-0034",
+    "split": "test",
+    "family": "test-duration",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:34",
+    "provenance": "AI-authored synthetic",
+    "row_index": 75,
+    "input_sha256": "25bd9c78ca46d0110e00bc3e5cc0d2b54d959b4ac5d3a75fa9c7b81c7e372ac9"
+  },
+  {
+    "id": "v4-test-0014",
+    "split": "test",
+    "family": "test-i-mean",
+    "tags": [
+      "correction"
+    ],
+    "source": "cases_test.txt:14",
+    "provenance": "AI-authored synthetic",
+    "row_index": 76,
+    "input_sha256": "b8dd1df89a9da61c61ec171939c04fbc3f1d7979d769cf1d3a1b36e942c12412"
+  },
+  {
+    "id": "v4-extended-0029",
+    "split": "test",
+    "family": "test-medium-quote-command",
+    "tags": [
+      "mixed",
+      "no_answer",
+      "quotes",
+      "literal"
+    ],
+    "source": "cases_extended.txt:29",
+    "provenance": "AI-authored synthetic",
+    "row_index": 77,
+    "input_sha256": "4d3eec51b5234d3f44ff4a1623a6bf17dc87188e5094824e1b12c2b4170e4f46"
+  },
+  {
+    "id": "v4-test-0060",
+    "split": "test",
+    "family": "test-inline-narrative",
+    "tags": [
+      "prose"
+    ],
+    "source": "cases_test.txt:60",
+    "provenance": "AI-authored synthetic",
+    "row_index": 78,
+    "input_sha256": "b41da40867ff83cf04912fb30c3da8e87a892e11881b2d150316c1f922fd0642"
+  },
+  {
+    "id": "v4-test-0048",
+    "split": "test",
+    "family": "test-commands",
+    "tags": [
+      "punctuation",
+      "new_paragraph"
+    ],
+    "source": "cases_test.txt:48",
+    "provenance": "AI-authored synthetic",
+    "row_index": 79,
+    "input_sha256": "6d47b481939ded243bb121e49002f3d4f3ed526908dfaf0148ff3c4042ad6ec8"
+  },
+  {
+    "id": "v4-test-0032",
+    "split": "test",
+    "family": "test-count",
+    "tags": [
+      "numbers"
+    ],
+    "source": "cases_test.txt:32",
+    "provenance": "AI-authored synthetic",
+    "row_index": 80,
+    "input_sha256": "0367558971b68e4024f09164dd83358b0177e5e070b81aa602c8232667d2ce79"
+  },
+  {
+    "id": "v4-test-0026",
+    "split": "test",
+    "family": "test-uncertainty",
+    "tags": [
+      "meaning"
+    ],
+    "source": "cases_test.txt:26",
+    "provenance": "AI-authored synthetic",
+    "row_index": 81,
+    "input_sha256": "b11f34f48a260c46e0b8950cf2183b6a9cf343915a267214f08a1f5763fbd328"
+  },
+  {
+    "id": "v4-test-0011",
+    "split": "test",
+    "family": "test-actually",
+    "tags": [
+      "voice"
+    ],
+    "source": "cases_test.txt:11",
+    "provenance": "AI-authored synthetic",
+    "row_index": 82,
+    "input_sha256": "904ee461e7bee709d372852f7350a78ad4cad83b73ff4652cf7a1d47eadb4093"
+  },
+  {
+    "id": "v4-test-0065",
+    "split": "test",
+    "family": "test-preserved-layout",
+    "tags": [
+      "identity",
+      "bullets"
+    ],
+    "source": "cases_test.txt:65",
+    "provenance": "AI-authored synthetic",
+    "row_index": 83,
+    "input_sha256": "f2d3329e7ad8d10464c99ce777604c9a00102da19bac40895f5d81116e6f74ce"
+  }
+]

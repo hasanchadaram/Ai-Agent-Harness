@@ -1,6 +1,7 @@
 package com.companion.ainotifications.dictation
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.*
@@ -22,9 +23,10 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
         return "Connected: ${endpoint.model}"
     }
 
-    suspend fun transcribe(endpoint: ModelEndpoint, pcm: ByteArray): String = withContext(Dispatchers.Default) {
+    suspend fun transcribe(endpoint: ModelEndpoint, pcm: ByteArray, allowEmpty: Boolean = false): String = withContext(Dispatchers.Default) {
         val body = buildJsonObject {
             put("model", endpoint.model)
+            put("language", "English")
             putJsonArray("messages") {
                 addJsonObject {
                     put("role", "user")
@@ -42,7 +44,7 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
             put("temperature", 0); put("max_tokens", 4096); put("stream", false)
         }
         DictationProtocol.transcript(completion(request(endpoint, "chat/completions", body)))
-            .also { require(it.isNotBlank()) { "No speech was recognized. Please try again." } }
+            .also { require(allowEmpty || it.isNotBlank()) { "No speech was recognized. Please try again." } }
     }
 
     suspend fun polish(endpoint: ModelEndpoint, original: String): String = withContext(Dispatchers.Default) {
@@ -59,6 +61,7 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
                 addJsonObject { put("role", "user"); put("content", original) }
             }
             put("temperature", 0); put("max_tokens", 4096); put("stream", false)
+            put("reasoning_effort", "none")
             putJsonObject("chat_template_kwargs") { put("enable_thinking", false) }
         }
         completion(request(endpoint, "chat/completions", body)).trim()
@@ -83,6 +86,22 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
             if (endpoint.apiKey.isNotBlank()) header("Authorization", "Bearer ${endpoint.apiKey}")
             body?.let { post(it.toString().toRequestBody("application/json".toMediaType())) }
         }.build()
+        // Model inference has no editor side effects. Retry only transient
+        // failures; insertion is a separate operation and is never retried.
+        repeat(3) { attempt ->
+            try { return execute(request) }
+            catch (error: RequestFailure) {
+                if (!error.retryable || attempt == 2) throw error
+                delay(250L * (attempt + 1))
+            }
+        }
+        error("Unreachable request state")
+    }
+
+    private class RequestFailure(message: String, val retryable: Boolean, cause: Throwable? = null) :
+        IOException(message, cause)
+
+    private suspend fun execute(request: Request): JsonObject {
         return suspendCancellableCoroutine { continuation ->
             val call = client.newCall(request)
             continuation.invokeOnCancellation { call.cancel() }
@@ -90,23 +109,26 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
                 override fun onFailure(call: Call, error: IOException) {
                     val message = if (error is SocketTimeoutException) "The PC request timed out. Check the server and try again."
                         else "Cannot reach the PC. Check Tailscale on both devices, PC power, and the model server."
-                    if (continuation.isActive) continuation.resumeWithException(IOException(message, error))
+                    if (continuation.isActive) continuation.resumeWithException(RequestFailure(message, true, error))
                 }
                 override fun onResponse(call: Call, response: Response) {
                     try {
                         val result = response.use {
-                            if (!it.isSuccessful) throw IOException(when (it.code) {
+                            if (!it.isSuccessful) throw RequestFailure(when (it.code) {
                                 401, 403 -> "The server rejected the API key or tailnet access."
                                 404 -> "Endpoint not found. Check the /v1 URL and llama.cpp version."
                                 503 -> "The model server is not ready. Wait for it to finish loading."
                                 else -> "Model request failed (HTTP ${it.code}). Check the model server."
-                            })
+                            }, it.code in setOf(408, 429, 500, 502, 503, 504))
                             val text = it.body?.string() ?: throw IOException("The server returned an empty response.")
                             Json.parseToJsonElement(text).jsonObject
                         }
                         if (continuation.isActive) continuation.resume(result)
                     } catch (error: Exception) {
-                        if (continuation.isActive) continuation.resumeWithException(error)
+                        val failure = if (error is IOException && error !is RequestFailure)
+                            RequestFailure("The PC response was interrupted. Check the connection and try again.", true, error)
+                            else error
+                        if (continuation.isActive) continuation.resumeWithException(failure)
                     }
                 }
             })

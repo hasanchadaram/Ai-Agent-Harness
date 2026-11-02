@@ -9,14 +9,21 @@ class DictationSettings(context: Context) {
     private val prefs = context.getSharedPreferences("private_dictation", Context.MODE_PRIVATE)
     var asr: ModelEndpoint
         get() = endpoint("asr", "https://hasan-pc.tail99bd0f.ts.net:8443/v1",
-            "C:/Users/hasan/.lmstudio/models/Qwen/Qwen3-ASR-1.7B-Q8_0/Qwen3-ASR-1.7B-Q8_0.gguf")
+            "Qwen/Qwen3-ASR-1.7B")
         set(value) = save("asr", value)
     var cleanup: ModelEndpoint
-        get() = endpoint("cleanup", "https://hasan-pc.tail99bd0f.ts.net/v1", "qwen3.8-27b-mtp")
+        get() = endpoint("cleanup", "https://hasan-pc.tail99bd0f.ts.net/v1",
+            "C:/Users/hasan/.lmstudio/models/Unsloth-Fine-Tuned/Qwen3.5-4B-Q4_K_M/Qwen3.5-4B.Q4_K_M.gguf")
         set(value) = save("cleanup", value)
     var polished: Boolean
         get() = prefs.getBoolean("polished", true)
         set(value) { prefs.edit().putBoolean("polished", value).apply() }
+    var backgroundAsr: Boolean
+        get() = prefs.getBoolean("background_asr", true)
+        set(value) { prefs.edit().putBoolean("background_asr", value).apply() }
+    var inspectTranscription: Boolean
+        get() = prefs.getBoolean("inspect_transcription", false)
+        set(value) { prefs.edit().putBoolean("inspect_transcription", value).apply() }
     var overlayEnabled: Boolean
         get() = prefs.getBoolean("overlay", false)
         set(value) { prefs.edit().putBoolean("overlay", value).apply() }
