@@ -1,12 +1,14 @@
 # Test background transcription
 
+The optional **Growing windows with word timing (experimental)** strategy is documented with selection, rollback, measured defaults, and replay commands in [GROWING_WINDOW_DICTATION.md](../GROWING_WINDOW_DICTATION.md). The eight-second bounds below apply to the original overlap strategy. Growing windows use a twelve-second target, can expand to twenty seconds while waiting for agreement, and advance using confirmed word timestamps. Run the shell-protected synthetic fixture with `--es strategy growing` to test it without changing saved settings.
+
 1. Open **AI Notifications → Dictation**. Enable **Transcribe while speaking** and **Show transcription details**. Turn **Polish after Stop** off for the first test.
 2. Tap **Try dictation in this app**. Speak for a minute with your normal pauses, then Stop.
 3. Inspect the numbered updates below the transcript.
 
 | Check | Expected result |
 |---|---|
-| Recognition audio length | Every background/final ASR request contains **at most 8,000 ms** of audio. The `audio` duration is shown separately from original recording positions, which can span removed excess silence. |
+| Recognition audio length | Every normal window contains **at most 8,000 ms** of audio. Full-recording recovery is an explicit exception, reported separately. The `audio` duration is shown separately from original recording positions, which can span removed excess silence. |
 | Pauses detected | Increases as you pause. The detector should say **Silero VAD**. |
 | Window starts at | Moves forward during dictation. It should not stay zero for the entire minute. |
 | No-pause windows | Example: `0–8000`, `5000–13000`, `10000–18000` ms. The overlap is deliberate. Intermediate updates can use shorter growing windows. |
@@ -16,13 +18,13 @@
 | Committed parts | Sections accepted after overlap reconciliation or Stop. Pauses do not finalize sections. The final result should contain the entire dictation once, in order. |
 | Thinking pauses | Normal pauses remain in context. A gap longer than 1.5 seconds retains 750 ms at each edge in the recognition view, preserving speech overlap and the original recording. |
 | Language | Android and Python explicitly request English from Qwen. Cleanup is unnecessary for this regression. |
-| Stop | Remaining requests stay within eight seconds. There should be no ordinary `0–64000 ms` final request. |
+| Stop | Remaining normal windows stay within eight seconds. An unresolved overlap triggers one full-original-recording recovery request. Its result replaces the partial transcript and is inserted once. |
 
 The last 24 request details remain in memory for inspection after Stop. They are not written to files or logs. Enable details before starting a session. Cancel or a new session clears them.
 
 Also try soft speech, room/fan noise, repeated words, a correction across a pause, and Cancel during recording/processing. Compare **Stop to result** across several attempts with background transcription on and off. Batch mode intentionally sends the full recording after Stop.
 
-With an ambiguous overlap, the app tries a larger overlap once. If matching still fails, it reports an error and does not insert an uncertain assembled transcript. Actual speech quality and names still need manual acceptance; matching is not an accuracy guarantee.
+With an ambiguous overlap, the app tries a larger overlap once. If matching still fails, it continues recording and shows recovery pending until Stop. Full-recording recovery includes later speech and original pauses. Failed or blank recovery does not accept partial text, and Cancel rejects late responses. Actual speech quality and names still need manual acceptance; matching is not an accuracy guarantee.
 
 ## Automated checks
 

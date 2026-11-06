@@ -22,6 +22,47 @@ class Speech:
 
 
 class PcV2Tests(unittest.TestCase):
+    def test_growing_strategy_is_selectable_and_inserts_one_complete_result(self):
+        from growing_window_transcriber import AlignedTranscript
+        self.client.streaming_strategy = 'growing'
+        async def recognize(client, url, data, timestamps):
+            self.assertFalse(timestamps)
+            return AlignedTranscript('Why is it not working properly?')
+        with patch.object(v2, 'transcribe_aligned', side_effect=recognize), \
+             patch.object(v2, 'StreamingTranscriber', side_effect=AssertionError('Existing flow was selected')), \
+             patch.object(v2.win, 'output_text') as output, \
+             patch.object(v2.win.user32, 'GetForegroundWindow', return_value=123):
+            self.client.start_recording('RAW')
+            self.client.audio_callback(np.ones((16000, 1), np.int16), 16000, None, None)
+            self.client.stop_recording()
+        output.assert_called_once_with('Why is it not working properly?', method='clipboard')
+        self.assertEqual(self.client.progress['strategy'], 'growing')
+
+    def test_original_entrypoint_can_select_growing_without_replacing_existing_default(self):
+        with patch('sys.argv', ['pc_dictate.py', '--no-sound', '--streaming-strategy', 'growing']), \
+             patch.object(v2.win, 'run_single_instance') as run:
+            v2.win.main()
+        self.assertEqual(run.call_args.kwargs['streaming_strategy'], 'growing')
+
+    def test_join_failure_recovers_full_audio_and_inserts_only_one_authoritative_transcript(self):
+        calls = []
+        answers = iter(['Please bring the blue notebook', 'Entirely unrelated text', 'Still unrelated text',
+                        'Full original recording, including not.'])
+        async def transcribe(client, url, data): calls.append(data); return next(answers)
+        def engine(audio, fn, **options):
+            return mobile.StreamingTranscriber(audio, fn, limit=16000, interval=.001, **options)
+        with patch.object(v2, 'StreamingTranscriber', side_effect=engine), \
+             patch.object(v2, 'transcribe', side_effect=transcribe), \
+             patch.object(v2.win, 'output_text') as output, \
+             patch.object(v2.win.user32, 'GetForegroundWindow', return_value=123):
+            self.client.start_recording('RAW')
+            source = np.ones((32000, 1), np.int16)
+            self.client.audio_callback(source, len(source), None, None)
+            self.client.stop_recording()
+        self.assertEqual(calls[-1], source.astype('<i2').tobytes())
+        output.assert_called_once_with('Full original recording, including not.', method='clipboard')
+        self.assertTrue(self.client.progress['recovered'])
+
     def test_original_launch_command_uses_the_shared_controller(self):
         with patch('sys.argv', ['pc_dictate.py', '--no-sound']), \
              patch.object(v2.win, 'SingleDictationInstance') as guard, \
@@ -29,7 +70,7 @@ class PcV2Tests(unittest.TestCase):
             guard.return_value.__enter__.return_value = True
             v2.win.main()
         factory.assert_called_once_with(asr_url='http://127.0.0.1:8000',
-            cleanup_url='http://127.0.0.1:8080', play_sound=False, paste_method='clipboard')
+            cleanup_url='http://127.0.0.1:8080', play_sound=False, paste_method='clipboard', streaming_strategy='overlap')
         factory.return_value.run.assert_called_once()
         factory.return_value.close.assert_called_once()
 

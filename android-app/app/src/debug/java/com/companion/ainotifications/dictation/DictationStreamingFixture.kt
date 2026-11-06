@@ -24,7 +24,7 @@ class DictationStreamingFixture : Activity() {
         checks.launch {
             val report = File(filesDir, "dictation-streaming-check.txt")
             report.writeText("Synthetic speech replay; no microphone or editor insertion\n")
-            var worker: StreamingTranscriber? = null
+            var worker: TranscriptionWorker? = null
             var detector: SpeechDetector? = null
             val latest = AtomicReference(StreamingProgress())
             try {
@@ -33,6 +33,7 @@ class DictationStreamingFixture : Activity() {
                 }
                 val pcm = readPcm(File(getExternalFilesDir(null), "synthetic-streaming-check.wav"))
                 val hesitation = intent.getStringExtra("scenario") == "hesitation"
+                val growing = intent.getStringExtra("strategy") == "growing"
                 val client = DictationClient()
                 val endpoint = DictationSettings(this@DictationStreamingFixture).asr
                 client.test(endpoint)
@@ -40,13 +41,18 @@ class DictationStreamingFixture : Activity() {
                 withContext(Dispatchers.IO) { detector = SileroSpeechDetector(this@DictationStreamingFixture) }
                 val forceRolling = intent.getBooleanExtra("force_rolling", false)
                 val audio = StreamingAudio(silenceMs = if (forceRolling) 300_000 else 320, detector = detector)
-                worker = StreamingTranscriber(checks, audio, { data, empty -> client.transcribe(endpoint, data, empty) },
-                    inspect = true, onProgress = {
+                val publishProgress: (StreamingProgress) -> Unit = {
                         latest.set(it)
                         if (!audio.position().finished && it.history.any { update ->
-                            update.kind.startsWith("Provisional") && update.stable.isNotBlank()
+                            (update.kind.startsWith("Provisional") || update.kind == "Growing from the same start" ||
+                                update.kind == "Agreed prefix; timestamp advance") && update.stable.isNotBlank()
                         }) agreedBeforeStop.set(true)
-                    })
+                    }
+                worker = if (growing) GrowingWindowTranscriber(checks, audio,
+                    { data, timestamps -> client.transcribeAligned(endpoint, data, timestamps) },
+                    inspect = true, onProgress = publishProgress)
+                else StreamingTranscriber(checks, audio, { data, empty -> client.transcribe(endpoint, data, empty) },
+                    inspect = true, onProgress = publishProgress)
                 var offset = 0
                 while (offset < pcm.size) {
                     val end = minOf(offset + 3200, pcm.size)
@@ -68,9 +74,9 @@ class DictationStreamingFixture : Activity() {
                 if (intent.getBooleanExtra("include_synthetic_text", false)) {
                     report.appendText("EXPLICIT SYNTHETIC TEXT DIAGNOSTIC\n$text\nEND SYNTHETIC TEXT\n")
                 }
-                check(progress.completed >= 3) { "Expected multiple ASR responses." }
+                check(progress.completed >= if (growing) 2 else 3) { "Expected multiple ASR responses." }
                 check(progress.sections >= 1) { "Expected a completed transcript at Stop." }
-                check(agreedBeforeStop.get()) { "Expected agreement between updates while speaking." }
+                if (!growing || pcm.size >= 256000) check(agreedBeforeStop.get()) { "Expected agreement between updates while speaking." }
                 if (hesitation) {
                     val normalized = text.lowercase().replace(Regex("[^a-z\\s]"), "").replace(Regex("\\s+"), " ").trim()
                     check(normalized == "because right now it is giving me some hindi words in the transcript output sometimes") {
@@ -80,7 +86,10 @@ class DictationStreamingFixture : Activity() {
                     check(progress.detectedPauses >= 2) { "Expected real VAD hesitation detections." }
                 } else check(text.contains("ticket", true) && text.contains("notebook", true)) { "Both synthetic clauses must survive." }
                 check(progress.finalizedSamples == pcm.size / 2) { "Final sample coverage is incomplete." }
-                check(progress.maxRequestSamples <= 128000) { "An ASR request exceeded the 8-second bound." }
+                check(progress.maxRequestSamples <= if (growing) 320000 else 128000) { "An ASR window exceeded its configured bound." }
+                if (progress.recoveryRequests > 0) check(progress.recovered && progress.recoverySamples == pcm.size / 2) {
+                    "Full-recording recovery did not cover all original samples."
+                }
                 if (pcm.size / 32 >= 60_000) {
                     for (marker in listOf("apple", "banana", "carrot", "flower", "garden", "jacket", "kitchen", "lemon")) {
                         // This checks section coverage, not exact WER. Qwen's
@@ -100,12 +109,13 @@ class DictationStreamingFixture : Activity() {
                     if (forceRolling) check(progress.rolls >= 3) { "Continuous speech must roll the window." }
                     else check(progress.detectedPauses >= 6) { "Expected multiple speech-aware pauses despite background noise." }
                 }
-                report.appendText("PASS Multiple requests and two-pass agreement before Stop\n" +
-                    "PASS Every ASR request is at most 8 seconds; window advances\n" +
+                report.appendText("PASS Multiple requests; agreement before Stop=${agreedBeforeStop.get()}\n" +
+                    "PASS ASR windows respect strategy bounds; recovery coverage checked separately\n" +
                     "PASS Both clauses survive and all samples are covered\n" +
-                    "requests=${progress.requests} sections=${progress.sections} failures=${progress.failures} " +
+                    "strategy=${progress.strategy} requests=${progress.requests} sections=${progress.sections} failures=${progress.failures} " +
                     "audioMs=${pcm.size / 32} stopMs=$stopMs rolls=${progress.rolls} pauses=${progress.detectedPauses} " +
-                    "maxRequestMs=${progress.maxRequestSamples / 16} detector=${progress.detector}\n")
+                    "maxRequestMs=${progress.maxRequestSamples / 16} detector=${progress.detector} " +
+                    "recoveryRequests=${progress.recoveryRequests} recoveryMs=${progress.recoverySamples / 16} recovered=${progress.recovered}\n")
                 progress.history.forEach {
                     report.appendText("#${it.number} ${it.rangeLabel} ${it.kind} requestMs=${it.durationMs} " +
                         "stableWords=${it.stable.split(' ').count { word -> word.isNotBlank() }}\n")

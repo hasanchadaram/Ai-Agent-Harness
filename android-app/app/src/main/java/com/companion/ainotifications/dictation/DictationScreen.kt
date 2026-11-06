@@ -45,6 +45,7 @@ fun DictationScreen() {
     var overlaySide by remember { mutableStateOf(settings.overlaySide) }
     var overlayOpacity by remember { mutableFloatStateOf(settings.overlayOpacity.toFloat()) }
     var backgroundAsr by remember { mutableStateOf(settings.backgroundAsr) }
+    var growingWindows by remember { mutableStateOf(settings.growingWindows) }
     var inspectTranscription by remember { mutableStateOf(settings.inspectTranscription) }
     var asr by remember { mutableStateOf(settings.asr) }
     var cleanup by remember { mutableStateOf(settings.cleanup) }
@@ -141,7 +142,15 @@ fun DictationScreen() {
                             backgroundAsr = it; settings.backgroundAsr = it
                         })
                     }
-                    Text("Uses speech detection and rolling audio windows of at most 8 seconds. Turn off to send one recording after Stop.",
+                    Text("Transcribes on your PC while recording. Turn off to send one recording after Stop.",
+                        style = MaterialTheme.typography.bodySmall)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                        Text("Growing windows with word timing (experimental)", Modifier.weight(1f))
+                        Switch(checked = growingWindows, enabled = backgroundAsr && !state.busy, onCheckedChange = {
+                            growingWindows = it; settings.growingWindows = it
+                        })
+                    }
+                    Text("Keeps more audio until repeated results agree, then advances using word times. Turn off to return to the existing overlap flow. Applies to the next recording.",
                         style = MaterialTheme.typography.bodySmall)
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                         Text("Show transcription details", Modifier.weight(1f))
@@ -197,11 +206,18 @@ fun DictationScreen() {
         state.streaming?.let { progress ->
             item(key = "streaming_summary", contentType = "text") {
                 Text("ASR requests: ${progress.requests} · Responses: ${progress.completed} · " +
-                    "Retries needed: ${progress.failures} · Committed parts: ${progress.sections} · Reused: ${progress.reused}\n" +
+                    "Strategy: ${progress.strategy}\nRetries needed: ${progress.failures} · Committed parts: ${progress.sections} · Reused: ${progress.reused}\n" +
                     "Resolved audio: ${progress.finalizedSamples / 16} / ${progress.capturedSamples / 16} ms\n" +
                     "Window starts at ${progress.windowStartSample / 16} ms · Rolls: ${progress.rolls}\n" +
-                    "Largest request: ${progress.maxRequestSamples / 16} ms\n" +
+                    "Largest window request: ${progress.maxRequestSamples / 16} ms\n" +
                     "${progress.detector} · Pauses detected: ${progress.detectedPauses}",
+                    style = MaterialTheme.typography.bodySmall)
+                if (progress.recoveryRequired) Text(
+                    "More context is needed. The final transcript will use the full original recording.",
+                    style = MaterialTheme.typography.bodySmall)
+                if (progress.recoveryRequests > 0) Text(
+                    "Full recording recovery: ${progress.recoverySamples / 16} ms" +
+                        if (progress.recovered) " · Complete; partial transcript replaced" else " · Processing",
                     style = MaterialTheme.typography.bodySmall)
                 if (progress.overlapping) Text("Checking the shared words before committing the next window.",
                     style = MaterialTheme.typography.bodySmall)

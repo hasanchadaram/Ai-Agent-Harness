@@ -37,10 +37,11 @@ class DictationController private constructor(context: Context) {
     val state = mutableState.asStateFlow()
     private val client = DictationClient()
     private var recorder: PcmRecorder? = null
-    private var streaming: StreamingTranscriber? = null
+    private var streaming: TranscriptionWorker? = null
     private var sessionAsr: ModelEndpoint? = null
     private var sessionCleanup: ModelEndpoint? = null
     private var sessionBackgroundAsr = false
+    private var sessionGrowingWindows = false
     private var work: Job? = null
     private var finishService: (() -> Unit)? = null
     private var destination: InsertionTarget? = null
@@ -60,6 +61,7 @@ class DictationController private constructor(context: Context) {
         sessionAsr = settings.asr
         sessionCleanup = settings.cleanup
         sessionBackgroundAsr = backgroundAsr
+        sessionGrowingWindows = settings.growingWindows
         mutableState.value = DictationState(id, DictationPhase.STARTING, polished = settings.polished,
             inspectTranscription = settings.inspectTranscription,
             message = "Starting microphone…")
@@ -82,15 +84,18 @@ class DictationController private constructor(context: Context) {
             recorder = capture
             if (sessionBackgroundAsr) {
                 val asr = checkNotNull(sessionAsr)
-                streaming = StreamingTranscriber(scope, capture.buffer,
-                    transcribe = { pcm, allowEmpty -> client.transcribe(asr, pcm, allowEmpty) },
-                    inspect = state.value.inspectTranscription,
-                    onProgress = { progress ->
+                val publishProgress: (StreamingProgress) -> Unit = { progress ->
                         scope.launch {
                             if (state.value.id == id && state.value.busy)
                                 mutableState.value = state.value.copy(streaming = progress)
                         }
-                    })
+                    }
+                streaming = if (sessionGrowingWindows) GrowingWindowTranscriber(scope, capture.buffer,
+                    recognize = { pcm, timestamps -> client.transcribeAligned(asr, pcm, timestamps) },
+                    inspect = state.value.inspectTranscription, onProgress = publishProgress)
+                else StreamingTranscriber(scope, capture.buffer,
+                    transcribe = { pcm, allowEmpty -> client.transcribe(asr, pcm, allowEmpty) },
+                    inspect = state.value.inspectTranscription, onProgress = publishProgress)
             }
             mutableState.value = state.value.copy(phase = DictationPhase.RECORDING,
                 message = "Recording · tap Stop when finished (5 minute limit)")

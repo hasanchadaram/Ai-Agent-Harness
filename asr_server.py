@@ -70,7 +70,9 @@ def _get_or_load_model(model_name: Optional[str] = None) -> Qwen3ASRModel:
                 device_map="cuda:0",
             ),
             max_inference_batch_size=16,
-            max_new_tokens=512,
+            # A final recovery can contain the full five-minute dictation.
+            # Keep the output allowance consistent with both clients' requests.
+            max_new_tokens=4096,
         )
         print(f"[Server] {name} ready!")
     return loaded_models[name]
@@ -124,8 +126,8 @@ class ChatCompletionRequest(BaseModel):
     max_tokens: Optional[int] = 4096
     stream: Optional[bool] = False
     language: Optional[str] = None
-    # Mobile streaming reconciles text and does not consume forced alignment.
-    # Alignment failure must not turn a usable transcript into HTTP 500.
+    # The overlap strategy needs text only; growing windows opt into alignment.
+    # Missing alignment metadata must not discard an otherwise usable transcript.
     return_time_stamps: bool = False
 
 

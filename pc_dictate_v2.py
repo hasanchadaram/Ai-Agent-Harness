@@ -15,6 +15,7 @@ import numpy as np
 import sounddevice as sd
 
 import pc_dictate as win
+from growing_window_transcriber import GrowingWindowTranscriber, transcribe_aligned
 from mobile_streaming import (MAX_SAMPLES, OVERLAP_SAMPLES, SAMPLE_RATE, WINDOW_SAMPLES,
                               StreamingAudio, StreamingTranscriber,
                               mobile_client, polish, transcribe)
@@ -67,7 +68,11 @@ class _CuePlayer:
 
 
 class PcDictationV2(win.PcDictationClient):
-    def __init__(self, default_cleanup=False, **kwargs):
+    def __init__(self, default_cleanup=False, streaming_strategy='overlap', growing_fast_finish=True, **kwargs):
+        if streaming_strategy not in ('overlap', 'growing'):
+            raise ValueError('Unknown streaming strategy')
+        self.streaming_strategy = streaming_strategy
+        self.growing_fast_finish = growing_fast_finish
         kwargs.setdefault('window_size_sec', WINDOW_SAMPLES / SAMPLE_RATE)
         kwargs.setdefault('overlap_sec', OVERLAP_SAMPLES / SAMPLE_RATE)
         kwargs.setdefault('play_sound', True)
@@ -125,6 +130,13 @@ class PcDictationV2(win.PcDictationClient):
     def _publish(self, progress):
         previous = self.progress
         self.progress = progress
+        if progress.get('recovery_required') and not previous.get('recovery_required'):
+            reason = 'No safe timestamp boundary' if self.streaming_strategy == 'growing' else 'Overlap uncertain'
+            print(f"  [ASR] {reason}. Full audio will be transcribed after capture finishes.")
+        if progress.get('recovery_requests', 0) > previous.get('recovery_requests', 0):
+            print(f"  [ASR] Recovering the complete {progress['recovery_samples'] / SAMPLE_RATE:.2f}s recording...")
+        if progress.get('recovered') and not previous.get('recovered'):
+            print("  [ASR] Full recording recovered; partial transcript replaced.")
         if progress['failures'] != previous.get('failures', 0):
             print("  [ASR] Request failed; audio retained for retry.")
         if progress['completed'] != previous.get('completed', 0):
@@ -151,8 +163,20 @@ class PcDictationV2(win.PcDictationClient):
                         print(f"  [Timing] ASR request {number} {outcome}: "
                               f"{(time.monotonic() - started) * 1000:.0f}ms "
                               f"({len(pcm) / (2 * SAMPLE_RATE):.2f}s audio)")
-                self.engine = StreamingTranscriber(self.audio,
-                    timed_transcribe, on_progress=self._publish)
+                if self.streaming_strategy == 'growing':
+                    async def timed_aligned(pcm, timestamps):
+                        self.asr_request_number += 1
+                        number, started = self.asr_request_number, time.monotonic()
+                        try:
+                            return await transcribe_aligned(client, self.asr_url, pcm, timestamps)
+                        finally:
+                            print(f"  [Timing] Growing ASR request {number}: "
+                                  f"{(time.monotonic() - started) * 1000:.0f}ms "
+                                  f"({len(pcm) / (2 * SAMPLE_RATE):.2f}s audio; alignment={timestamps})")
+                    self.engine = GrowingWindowTranscriber(self.audio, timed_aligned, on_progress=self._publish,
+                                                           optimize_finish=self.growing_fast_finish)
+                else:
+                    self.engine = StreamingTranscriber(self.audio, timed_transcribe, on_progress=self._publish)
                 return await self.engine.run()
         try:
             self.result = asyncio.run(run())
@@ -295,6 +319,7 @@ class PcDictationV2(win.PcDictationClient):
         print("=" * 65)
         print("  PC DICTATION V2 - MOBILE STREAMING FLOW")
         print(f"  ASR: {self.asr_url} | Cleanup: {self.cleanup_url}")
+        print(f"  Streaming strategy: {self.streaming_strategy}")
         print(f"  Hold Ctrl + Windows to dictate ({'cleanup' if self.default_cleanup else 'raw'}).")
         print("  Add Shift for cleanup; use --cleanup to make it the default.")
         print("  Release to output. Press Ctrl+C here to exit.")
@@ -331,6 +356,8 @@ def main():
     parser.add_argument('--asr-url', default='http://127.0.0.1:8000')
     parser.add_argument('--cleanup-url', default='http://127.0.0.1:8080')
     parser.add_argument('--paste-method', choices=['clipboard', 'sendinput'], default='clipboard')
+    parser.add_argument('--streaming-strategy', choices=['overlap', 'growing'], default='overlap',
+                        help='Select the existing overlap flow or experimental timestamp-driven growing windows')
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--raw', dest='cleanup', action='store_false', help='Default to raw transcription (default)')
     mode.add_argument('--cleanup', action='store_true', help='Enable cleanup even without Shift')
@@ -342,7 +369,7 @@ def main():
     args = parser.parse_args()
     win.run_single_instance(PcDictationV2, asr_url=args.asr_url, cleanup_url=args.cleanup_url,
                            paste_method=args.paste_method, play_sound=args.sound,
-                           default_cleanup=args.cleanup)
+                           default_cleanup=args.cleanup, streaming_strategy=args.streaming_strategy)
 
 
 if __name__ == '__main__':

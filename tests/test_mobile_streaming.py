@@ -294,15 +294,86 @@ class EngineTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(engine.sections, [])
         self.assertEqual(engine.resolved, 0)
 
-    async def test_unmatched_overlap_fails_safely_after_wider_retry(self):
+    async def test_unmatched_overlap_recovers_from_full_original_recording(self):
+        audio = mobile.StreamingAudio(Detector())
+        original = pcm(32000)
+        audio.append(original); audio.finish()
+        answers = iter(['Please bring the blue notebook', 'Entirely unrelated text', 'Still unrelated text',
+                        'The full original recording.'])
+        calls = []
+        async def asr(data): calls.append(data); return next(answers)
+        engine = mobile.StreamingTranscriber(audio, asr, limit=16000)
+        self.assertEqual(await asyncio.wait_for(engine.run(), 3), 'The full original recording.')
+        self.assertEqual(calls[-1], original)
+        self.assertEqual(engine.sections, ['The full original recording.'])
+        self.assertTrue(engine.recovered)
+        self.assertEqual(engine.recovery_requests, 1)
+        self.assertEqual(engine.recovery_samples, 32000)
+        self.assertLessEqual(engine.max_request_samples, 16000)
+
+    async def test_uncertain_join_waits_for_stop_and_includes_audio_captured_after_failure(self):
+        audio = mobile.StreamingAudio(Detector())
+        original = pcm(32000)
+        audio.append(original)
+        states, calls = asyncio.Queue(), []
+        answers = iter(['Please bring the blue notebook', 'bring the blue notebook today',
+                        'Unrelated words here', 'Still unrelated text', 'Final complete recording.'])
+        async def asr(data): calls.append(data); return next(answers)
+        engine = mobile.StreamingTranscriber(audio, asr, limit=16000, interval=.001,
+                                             on_progress=states.put_nowait)
+        task = asyncio.create_task(engine.run())
+        while not (await asyncio.wait_for(states.get(), 2))['recovery_required']:
+            pass
+        self.assertEqual(engine.sections, ['Please'])
+        await asyncio.sleep(.02)
+        self.assertFalse(task.done())
+        self.assertEqual(len(calls), 4)
+        tail = pcm(32000, 0) + pcm(100, 2000)
+        audio.append(tail); audio.finish()
+        self.assertEqual(await asyncio.wait_for(task, 2), 'Final complete recording.')
+        self.assertEqual(calls[-1], original + tail)  # No silence compaction on recovery.
+        self.assertEqual(engine.sections, ['Final complete recording.'])
+
+    async def test_failed_or_blank_recovery_preserves_original_audio_and_never_accepts_partial_text(self):
+        for failure in (OSError('recovery offline'), ''):
+            with self.subTest(failure=str(failure)):
+                audio = mobile.StreamingAudio(Detector())
+                original = pcm(32000)
+                audio.append(original); audio.finish()
+                answers = iter(['Please bring the blue notebook', 'Entirely unrelated text', 'Still unrelated text'])
+                calls = []
+                async def asr(data):
+                    calls.append(data)
+                    if len(calls) < 4: return next(answers)
+                    if isinstance(failure, Exception): raise failure
+                    return failure
+                engine = mobile.StreamingTranscriber(audio, asr, limit=16000)
+                with self.assertRaises((OSError, ValueError)):
+                    await engine.run()
+                self.assertTrue(engine.recovery_required)
+                self.assertFalse(engine.recovered)
+                self.assertEqual(engine.sections, [])
+                self.assertEqual(audio.snapshot(0, audio.samples), original)
+
+    async def test_cancel_during_full_recording_recovery_does_not_accept_late_text(self):
         audio = mobile.StreamingAudio(Detector())
         audio.append(pcm(32000)); audio.finish()
+        entered = asyncio.Event()
         answers = iter(['Please bring the blue notebook', 'Entirely unrelated text', 'Still unrelated text'])
-        async def asr(data): return next(answers)
+        calls = []
+        async def asr(data):
+            calls.append(data)
+            if len(calls) < 4: return next(answers)
+            entered.set()
+            await asyncio.sleep(30)
+            return 'Must never be accepted.'
         engine = mobile.StreamingTranscriber(audio, asr, limit=16000)
-        with self.assertRaisesRegex(OSError, 'reliably join'):
-            await asyncio.wait_for(engine.run(), 3)
-        self.assertLessEqual(engine.max_request_samples, 16000)
+        task = asyncio.create_task(engine.run())
+        await asyncio.wait_for(entered.wait(), 2)
+        task.cancel()
+        with self.assertRaises(asyncio.CancelledError): await task
+        self.assertFalse(engine.recovered)
+        self.assertEqual(engine.sections, [])
 
 
 class RequestTests(unittest.IsolatedAsyncioTestCase):

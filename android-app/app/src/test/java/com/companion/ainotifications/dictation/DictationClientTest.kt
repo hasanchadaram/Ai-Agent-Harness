@@ -61,6 +61,25 @@ class DictationClientTest {
         assertFalse(body.containsKey("tools"))
     }
 
+    @Test fun growingFlowRequestsOptionalWordTimesAndKeepsNegation() = runBlocking {
+        val response = Json.parseToJsonElement(completion("<asr_text>Do not.<|im_end|>")).jsonObject
+        server.enqueue(MockResponse().setBody(buildJsonObject {
+            response.forEach { (key, value) -> put(key, value) }
+            putJsonArray("timestamps") {
+                addJsonObject { put("word", "Do"); put("start", 0.0); put("end", .2) }
+                addJsonObject { put("word", "not."); put("start", .2); put("end", .5) }
+            }
+        }.toString()))
+        val result = client.transcribeAligned(endpoint, ByteArray(32000))
+        assertEquals("Do not.", result.text)
+        assertEquals(listOf(TimedWord("Do", 0.0, .2), TimedWord("not.", .2, .5)), result.words)
+        val body = Json.parseToJsonElement(server.takeRequest().body.readUtf8()).jsonObject
+        assertTrue(body["return_time_stamps"]!!.jsonPrimitive.boolean)
+        server.enqueue(MockResponse().setBody(completion("Full original.")))
+        assertTrue(client.transcribeAligned(endpoint, ByteArray(32000), timestamps = false).words.isEmpty())
+        assertFalse(Json.parseToJsonElement(server.takeRequest().body.readUtf8()).jsonObject.containsKey("return_time_stamps"))
+    }
+
     @Test fun checksActualConfiguredModel() = runBlocking {
         server.enqueue(MockResponse().setBody("""{"data":[{"id":"wrong-model"}]}"""))
         try { client.test(endpoint); fail("Must reject mismatched model") }

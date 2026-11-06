@@ -1,5 +1,7 @@
 # Background transcription
 
+This describes the default overlap strategy. A separately selectable [growing-window implementation](../GROWING_WINDOW_DICTATION.md) confirms prefixes from the same audio start and advances using word timestamps. It has independent defaults and does not replace this flow.
+
 The app keeps Qwen3-ASR and your existing private PC endpoints.
 
 - While you speak, it sends audio windows of at most **8 seconds**.
@@ -7,9 +9,9 @@ The app keeps Qwen3-ASR and your existing private PC endpoints.
 - Previews begin after two seconds of context and update about once per second. Stop immediately decodes shorter commands. Android and Python explicitly request English.
 - Windows move regardless of pauses: roughly **0–8 s → 5–13 s → 10–18 s** in recognition audio. The three-second overlap protects boundary words.
 - Normal pauses remain intact. For quiet gaps over 1.5 seconds, the recognition view retains 750 ms at each edge, preserving speech overlap across a long thinking pause. Original PCM remains untouched in RAM. Progress maps recognition positions back to original recording positions and shows actual request audio duration separately.
-- Matching words in the overlap join the sections. One retry can use a larger overlap, still within the eight-second request bound. An unresolved join produces an error instead of silently discarding speech or resending the full recording.
+- Matching words in the overlap join the sections. One retry can use a larger overlap, still within the eight-second window bound. If matching still fails, capture continues until Stop. One full-original-recording request then replaces all partial text, including speech captured after the uncertain join. It bypasses silence compression. A failed or blank recovery produces an error without inserting partial text.
 - **LocalAgreement-2** separately identifies stable text in consecutive updates of the same window, keeping the recent three words provisional. The newer overlap hypothesis can revise boundary punctuation and capitalization. Stable preview text is revisable; accepted section text is held until the complete dictation is optionally cleaned and inserted once.
-- Stop finishes the remaining bounded windows. It no longer disables background ASR after 12 seconds or submits a normal `0–64 s` final request.
+- Stop normally finishes the remaining bounded windows. Only an unresolved overlap invokes the explicit full-recording fallback, which can contain the entire five-minute session. Details distinguish recovery duration from the largest normal window. Cancellation cancels recovery too.
 
 All captured audio stays in RAM until the session ends, with the existing five-minute limit. Retaining it does not mean repeatedly transmitting it. Snapshot lookup starts at the active window rather than scanning the entire recording.
 

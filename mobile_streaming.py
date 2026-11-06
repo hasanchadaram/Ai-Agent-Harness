@@ -295,7 +295,7 @@ class RequestFailure(OSError):
     pass
 
 
-async def request_model(client, url, payload):
+async def request_model(client, url, payload, *, structured=False):
     for attempt in range(3):
         try:
             response = await asyncio.wait_for(client.post(url, json=payload), timeout=150)
@@ -313,7 +313,7 @@ async def request_model(client, url, payload):
             content = choice['message']['content']
             if not isinstance(content, str):
                 raise ModelError("Unexpected server response: missing text content.")
-            return content
+            return result if structured else content
         except (httpx.TimeoutException, httpx.NetworkError, httpx.RemoteProtocolError, asyncio.TimeoutError,
                 httpx.HTTPStatusError) as error:
             if isinstance(error, httpx.HTTPStatusError) and error.response.status_code not in RETRY_STATUSES:
@@ -371,6 +371,9 @@ class StreamingTranscriber:
         self.pending_prefix = ''
         self.requests = self.completed = self.failures = self.reused = self.rolls = 0
         self.max_request_samples = 0
+        self.recovery_required = False
+        self.recovery_requests = self.recovery_samples = 0
+        self.recovered = False
 
     def publish(self):
         self.on_progress({'requests': self.requests, 'completed': self.completed, 'failures': self.failures,
@@ -378,6 +381,9 @@ class StreamingTranscriber:
                           'finalized_samples': self.context.raw_offset(self.resolved),
                           'start': self.context.raw_offset(self.start),
                           'max_request_samples': self.max_request_samples,
+                          'recovery_required': self.recovery_required,
+                          'recovery_requests': self.recovery_requests,
+                          'recovery_samples': self.recovery_samples, 'recovered': self.recovered,
                           'stable': ' '.join(s for s in [*self.sections, self.pending_prefix, self.agreement.stable] if s.strip()),
                           'tentative': self.agreement.tentative})
 
@@ -394,6 +400,12 @@ class StreamingTranscriber:
         self.audio.attach()
         last_end, last_text = -1, ''
         while True:
+            if self.recovery_required:
+                self.publish()
+                if self.audio.position().finished:
+                    return await self._recover_recording()
+                await self.audio.receive()
+                continue
             position = self.context.position()
             limit = min(position.samples, self.start + self.limit)
             end = limit
@@ -440,7 +452,11 @@ class StreamingTranscriber:
                     joined = overlap_join(previous, text)
                     if joined is None:
                         if widened:
-                            raise OSError("ASR could not reliably join overlapping audio. Your recording was retained for recovery.")
+                            self.recovery_required = True
+                            self.pending_prefix = ''
+                            self.agreement.reset()
+                            self.publish()
+                            continue
                         self.start = old_start + (self.start - old_start) // 2
                         self.bridge = (previous, old_start, True)
                         self.pending_prefix = ''
@@ -478,8 +494,7 @@ class StreamingTranscriber:
                 self.agreement.reset()
                 last_end, last_text = -1, ''
                 self.publish()
-                if position.finished or (self.bridge is not None and self.bridge[2] and
-                                         isinstance(error, OSError) and not isinstance(error, asyncio.TimeoutError)):
+                if position.finished:
                     raise
                 await self.pace(max(self.interval, self.retry_delay))
             if not self.audio.position().finished:
@@ -487,5 +502,33 @@ class StreamingTranscriber:
         text = ' '.join(self.sections).strip()
         if not text:
             raise ValueError("No speech was recognized. Please try again.")
+        self.publish()
+        return text
+
+    async def _recover_recording(self):
+        """One authoritative result from original PCM, never append to old text."""
+        position = self.audio.position()
+        if not position.finished:
+            raise RuntimeError('Full-recording recovery requires capture to finish')
+        self.requests += 1
+        self.recovery_requests += 1
+        self.recovery_samples = position.samples
+        self.publish()
+        try:
+            text = (await self.transcribe(self.audio.snapshot(0, position.samples))).strip()
+            if not text:
+                raise ValueError('Full-recording ASR recovery returned no text; original audio retained.')
+        except Exception:
+            self.failures += 1
+            self.publish()
+            raise
+        self.completed += 1
+        self.sections = [text]
+        self.pending_prefix = ''
+        self.bridge = None
+        self.agreement.reset()
+        self.start = self.resolved = self.context.position().samples
+        self.recovery_required = False
+        self.recovered = True
         self.publish()
         return text

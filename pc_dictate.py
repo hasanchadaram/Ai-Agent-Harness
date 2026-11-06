@@ -863,6 +863,7 @@ def main():
     parser.add_argument("--paste-method", choices=["clipboard", "sendinput"], default="clipboard",
                         help="Text output method (default: clipboard with format restoration)")
     parser.add_argument("--no-sound", action="store_true", help="Disable audio beeps")
+    parser.add_argument('--streaming-strategy', choices=['overlap', 'growing'], default='overlap')
     args = parser.parse_args()
 
     run_single_instance(PcDictationV2,
@@ -870,6 +871,7 @@ def main():
         cleanup_url=args.cleanup_url,
         play_sound=not args.no_sound,
         paste_method=args.paste_method,
+        streaming_strategy=args.streaming_strategy,
     )
 
 

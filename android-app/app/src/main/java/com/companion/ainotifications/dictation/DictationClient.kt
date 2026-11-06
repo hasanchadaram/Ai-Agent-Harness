@@ -24,9 +24,30 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
     }
 
     suspend fun transcribe(endpoint: ModelEndpoint, pcm: ByteArray, allowEmpty: Boolean = false): String = withContext(Dispatchers.Default) {
-        val body = buildJsonObject {
+        DictationProtocol.transcript(completion(request(endpoint, "chat/completions", audioBody(endpoint, pcm))))
+            .also { require(allowEmpty || it.isNotBlank()) { "No speech was recognized. Please try again." } }
+    }
+
+    suspend fun transcribeAligned(endpoint: ModelEndpoint, pcm: ByteArray, timestamps: Boolean = true): AlignedTranscript =
+        withContext(Dispatchers.Default) {
+            val response = request(endpoint, "chat/completions", audioBody(endpoint, pcm, timestamps))
+            val text = DictationProtocol.transcript(completion(response))
+            // Optional metadata can fail independently of the authoritative text.
+            val words = if (!timestamps) emptyList() else runCatching {
+                response["timestamps"]?.jsonArray.orEmpty().map {
+                    val word = it.jsonObject
+                    TimedWord(word["word"]!!.jsonPrimitive.content,
+                        word["start"]!!.jsonPrimitive.double, word["end"]!!.jsonPrimitive.double)
+                }
+            }.getOrDefault(emptyList())
+            AlignedTranscript(text, words)
+        }
+
+    private fun audioBody(endpoint: ModelEndpoint, pcm: ByteArray, timestamps: Boolean = false): JsonObject =
+        buildJsonObject {
             put("model", endpoint.model)
             put("language", "English")
+            if (timestamps) put("return_time_stamps", true)
             putJsonArray("messages") {
                 addJsonObject {
                     put("role", "user")
@@ -43,9 +64,6 @@ class DictationClient(private val client: OkHttpClient = defaultClient) {
             }
             put("temperature", 0); put("max_tokens", 4096); put("stream", false)
         }
-        DictationProtocol.transcript(completion(request(endpoint, "chat/completions", body)))
-            .also { require(allowEmpty || it.isNotBlank()) { "No speech was recognized. Please try again." } }
-    }
 
     suspend fun polish(endpoint: ModelEndpoint, original: String): String = withContext(Dispatchers.Default) {
         val body = buildJsonObject {

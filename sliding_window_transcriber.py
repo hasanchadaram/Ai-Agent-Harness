@@ -13,7 +13,7 @@ import soundfile as sf
 import torch
 
 from qwen_asr import Qwen3ASRModel
-from asr_streaming import attach_punctuation, partition_window, deduplicate_timed_words
+from asr_streaming import AlignmentError, attach_punctuation, partition_window, deduplicate_timed_words
 from speech_detection import transcribe_speech
 
 
@@ -39,6 +39,8 @@ class WindowUpdate:
     preview_words: List[WordTimestamp]
     total_text: str
     is_final: bool
+    recovery_required: bool = False
+    recovered: bool = False
 
 
 class SlidingWindowTranscriber:
@@ -78,7 +80,7 @@ class SlidingWindowTranscriber:
                 device_map=device,
             ),
             max_inference_batch_size=16,
-            max_new_tokens=256,
+            max_new_tokens=4096,
         )
         print("[ASR] Models ready.")
 
@@ -92,6 +94,9 @@ class SlidingWindowTranscriber:
         self.preview_words: List[WordTimestamp] = []
         self.window_count = 0
         self.last_committed_time = 0.0
+        self.recovery_required = False
+        self.recovered = False
+        self.final_text = None
 
     def add_audio_bytes(self, pcm_bytes: bytes):
         """Appends 16-bit mono 16kHz PCM audio bytes."""
@@ -115,13 +120,15 @@ class SlidingWindowTranscriber:
 
     def should_process(self) -> bool:
         """Returns True if enough audio has accumulated for a sliding window."""
-        return self.buffered_unprocessed_sec >= self.window_size_sec
+        return not self.recovery_required and self.buffered_unprocessed_sec >= self.window_size_sec
 
     def step(self, is_final: bool = False) -> Optional[WindowUpdate]:
         """
         Processes the current sliding window.
         Returns WindowUpdate if a window was processed, otherwise None.
         """
+        if self.recovery_required:
+            return None  # Capture can continue; finish() owns the final retry.
         unprocessed_sec = self.buffered_unprocessed_sec
         if not is_final and unprocessed_sec < self.window_size_sec:
             return None
@@ -151,8 +158,15 @@ class SlidingWindowTranscriber:
         res = results[0]
         words = [{"word": w.text, "start": w.start_time, "end": w.end_time}
                  for w in (res.time_stamps or [])]
-        update = partition_window(res.text, words, w_start_sec, w_end_sec - w_start_sec,
-                                  self.overlap_sec, self.last_committed_time, is_final)
+        try:
+            update = partition_window(res.text, words, w_start_sec, w_end_sec - w_start_sec,
+                                      self.overlap_sec, self.last_committed_time, is_final)
+        except AlignmentError:
+            self.recovery_required = True
+            return WindowUpdate(self.window_count, w_start_sec, w_end_sec,
+                list(self.committed_words), list(self.preview_words),
+                ' '.join(w.text for w in self.committed_words + self.preview_words),
+                False, recovery_required=True)
         previous = [{"word": w.text, "start": w.start_time, "end": w.end_time} for w in self.committed_words[-12:]]
         newly_committed = deduplicate_timed_words(previous, update["committed_words"])
         self.committed_words.extend(WordTimestamp(w["word"], w["start"], w["end"])
@@ -211,10 +225,31 @@ class SlidingWindowTranscriber:
         yield from self.finish()
 
     def finish(self):
-        """Drain a queued backlog and final tail without dropping any audio."""
-        while self.window_start_sample < len(self.audio_buffer):
+        """Drain the tail, or replace partial text with a full decode after alignment failure.
+
+        Recovery returns text without word timestamps. Callers should use the
+        authoritative total_text instead of appending earlier updates.
+        """
+        while not self.recovery_required and self.window_start_sample < len(self.audio_buffer):
             update = self.step(is_final=True)
             if update is None:
                 break
             yield update
+        if self.recovery_required:
+            # The final text is authoritative. Word timestamps are unavailable
+            # on this path: never fabricate offsets or append the old prefix.
+            results = transcribe_speech(self.audio_buffer, self.sample_rate, self.model.transcribe,
+                [self.language] if self.language else None, return_time_stamps=False)
+            text = results[0].text.strip()
+            if not text:
+                raise ValueError('Full-recording ASR recovery returned no text; original audio retained.')
+            self.committed_words = []
+            self.preview_words = []
+            self.final_text = text
+            self.window_start_sample = len(self.audio_buffer)
+            self.window_count += 1
+            self.recovery_required = False
+            self.recovered = True
+            yield WindowUpdate(self.window_count, 0.0, self.total_audio_sec,
+                [], [], text, True, recovered=True)
 

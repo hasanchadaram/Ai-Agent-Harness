@@ -1,7 +1,6 @@
 package com.companion.ainotifications.dictation
 
 import kotlinx.coroutines.*
-import java.io.IOException
 
 data class AsrUpdate(
     val number: Int, val startSample: Int, val endSample: Int, val kind: String,
@@ -18,10 +17,12 @@ data class StreamingProgress(
     val history: List<AsrUpdate> = emptyList(),
     val windowStartSample: Int = 0, val rolls: Int = 0, val detectedPauses: Int = 0,
     val detector: String = "", val speechProbability: Float = 0f, val overlapping: Boolean = false,
-    val maxRequestSamples: Int = 0
+    val maxRequestSamples: Int = 0,
+    val recoveryRequired: Boolean = false, val recoveryRequests: Int = 0,
+    val recoverySamples: Int = 0, val recovered: Boolean = false, val strategy: String = "overlap"
 )
 
-/** Serial bounded-window ASR; a missed pause never creates a full-recording request. */
+/** Bounded-window ASR with a full-original-recording fallback for uncertain joins. */
 class StreamingTranscriber(
     scope: CoroutineScope,
     private val audio: StreamingAudio,
@@ -33,7 +34,7 @@ class StreamingTranscriber(
     private val backgroundTimeoutMs: Long = 4_000,
     private val retryDelayMs: Long = 1_500,
     private val onProgress: (StreamingProgress) -> Unit = {}
-) {
+) : TranscriptionWorker {
     private data class Bridge(val text: String, val oldStart: Int, val widened: Boolean = false)
     private var progress = StreamingProgress()
     private val context = RecognitionAudio(audio)
@@ -44,9 +45,9 @@ class StreamingTranscriber(
     private var bridge: Bridge? = null
     private var pendingPrefix = ""
     private val overlap = minOf(48_000, speculativeLimitSamples / 2)
-    val result: Deferred<String> = scope.async(Dispatchers.Default) { run() }
+    override val result: Deferred<String> = scope.async(Dispatchers.Default) { run() }
 
-    fun cancel() { result.cancel() }
+    override fun cancel() { result.cancel() }
 
     private fun publish(stable: String = agreement.stable, tentative: String = agreement.tentative) {
         val position = audio.position()
@@ -54,7 +55,7 @@ class StreamingTranscriber(
             capturedSamples = position.samples, windowStartSample = context.rawOffset(start),
             stable = (sections + pendingPrefix + stable).filter { it.isNotBlank() }.joinToString(" "), tentative = tentative,
             detectedPauses = position.pauses, detector = position.detector,
-            speechProbability = position.probability, overlapping = bridge != null)
+            speechProbability = position.probability, overlapping = bridge != null && !progress.recoveryRequired)
         onProgress(progress)
     }
 
@@ -63,6 +64,12 @@ class StreamingTranscriber(
         var lastText = ""
         while (true) {
             currentCoroutineContext().ensureActive()
+            if (progress.recoveryRequired) {
+                publish()
+                if (audio.position().finished) return recoverRecording()
+                audio.updates.receive()
+                continue
+            }
             val position = context.position()
             val limit = minOf(position.samples, start + speculativeLimitSamples)
             val end = limit
@@ -110,8 +117,14 @@ class StreamingTranscriber(
                     val join = OverlapAgreement.join(pending.text, text)
                     if (join == null) {
                         record(number, end, "Checking wider overlap", began, "", text)
-                        if (pending.widened) throw IOException(
-                            "ASR could not reliably join overlapping audio. Please try again.")
+                        if (pending.widened) {
+                            progress = progress.copy(recoveryRequired = true)
+                            pendingPrefix = ""
+                            agreement.reset()
+                            widened = true
+                            publish()
+                            return@let
+                        }
                         start = pending.oldStart + (start - pending.oldStart) / 2
                         bridge = pending.copy(widened = true)
                         pendingPrefix = ""
@@ -163,7 +176,7 @@ class StreamingTranscriber(
                 record(number, end, "Failed; audio retained", began, "", "")
                 agreement.reset(); lastRequestedEnd = -1; lastText = ""
                 publish()
-                if (position.finished || (bridge?.widened == true && error is IOException)) throw error
+                if (position.finished) throw error
                 pace(maxOf(intervalMs, retryDelayMs))
             }
             if (!audio.position().finished) pace(intervalMs)
@@ -171,6 +184,36 @@ class StreamingTranscriber(
         val text = sections.joinToString(" ").trim()
         require(text.isNotBlank()) { "No speech was recognized. Please try again." }
         publish("", "")
+        return text
+    }
+
+    private suspend fun recoverRecording(): String {
+        val position = audio.position()
+        check(position.finished) { "Full-recording recovery requires capture to finish" }
+        val number = progress.requests + 1
+        progress = progress.copy(requests = number, recoveryRequests = progress.recoveryRequests + 1,
+            recoverySamples = position.samples)
+        publish()
+        val began = System.nanoTime()
+        val text = try {
+            val result = transcribe(audio.snapshot(0, position.samples), false).trim()
+            currentCoroutineContext().ensureActive()
+            require(result.isNotBlank()) { "Full-recording ASR recovery returned no text. Please try again." }
+            result
+        } catch (error: Exception) {
+            if (error is CancellationException) throw error
+            progress = progress.copy(failures = progress.failures + 1)
+            publish()
+            throw error
+        }
+        // Only replace state once the entire recording has a usable response.
+        sections.clear(); sections.add(text)
+        pendingPrefix = ""; bridge = null; agreement.reset()
+        start = context.position().samples; resolved = start
+        progress = progress.copy(completed = progress.completed + 1, recoveryRequired = false, recovered = true)
+        if (inspect) progress = progress.copy(history = (progress.history + AsrUpdate(number, 0, position.samples,
+            "Full recording recovery", (System.nanoTime() - began) / 1_000_000, text, "", position.samples)).takeLast(24))
+        publish()
         return text
     }
 

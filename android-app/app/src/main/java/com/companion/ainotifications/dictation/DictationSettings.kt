@@ -24,6 +24,9 @@ class DictationSettings(context: Context) {
     var inspectTranscription: Boolean
         get() = prefs.getBoolean("inspect_transcription", false)
         set(value) { prefs.edit().putBoolean("inspect_transcription", value).apply() }
+    var growingWindows: Boolean
+        get() = prefs.getBoolean("growing_windows", false)
+        set(value) { prefs.edit().putBoolean("growing_windows", value).apply() }
     var overlayEnabled: Boolean
         get() = prefs.getBoolean("overlay", false)
         set(value) { prefs.edit().putBoolean("overlay", value).apply() }

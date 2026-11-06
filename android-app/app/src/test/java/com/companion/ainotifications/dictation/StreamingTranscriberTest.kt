@@ -357,14 +357,86 @@ class StreamingTranscriberTest {
         }
     }
 
-    @Test fun unresolvableOverlapFailsInsteadOfReturningAnIncompleteOrFullRecordingDecode() = runBlocking {
+    @Test fun unresolvableOverlapRecoversTheFullOriginalRecordingAndReplacesPartialText() = runBlocking {
+        Harness(limit = 16000).use { h ->
+            val original = speech(32000)
+            h.audio.append(original); h.audio.finish()
+            h.next().answer.complete("Please bring the blue notebook")
+            h.next().answer.complete("Entirely unrelated text")
+            h.next().answer.complete("Still unrelated text")
+            h.next().also {
+                assertArrayEquals(original, it.pcm)
+                assertFalse(it.allowEmpty)
+                it.answer.complete("The complete original recording.")
+            }
+            assertEquals("The complete original recording.", h.result())
+            val done = h.progress { it.recovered }
+            assertEquals(1, done.sections)
+            assertEquals(1, done.recoveryRequests)
+            assertEquals(32000, done.recoverySamples)
+            assertEquals(32000, done.finalizedSamples)
+            assertTrue(done.maxRequestSamples <= 16000)
+            assertTrue(done.history.any { it.kind == "Full recording recovery" })
+            assertNull(withTimeoutOrNull(100) { h.calls.receive() })
+        }
+    }
+
+    @Test fun uncertainJoinKeepsRecordingUntilStopAndIncludesLaterAudioWithoutCompactingIt() = runBlocking {
+        Harness(limit = 16000).use { h ->
+            val original = speech(32000)
+            h.audio.append(original)
+            h.next().answer.complete("Please bring the blue notebook")
+            h.next().answer.complete("bring the blue notebook today")
+            h.next().answer.complete("Entirely unrelated text")
+            h.next().answer.complete("Still unrelated text")
+            val pending = h.progress { it.recoveryRequired }
+            assertEquals("Please", pending.stable)
+            assertFalse(h.worker.result.isCompleted)
+            assertNull(withTimeoutOrNull(100) { h.calls.receive() })
+            val tail = ByteArray(64000) + speech(100, 2000)
+            h.audio.append(tail); h.audio.finish()
+            h.next().also {
+                assertArrayEquals(original + tail, it.pcm)
+                it.answer.complete("Final complete recording.")
+            }
+            assertEquals("Final complete recording.", h.result())
+            val done = h.progress { it.recovered }
+            assertEquals("Final complete recording.", done.stable)
+            assertEquals(1, done.sections)
+            assertEquals((original.size + tail.size) / 2, done.recoverySamples)
+        }
+    }
+
+    @Test fun failedOrBlankFullRecoveryDoesNotAcceptPartialTextOrDiscardOriginalAudio() = runBlocking {
+        for (blank in listOf(false, true)) Harness(limit = 16000).use { h ->
+            val original = speech(32000)
+            h.audio.append(original); h.audio.finish()
+            h.next().answer.complete("Please bring the blue notebook")
+            h.next().answer.complete("Entirely unrelated text")
+            h.next().answer.complete("Still unrelated text")
+            val recovery = h.next()
+            if (blank) recovery.answer.complete("") else recovery.answer.completeExceptionally(IOException("Recovery offline"))
+            try { h.result(); fail("Partial output must never be accepted") }
+            catch (error: Exception) {
+                if (blank) assertTrue(error is IllegalArgumentException) else assertTrue(error is IOException)
+            }
+            val failed = h.progress { it.failures == 1 }
+            assertTrue(failed.recoveryRequired)
+            assertFalse(failed.recovered)
+            assertArrayEquals(original, h.audio.snapshot(0, 32000))
+        }
+    }
+
+    @Test fun cancellingFullRecoveryRejectsLateText() = runBlocking {
         Harness(limit = 16000).use { h ->
             h.audio.append(speech(32000)); h.audio.finish()
             h.next().answer.complete("Please bring the blue notebook")
             h.next().answer.complete("Entirely unrelated text")
             h.next().answer.complete("Still unrelated text")
-            try { h.result(); fail("An unverified overlap must not be inserted") }
-            catch (error: IOException) { assertTrue(error.message!!.contains("reliably join")) }
+            val recovery = h.next()
+            h.worker.cancel(); h.worker.result.join()
+            recovery.answer.complete("Must never appear.")
+            assertTrue(h.worker.result.isCancelled)
             assertNull(withTimeoutOrNull(100) { h.calls.receive() })
         }
     }

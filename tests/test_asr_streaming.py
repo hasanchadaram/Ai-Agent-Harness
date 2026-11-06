@@ -234,6 +234,40 @@ class EndpointTests(unittest.TestCase):
 
 
 class StandaloneTests(unittest.TestCase):
+    def test_alignment_failure_defers_until_finish_and_replaces_partial_text_without_fake_timestamps(self):
+        t = self.transcriber()
+        t.add_audio_samples(np.ones(80000, np.float32))
+        t.committed_words = [SimpleNamespace(text='Old prefix', start_time=0, end_time=1)]
+        t.model.transcribe.return_value = [SimpleNamespace(text='Complete original recording.', time_stamps=[])]
+        with patch.object(speech_detection, 'speech_bounds', side_effect=lambda wav, sr: (0, len(wav))), \
+             patch('sliding_window_transcriber.partition_window', side_effect=AlignmentError('mismatch')):
+            self.assertTrue(t.step().recovery_required)
+            self.assertFalse(t.should_process())
+            t.add_audio_samples(np.ones(16000, np.float32) * .25)
+            self.assertIsNone(t.step())
+            updates = list(t.finish())
+        self.assertEqual(len(updates), 1)
+        self.assertTrue(updates[0].is_final)
+        self.assertTrue(updates[0].recovered)
+        self.assertEqual(updates[0].total_text, 'Complete original recording.')
+        self.assertEqual(updates[0].committed_words, [])
+        self.assertEqual(len(t.model.transcribe.call_args.kwargs['audio'][0][0]), 96000)
+        self.assertFalse(t.model.transcribe.call_args.kwargs['return_time_stamps'])
+        self.assertEqual(t.window_start_sample, 96000)
+
+    def test_failed_legacy_recovery_keeps_original_buffer_and_partial_state(self):
+        t = self.transcriber()
+        original = np.ones(96000, np.float32)
+        t.add_audio_samples(original)
+        t.recovery_required = True
+        t.model.transcribe.side_effect = OSError('offline')
+        with patch.object(speech_detection, 'speech_bounds', side_effect=lambda wav, sr: (0, len(wav))):
+            with self.assertRaisesRegex(OSError, 'offline'):
+                list(t.finish())
+        self.assertTrue(t.recovery_required)
+        self.assertFalse(t.recovered)
+        np.testing.assert_array_equal(t.audio_buffer, original)
+
     def transcriber(self):
         t = SlidingWindowTranscriber.__new__(SlidingWindowTranscriber)
         t.sample_rate, t.window_size_sec, t.overlap_sec, t.language = 16000, 5, 1.5, 'English'
